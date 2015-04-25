@@ -16,6 +16,7 @@
   "undef": true,
   "unused": true,
   "debug": true,
+  "laxbreak": true,
   "strict": true,
   "trailing": true,
   "smarttabs": true,

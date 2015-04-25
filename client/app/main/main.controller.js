@@ -49,6 +49,38 @@ angular.module('posterApp').controller('MainCtrl', function (
 	facebookService.reset();
 	$scope.loadMore();
 
+	$scope.onCommentClick = function (comment) {
+		console.log(comment);
+		$scope.selectedComment = comment;
+	};
+
+	// Not the prettiest thing, but will do for now.
+	//
+	window.onresize = function () {
+		var maxWidth = $('.poster-container').parent().width(),
+			maxHeight = window.innerHeight - 90,
+			A3_ASPECT = 1.414141414141;
+
+		var width = (maxWidth * A3_ASPECT > maxHeight)
+			? maxHeight / A3_ASPECT
+			: maxWidth;
+
+		var height = width * A3_ASPECT;
+
+		$('.poster-container').css({
+			width: width,
+			height: height,
+			marginRight: (maxWidth - width) / 2
+		});
+
+		$('.poster-comment-valign').css({
+			width: width,
+			height: height
+		});
+	};
+
+	window.onresize();
+
 	// FB.api('/me/feed', function (response) {
 	//     $scope.posts = response;
 	//     debugger;

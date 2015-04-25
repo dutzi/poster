@@ -1,3 +1,17 @@
+body {
+    direction: rtl;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+.poster-editor {
+    margin-top: 70px;
+}
+
 .thing-form {
     margin: 20px 0;
 }
@@ -27,4 +41,82 @@
     padding: 30px 0;
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
+}
+
+.pc-post {
+    margin-bottom: 10px;
+    background: rgb(231, 231, 231);
+    padding: 5px 10px;
+}
+.pc-post-type {
+    font-size: 0.8em;
+}
+
+.pc-post-message {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #bbb;
+}
+
+.pc-comment {
+    background: #aaa;
+    padding: 5px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.pc-comment:hover {
+    background: #bbb;
+}
+
+.pc-comment-from {
+    font-weight: bold;
+}
+
+.btn-load-more {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.pc-post-picture {
+    text-align: center;
+}
+
+.pc-post-caption {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.poster-container {
+    margin: auto;
+    position: fixed;
+    border: 3px solid #999;
+    box-shadow: 0px 2px 5px black;
+}
+
+.poster-comment-valign {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 20px;
+}
+
+.poster-comment {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2em;
+    margin-top: -30%;
+}
+
+.poster-comment-tooltip {
+    color: #aaa;
+}
+
+.poster-comment-text {
+
+}
+
+.poster-comment-from {
+    font-size: 0.5em;
+    color: #aaa;
 }
