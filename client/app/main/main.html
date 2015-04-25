@@ -7,7 +7,7 @@
                     <div class="poster-icons-container">
                         <div ng-repeat="icon in layout track by $index"
                             style="position: absolute; right: {{icon.x * 100}}%; top: {{icon.y * 100}}%;">
-                            <img ng-src="assets/images/{{iconType.image}}" ng-style="iconCSS">
+                            <div class="icon-image {{iconType.className}}" ng-style="iconCSS"></div>
                         </div>
                     </div>
                     <div class="poster-comment-valign">

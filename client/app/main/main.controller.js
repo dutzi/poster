@@ -64,6 +64,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		var width = $scope.posterWidth * $scope.iconType.ratio;
 		$scope.iconCSS = {
 			'width': width,
+			'height': width / $scope.iconType.width * $scope.iconType.height,
 			'margin-right': -width / 2,
 			'margin-top': -width / $scope.iconType.width * $scope.iconType.height / 2
 		};
@@ -92,6 +93,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 	var icons = [
 		{
 			label: 'Pink hands',
+			className: 'icon-pink-hands',
 			ratio: 0.3,
 			width: 800,
 			height: 1448,
@@ -100,6 +102,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		},
 		{
 			label: 'Blue hands',
+			className: 'icon-blue-hands',
 			ratio: 0.5,
 			width: 920,
 			height: 1156,
@@ -108,6 +111,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		},
 		{
 			label: 'Heart',
+			className: 'icon-heart',
 			ratio: 0.3,
 			width: 425,
 			height: 785,
@@ -116,6 +120,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		},
 		{
 			label: 'Kaki',
+			className: 'icon-kaki',
 			ratio: 0.5,
 			width: 1137,
 			height: 1115,
