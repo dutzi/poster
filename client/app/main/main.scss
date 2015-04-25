@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Mandatory;
+    src: url('/assets/fonts/Mandatory-29.otf') format('opentype');
+}
+
 body {
     direction: rtl;
 }
@@ -115,7 +120,12 @@ body {
 }
 
 .poster-comment-text {
+    font-family: Mandatory;
+    word-break: break-word;
     color: white;
+    font-size: 2.5em;
+    text-rendering: geometricPrecision;
+    line-height: 74px;
 }
 
 .poster-comment-from {
