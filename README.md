@@ -9,8 +9,8 @@
 
 ## run
 
-`grunt serve`
+`$ grunt serve`
 
 ## deploy
 
-`grunt buildcontrol:heroku`
+`$ grunt buildcontrol:heroku`
