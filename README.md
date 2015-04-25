@@ -1,9 +1,16 @@
 # Poster
 
-![Poster Logo](assets/logo1024x1024.png)
+![Poster Logo](assets/logo500x500.png)
 
-## Installing
+## install
 
-1. Pull git
-2. `$ npm install`
-3. `$ bower install`
+1. `$ npm install`
+2. `$ bower install`
+
+## run
+
+`grunt serve`
+
+## deploy
+
+`grunt buildcontrol:heroku`
