@@ -1,0 +1,118 @@
+<style>
+body {
+    direction: rtl;
+}
+
+.pc-post {
+    margin-bottom: 10px;
+    background: rgb(231, 231, 231);
+    padding: 5px 10px;
+}
+.pc-post-type {
+    font-size: 0.8em;
+}
+
+.pc-post-message {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #bbb;
+}
+
+.pc-post-comments .pc-comment {
+    background: #aaa;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.pc-comment-from {
+    font-weight: bold;
+}
+
+.btn-load-more {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.pc-post-picture {
+    text-align: center;
+}
+
+.pc-post-caption {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.poster-container {
+    border: 3px solid #999;
+    box-shadow: 0px 2px 5px black;
+}
+
+</style>
+
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="poster-container"></div>
+        </div>
+        <div class="col-sm-5">
+            <div class="pc-post" ng-repeat="post in posts">
+                <div class="pc-post-message">
+                    <div ng-if="post.picture" class="pc-post-picture">
+                        <img ng-src="{{post.picture}}">
+                        <div ng-if="post.caption" class="pc-post-caption">({{post.caption}})</div>
+                    </div>
+                    <strong style="font-size: 0.9em">{{$index}}</strong>
+                    <span ng-bind-html="post.message"></span>
+                </div>
+                <div class="pc-post-comments">
+                    <div class="pc-comment" ng-repeat="comment in post.comments.data">
+                        <span class="pc-comment-from">{{comment.from.name}}:</span>
+                        <span class="pc-comment-message">{{comment.message}}</span>
+                    </div>
+                </div>
+                <div class="pc-post-type"><strong>Type:</strong> {{post.type}}</div>
+
+            </div>
+            <button class="btn btn-default btn-load-more" ng-click="loadMore()" ng-disabled="isLoadingPosts">Load More</button>
+        </div>
+    </div>
+</div>
+<!--
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Features:</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <form class="thing-form">
+    <label>Syncs in realtime across clients</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+      </span>
+    </p>
+  </form>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div>
+</footer>
+ -->
