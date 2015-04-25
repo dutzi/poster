@@ -14,3 +14,5 @@
 ## deploy
 
 `$ grunt buildcontrol:heroku`
+
+![Poster Slogan](assets/slogan.png)
