@@ -88,10 +88,10 @@ body {
 }
 
 .poster-container {
+    overflow: hidden;
     margin: auto;
     position: fixed;
-    border: 3px solid #999;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.29);
 }
 
 .poster-comment-valign {
@@ -99,6 +99,8 @@ body {
     vertical-align: middle;
     text-align: center;
     padding: 20px;
+    z-index: 2;
+    position: relative;
 }
 
 .poster-comment {
@@ -113,10 +115,17 @@ body {
 }
 
 .poster-comment-text {
-
+    color: white;
 }
 
 .poster-comment-from {
     font-size: 0.5em;
-    color: #aaa;
+    color: #fff;
+}
+
+.poster-icons-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
 }

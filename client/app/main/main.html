@@ -3,13 +3,21 @@
     <div class="row">
         <div class="col-sm-7">
             <div class="poster-container">
-                <div class="poster-comment-valign">
-                    <div class="poster-comment-tooltip" ng-if="!selectedComment">
-                        (select a comment)
+                <div class="poster-bg" style="background-color: {{iconType.bgColor}}">
+                    <div class="poster-icons-container">
+                        <div ng-repeat="icon in layout track by $index"
+                            style="position: absolute; right: {{icon.x * 100}}%; top: {{icon.y * 100}}%;">
+                            <img ng-src="assets/images/{{iconType.image}}" ng-style="iconCSS">
+                        </div>
                     </div>
-                    <div class="poster-comment" ng-if="selectedComment">
-                        <div class="poster-comment-text">{{selectedComment.message}}</div>
-                        <div class="poster-comment-from">— {{selectedComment.from.name}} —</div>
+                    <div class="poster-comment-valign">
+                        <div class="poster-comment-tooltip" ng-if="!selectedComment">
+                            (select a comment)
+                        </div>
+                        <div class="poster-comment" ng-if="selectedComment">
+                            <div class="poster-comment-text">{{selectedComment.message}}</div>
+                            <div class="poster-comment-from">— {{selectedComment.from.name}} —</div>
+                        </div>
                     </div>
                 </div>
             </div>
