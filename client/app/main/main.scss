@@ -49,6 +49,23 @@ body {
     top: 0px;
 }
 
+.navbar-brand {
+    padding-left: 60px;
+    background: url(/assets/images/logo100x100.png) no-repeat;
+    background-size: contain;
+}
+
+.fb-button-box {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 60px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px -5px;
+    background: rgb(244, 248, 255);
+}
+
 .poster-editor {
     margin-top: 70px;
 }
@@ -158,7 +175,6 @@ body {
 .poster-comment-text {
     // font-family: 'Mandatory-29';
     word-break: break-word;
-    color: white;
     font-size: 2.5em;
     text-rendering: geometricPrecision;
     line-height: 112%;
@@ -170,7 +186,6 @@ body {
 
 .poster-comment-from {
     font-size: 0.5em;
-    color: #fff;
 }
 
 .poster-icons-container {
@@ -205,13 +220,23 @@ body {
     direction: ltr;
     position: fixed;
     z-index: 10000000;
-    top: 10px;
+    top: 61px;
     left: 10px;
     background: rgba(255, 255, 255, 0.5);
     padding: 10px;
     border: 1px solid #bbb;
 
     > div {
-        margin-bottom: 6px;
+        margin-top: 10px;
+
+        > div {
+            margin-bottom: 6px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        padding: 2px;
+        font-size: 0.8em;
     }
 }

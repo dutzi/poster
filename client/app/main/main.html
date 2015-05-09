@@ -1,15 +1,18 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="debug-box">
 
-    <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
+    <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Toggle</button>
 
-        <span style="display: inline-block; width: 100px">{{name}}</span>
-        <select ng-model="debugOptions[name]" ng-change="onDebugOptionChange(name)">
-            <option ng-repeat="option in data" value="{{$index}}">{{option.label}}</option>
-        </select>
+    <div ng-show="showDebugBox">
+        <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
 
+            <span style="display: inline-block; width: 100px">{{name}}</span>
+            <select ng-model="debugOptions[name]" ng-change="onDebugOptionChange(name)">
+                <option ng-repeat="option in data" value="{{$index}}">{{option.label}}</option>
+            </select>
+
+        </div>
     </div>
-
 </div>
 
 <div class="container poster-editor">
@@ -27,7 +30,7 @@
                         <div class="poster-comment-tooltip" ng-if="!selectedComment">
                             (select a comment)
                         </div>
-                        <div class="poster-comment" ng-if="selectedComment">
+                        <div class="poster-comment" ng-if="selectedComment" style="color: {{textColor.value}}">
                             <div class="poster-comment-text" ng-bind-html="commentHTML" style="font-family: '{{font.name}}'"></div>
                             <div class="poster-comment-from">&mdash; {{selectedComment.from.name}} &mdash;</div>
                         </div>

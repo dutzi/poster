@@ -14,61 +14,61 @@ angular.module('posterApp').service('appData', function () {
 
 		fonts: [
 			{
-				label: 'Mandatory-29',
+				label: 'Mandatory 29',
 				name: 'Mandatory-29',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Noyland-AAA-Regular',
+				label: 'Noyland AAA Regular',
 				name: 'Noyland-AAA-Regular',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-47',
+				label: 'Mandatory 47',
 				name: 'Mandatory-47',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-17',
+				label: 'Mandatory 17',
 				name: 'Mandatory-17',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-18',
+				label: 'Mandatory 18',
 				name: 'Mandatory-18',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-29 Shaded',
+				label: 'Mandatory 29 Shaded',
 				name: 'Mandatory-29 Shaded',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-36',
+				label: 'Mandatory 36',
 				name: 'Mandatory-36',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'ALMONI-DL-AAA-LIGHT',
+				label: 'Almoni Dl AAA Light',
 				name: 'ALMONI-DL-AAA-LIGHT',
 				hebOnly: true,
 				lineHeight: '112%'
 			},
 			{
-				label: 'stanga-aaa-regular',
+				label: 'Stanga AAA Regular',
 				name: 'stanga-aaa-regular',
 				hebOnly: true,
 				lineHeight: '112%'
 			},
 			{
-				label: 'noyland-aaa-extrabold',
+				label: 'Noyland AAA Extrabold',
 				name: 'noyland-aaa-extrabold',
 				hebOnly: true,
 				lineHeight: '112%'
@@ -77,25 +77,44 @@ angular.module('posterApp').service('appData', function () {
 
 		bgColors: [
 			{
-				label: '#F1E54D',
+				label: 'yellow (#F1E54D)',
 				value: '#F1E54D'
 			},
 			{
-				label: '#C6DB62',
+				label: 'green (#C6DB62)',
 				value: '#C6DB62'
 			},
 			{
-				label: '#F8DB89',
+				label: 'orange (#F8DB89)',
 				value: '#F8DB89'
 			},
 			{
-				label: '#158ba9',
-				value: '#158ba9'
+				label: 'light blue (#7FCEE4)',
+				value: '#7FCEE4'
 			},
 			{
-				label: '#7FCEE4',
-				value: '#7FCEE4'
+				label: 'grey (#D1D2D4)',
+				value: '#D1D2D4'
+			},
+			{
+				label: 'white (#ffffff)',
+				value: '#ffffff'
 			}
+		],
+
+		textColors: [
+			{
+				label: 'white (#ffffff)',
+				value: '#ffffff'
+			},
+			{
+				label: 'blue (#00bff3)',
+				value: '#00bff3'
+			},
+			{
+				label: 'pink (#ED2A7B)',
+				value: '#ED2A7B'
+			},
 		],
 
 		icons: [
@@ -139,7 +158,7 @@ angular.module('posterApp').service('appData', function () {
 
 		layouts: [
 			{
-				label: 'threes-1',
+				label: 'Threes 1',
 				data: [
 					{ x: -0.01, y: -0.05 },
 					{ x: 0.70, y: 0.50 },
@@ -147,19 +166,19 @@ angular.module('posterApp').service('appData', function () {
 				]
 			},
 			{
-				label: 'threes-2',
+				label: 'Threes 2',
 				data: [
 					{ x: 0.49, y: -0.04 },
 					{ x: 0.32, y: 0.50 },
 					{ x: 0.70, y: 1.03 }
 				]
 			},
-			// {
-			// 	label: 'big-one',
-			// 	data: [
-			// 		{ x: 0.1, y: 0.9 }
-			// 	]
-			// }
+			{
+				label: 'Big One',
+				data: [
+					{ x: 0.1, y: 0.9 }
+				]
+			}
 		]
 	};
 });

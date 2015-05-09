@@ -8,9 +8,6 @@ angular.module('posterApp').controller('MainCtrl', function (
 	appData
 ) {
 	$scope.debugOptions = {};
-	$scope.$watch('debugOptions', function () {
-		// debugger;
-	}, true);
 
 	$scope.onDebugOptionChange = function (name, value) {
 		$scope[name.slice(0, -1)] = appData[name][$scope.debugOptions[name]];
@@ -27,12 +24,6 @@ angular.module('posterApp').controller('MainCtrl', function (
 	}
 
 	$scope.appData = appData;
-
-	$scope.fontFamily = 'Mandatory-29';
-
-	$scope.$watch('fontFamily', function () {
-
-	});
 
 	$scope.posts = [];
 
@@ -121,6 +112,17 @@ angular.module('posterApp').controller('MainCtrl', function (
 		$scope.bgColor = appData.bgColors[
 			Math.floor(Math.random() * appData.bgColors.length)
 		];
+
+		// Choose random color if background is white, otherwise set text color
+		// to be white.
+		//
+		if ($scope.bgColor.value === '#ffffff') {
+			$scope.textColor = appData.textColors[
+				Math.floor(Math.random() * (appData.textColors.length - 1) + 1)
+			];
+		} else {
+			$scope.textColor = appData.textColors[0];
+		}
 
 		updateIconSize();
 		updateDebugOptions();
