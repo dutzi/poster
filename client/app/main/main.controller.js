@@ -100,6 +100,10 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 		$scope.commentHTML = text;
 
+		// Choose a font
+		//
+		$scope.font = appData.fonts[0];
+
 		// Choose a random icon type
 		//
 		$scope.icon = appData.icons[

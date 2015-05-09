@@ -542,6 +542,26 @@ module.exports = function (grunt) {
         }
       }
     },
+    localhosts: {
+        set : {
+            options: {
+                rules: [{
+                    ip: '127.0.0.1',
+                    hostname: 'comment-poster.herokuapp.com',
+                    type: 'set'
+                }]
+            }
+        },
+        remove : {
+            options: {
+                rules: [{
+                    ip: '127.0.0.1',
+                    hostname: 'comment-poster.herokuapp.com',
+                    type: 'remove'
+                }]
+            }
+        }
+    }
   });
 
   // Used for delaying livereload until after server has restarted
@@ -580,6 +600,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'localhosts:set',
       'env:all',
       'injector:sass',
       'concurrent:server',
@@ -644,6 +665,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'localhosts:remove',
     'injector:sass',
     'concurrent:dist',
     'injector',

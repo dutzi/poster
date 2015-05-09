@@ -14,14 +14,14 @@ angular.module('posterApp').service('appData', function () {
 
 		fonts: [
 			{
-				label: 'Noyland-AAA-Regular',
-				name: 'Noyland-AAA-Regular',
+				label: 'Mandatory-29',
+				name: 'Mandatory-29',
 				hebOnly: false,
 				lineHeight: '112%'
 			},
 			{
-				label: 'Mandatory-29',
-				name: 'Mandatory-29',
+				label: 'Noyland-AAA-Regular',
+				name: 'Noyland-AAA-Regular',
 				hebOnly: false,
 				lineHeight: '112%'
 			},

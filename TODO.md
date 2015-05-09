@@ -9,5 +9,7 @@
 * If there are a lot of repeating charecters (3 or more), start duplicating the icon
 * Use new backgrounds
 * Per each icon use an exclude background list
+* When underlining a known word, underline the entire word (not just the known part)
+* 
 
 * Find out how I set the port properly
