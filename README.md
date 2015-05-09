@@ -9,6 +9,8 @@
 
 ## run
 
+`$ mongod --dbpath data/db`
+
 `$ grunt serve`
 
 ## deploy

@@ -1,13 +1,39 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<div class="debug-box">
+    <!-- <select ng-model="fontFamily">
+        <option>Mandatory-29</option>
+        <option>Mandatory-47</option>
+        <option>Mandatory-17</option>
+        <option>Mandatory-18</option>
+        <option>Mandatory-29 Shaded</option>
+        <option>Mandatory-36</option>
+        <option>ALMONI-DL-AAA-LIGHT</option>
+        <option>stanga-aaa-regular</option>
+        <option>noyland-aaa-extrabold</option>
+    </select> -->
+    <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
+        <span style="display: inline-block; width: 100px">{{name}}</span>
+
+        <!-- <select
+            ng-options="option.label as option.label for option in data track by option.id"
+            ng-model="debugOptions[name]"
+            ng-change="onDebugOptionChange(name, $index)">
+        </select> -->
+
+        <select ng-model="debugOptions[name]" ng-change="onDebugOptionChange(name)">
+            <option ng-repeat="option in data" value="{{$index}}">{{option.label}}</option>
+        </select>
+    </div>
+</div>
 <div class="container poster-editor">
     <div class="row">
         <div class="col-sm-7">
             <div class="poster-container">
-                <div class="poster-bg" style="background-color: {{iconType.bgColor}}">
+                <div class="poster-bg" style="background-color: {{bgColor.value}}">
                     <div class="poster-icons-container">
-                        <div ng-repeat="icon in layout track by $index"
-                            style="position: absolute; right: {{icon.x * 100}}%; top: {{icon.y * 100}}%;">
-                            <div class="icon-image {{iconType.className}}" ng-style="iconCSS"></div>
+                        <div ng-repeat="item in layout.data track by $index"
+                            style="position: absolute; right: {{item.x * 100}}%; top: {{item.y * 100}}%;">
+                            <div class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
                         </div>
                     </div>
                     <div class="poster-comment-valign">
@@ -15,8 +41,8 @@
                             (select a comment)
                         </div>
                         <div class="poster-comment" ng-if="selectedComment">
-                            <div class="poster-comment-text">{{selectedComment.message}}</div>
-                            <div class="poster-comment-from">— {{selectedComment.from.name}} —</div>
+                            <div class="poster-comment-text" ng-bind-html="commentHTML" style="font-family: '{{fontFamily}}'"></div>
+                            <div class="poster-comment-from">&mdash; {{selectedComment.from.name}} &mdash;</div>
                         </div>
                     </div>
                 </div>

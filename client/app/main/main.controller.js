@@ -4,69 +4,79 @@ angular.module('posterApp').controller('MainCtrl', function (
 	$scope,
 	$http,
 	socket,
-	facebookService
+	facebookService,
+	appData
 ) {
-	// $scope.awesomeThings = [];
+	$scope.debugOptions = {};
+	$scope.$watch('debugOptions', function () {
+		// debugger;
+	}, true);
 
-	// $http.get('/api/things').success(function(awesomeThings) {
-	// 	$scope.awesomeThings = awesomeThings;
-	// 	socket.syncUpdates('thing', $scope.awesomeThings);
-	// });
+	$scope.onDebugOptionChange = function (name, value) {
+		$scope[name.slice(0, -1)] = appData[name][$scope.debugOptions[name]];
+		updateIconSize();
+	};
 
-	// $scope.addThing = function() {
-	// 	if($scope.newThing === '') {
-	// 		return;
-	// 	}
-	// 	$http.post('/api/things', { name: $scope.newThing });
-	// 	$scope.newThing = '';
-	// };
+	function updateDebugOptions() {
+		for (var name in appData) {
+			if (name === 'knownWords') { continue; }
+			$scope.debugOptions[name] = appData[name].indexOf(
+				$scope[name.slice(0, -1)]
+			);
+		}
+	}
 
-	// $scope.deleteThing = function(thing) {
-	// 	$http.delete('/api/things/' + thing._id);
-	// };
+	$scope.appData = appData;
 
-	// $scope.$on('$destroy', function () {
-	// 	socket.unsyncUpdates('thing');
-	// });
+	$scope.fontFamily = 'Mandatory-29';
+
+	$scope.$watch('fontFamily', function () {
+
+	});
 
 	$scope.posts = [];
 
-	function gotFBPosts(res) {
-		console.log(res);
-		var data = res.data.map(function (item) {
-			item.message = item.message && item.message.replace(/\n/g, '<br/>');
-			return item;
-		});
-		$scope.posts = $scope.posts.concat(data);
-		$scope.isLoadingPosts = false;
-
-		// if (!$scope.selectedComment) {
-		// 	for (var i = 0; i < $scope.posts.length; i++) {
-		// 		if ($scope.posts[i].comments) {
-		// 			$scope.onCommentClick($scope.posts[i].comments.data[1]);
-		// 			break;
-		// 		}
-		// 	}
-		// }
-	}
-
 	$scope.loadMore = function () {
+
 		$scope.isLoadingPosts = true;
-		facebookService.getFeed().then(gotFBPosts);
+
+		facebookService.getFeed().then(function (res) {
+
+			console.log(res);
+			var data = res.data.map(function (item) {
+				item.message = item.message && item.message.replace(/\n/g, '<br/>');
+				return item;
+			});
+			$scope.posts = $scope.posts.concat(data);
+			$scope.isLoadingPosts = false;
+
+			$scope.onCommentClick($scope.posts[2].comments.data[0]);
+
+			// Select the first comment on the first post that has any comments
+			//
+			// if (!$scope.selectedComment) {
+			// 	for (var i = 0; i < $scope.posts.length; i++) {
+			// 		if ($scope.posts[i].comments) {
+			// 			$scope.onCommentClick($scope.posts[i].comments.data[1]);
+			// 			break;
+			// 		}
+			// 	}
+			// }
+		});
 	};
 
 	facebookService.reset();
 	$scope.loadMore();
 
 	function updateIconSize() {
-		if (!$scope.iconType) { return; }
+		if (!$scope.icon) { return; }
 
-		var width = $scope.posterWidth * $scope.iconType.ratio;
+		var width = $scope.posterWidth * $scope.icon.ratio;
 		$scope.iconCSS = {
 			'width': width,
-			'height': width / $scope.iconType.width * $scope.iconType.height,
+			'height': width / $scope.icon.width * $scope.icon.height,
 			'margin-right': -width / 2,
-			'margin-top': -width / $scope.iconType.width * $scope.iconType.height / 2
+			'margin-top': -width / $scope.icon.width * $scope.icon.height / 2
 		};
 	}
 
@@ -74,77 +84,43 @@ angular.module('posterApp').controller('MainCtrl', function (
 		console.log(comment);
 		$scope.selectedComment = comment;
 
+		var text = $scope.selectedComment.message;
+		var textWords = text.split(/\s/);
+
+		// debugger;
+		for (var i = 0; i < appData.knownWords.length; i++) {
+			var index = text.indexOf(appData.knownWords[i]);
+			if (index > -1) {
+				text = text.substr(0, index) + '<span class="highlighted">' +
+					appData.knownWords[i] +
+					'</span>' + text.substr(index + appData.knownWords[i].length);
+				break;
+			}
+		}
+
+		$scope.commentHTML = text;
+
 		// Choose a random icon type
 		//
-		$scope.iconType = icons[
-			Math.floor(Math.random() * icons.length)
-			// 3
+		$scope.icon = appData.icons[
+			Math.floor(Math.random() * appData.icons.length)
 		];
 
 		// Choose a random layout
 		//
-		$scope.layout = layouts[
-			Math.floor(Math.random() * layouts.length)
-		].layout;
+		$scope.layout = appData.layouts[
+			Math.floor(Math.random() * appData.layouts.length)
+		];
+
+		// Choose random color
+		//
+		$scope.bgColor = appData.bgColors[
+			Math.floor(Math.random() * appData.bgColors.length)
+		];
 
 		updateIconSize();
+		updateDebugOptions();
 	};
-
-	var icons = [
-		{
-			label: 'Pink hands',
-			className: 'icon-pink-hands',
-			ratio: 0.3,
-			width: 800,
-			height: 1448,
-			image: 'ok.png',
-			bgColor: '#8CC63E'
-		},
-		{
-			label: 'Blue hands',
-			className: 'icon-blue-hands',
-			ratio: 0.5,
-			width: 920,
-			height: 1156,
-			image: 'pray.png',
-			bgColor: '#F8ED31'
-		},
-		{
-			label: 'Heart',
-			className: 'icon-heart',
-			ratio: 0.3,
-			width: 425,
-			height: 785,
-			image: 'heart.png',
-			bgColor: '#F8DB89'
-		},
-		{
-			label: 'Kaki',
-			className: 'icon-kaki',
-			ratio: 0.5,
-			width: 1137,
-			height: 1115,
-			image: 'kaki.png',
-			bgColor: '#C39A6B'
-		}
-	];
-
-	var layouts = [
-		{
-			layout: [
-				{ x: -0.01, y: -0.05 },
-				{ x: 0.70, y: 0.50 },
-				{ x: 0.30, y: 1.05 }
-			]
-		},
-		{
-			layout: [
-				{ x: 0.49, y: -0.04 },
-				{ x: 0.32, y: 0.50 },
-				{ x: 0.70, y: 1.03 }
-			]
-		}
-	];
 
 	// Not the prettiest thing, but will do for now.
 	//

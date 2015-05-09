@@ -18,18 +18,18 @@ angular.module('posterApp').service('facebookService', function ($q) {
 
 	// Facebook sometime returns duplicates for '/me/feed', this removes them.
 	//
-	function dedupe(array, key) {
-		for (var i = 0; i < array.length; i++) {
-			var a = array[i][key];
-			for (var j = i + 1; j < array.length; j++) {
-				var b = array[j][key];
+	function dedupeFBPosts(posts, key) {
+		for (var i = 0; i < posts.length; i++) {
+			var a = posts[i][key];
+			for (var j = i + 1; j < posts.length; j++) {
+				var b = posts[j][key];
 				if (a === b) {
-					array.splice(j, 1);
+					posts.splice(j, 1);
 					j--;
 				}
 			}
 		}
-		return array;
+		return posts;
 	}
 
 	var nextFeedPosts;
@@ -43,12 +43,17 @@ angular.module('posterApp').service('facebookService', function ($q) {
 			var deferred = $q.defer();
 			fbLoaded.promise.then(function () {
 				FB.api(nextFeedPosts || '/me/feed', function (response) {
-					response.data = dedupe(response.data, 'id');
+					response.data = dedupeFBPosts(response.data, 'id');
 					deferred.resolve(response);
 					nextFeedPosts = response.paging.next;
 				});
 			});
 			return deferred.promise;
+		},
+
+		// This will return a list of people who liked a post
+		getLikes: function (postId) {
+
 		}
 	};
 });
