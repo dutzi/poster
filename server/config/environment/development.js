@@ -3,8 +3,8 @@
 // Development specific configuration
 // ==================================
 module.exports = {
-  DOMAIN: 'http://comment-poster.herokuapp.com',
-  PORT: 80,
+  DOMAIN: 'http://localhost:9000',
+  PORT: 9000,
   // MongoDB connection options
   mongo: {
     uri: 'mongodb://localhost/poster-dev'

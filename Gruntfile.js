@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     },
     express: {
       options: {
-        port: process.env.PORT || 80
+        port: process.env.PORT || 9000
       },
       dev: {
         options: {
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
         options: {
           nodeArgs: ['--debug-brk'],
           env: {
-            PORT: process.env.PORT || 80
+            PORT: process.env.PORT || 9000
           },
           callback: function (nodemon) {
             nodemon.on('log', function (event) {
@@ -541,26 +541,6 @@ module.exports = function (grunt) {
           ]
         }
       }
-    },
-    localhosts: {
-        set : {
-            options: {
-                rules: [{
-                    ip: '127.0.0.1',
-                    hostname: 'comment-poster.herokuapp.com',
-                    type: 'set'
-                }]
-            }
-        },
-        remove : {
-            options: {
-                rules: [{
-                    ip: '127.0.0.1',
-                    hostname: 'comment-poster.herokuapp.com',
-                    type: 'remove'
-                }]
-            }
-        }
     }
   });
 
@@ -600,7 +580,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'localhosts:set',
       'env:all',
       'injector:sass',
       'concurrent:server',
@@ -665,7 +644,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'localhosts:remove',
     'injector:sass',
     'concurrent:dist',
     'injector',
