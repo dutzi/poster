@@ -8,7 +8,8 @@
  * Service in the posterApp.
  */
 angular.module('posterApp').service('appData', function () {
-	return {
+
+	var data = {
 
 		knownWords: ['מזלטוב', 'חרא', 'אכזר', 'אוהב', 'לייק'],
 
@@ -176,9 +177,20 @@ angular.module('posterApp').service('appData', function () {
 			{
 				label: 'Big One',
 				data: [
-					{ x: 0.1, y: 0.9 }
+					{ x: 0.8, y: 0.7, scale: 2 }
 				]
 			}
 		]
 	};
+
+	// Prepare data
+	//
+	for (var i = 0; i < data.layouts.length; i++) {
+		var layout = data.layouts[i];
+		for (var j = 0; j < layout.data.length; j++) {
+			layout.data[j].scale = layout.data[j].scale || 1;
+		}
+	}
+
+	return data;
 });
