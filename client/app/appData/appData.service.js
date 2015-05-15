@@ -149,10 +149,64 @@ angular.module('posterApp').service('appData', function () {
 			{
 				label: 'Kaki',
 				className: 'icon-kaki',
+				ratio: 0.65,
+				width: 1417,
+				height: 1168,
+				image: 'poop.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Fish',
+				className: 'icon-fish',
+				ratio: 0.7,
+				width: 1181,
+				height: 1191,
+				image: 'fish.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Brain',
+				className: 'icon-brain',
 				ratio: 0.5,
-				width: 1137,
-				height: 1115,
-				image: 'kaki.png',
+				width: 1063,
+				height: 924,
+				image: 'brain.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Astronaut',
+				className: 'icon-astronaut',
+				ratio: 0.5,
+				width: 1181,
+				height: 928,
+				image: 'astronaut.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Scream',
+				className: 'icon-scream',
+				ratio: 0.6,
+				width: 1181,
+				height: 1234,
+				image: 'scream.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Popsicle',
+				className: 'icon-popsicle',
+				ratio: 0.6,
+				width: 1063,
+				height: 1235,
+				image: 'popsicle.png',
+				bgColor: '#C39A6B'
+			},
+			{
+				label: 'Fist',
+				className: 'icon-fist',
+				ratio: 0.8,
+				width: 1417,
+				height: 742,
+				image: 'fist.png',
 				bgColor: '#C39A6B'
 			}
 		],
