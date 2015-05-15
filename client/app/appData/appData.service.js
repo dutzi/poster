@@ -120,15 +120,6 @@ angular.module('posterApp').service('appData', function () {
 
 		icons: [
 			{
-				label: 'Praying hands',
-				className: 'icon-blue-hands',
-				ratio: 0.5,
-				width: 920,
-				height: 1156,
-				image: 'pray.png',
-				bgColor: '#F1E54D'
-			},
-			{
 				label: 'OK hands',
 				className: 'icon-pink-hands',
 				ratio: 0.5,
