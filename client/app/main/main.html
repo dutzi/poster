@@ -36,10 +36,9 @@
                         <div class="poster-comment-tooltip" ng-if="!selectedComment">
                             (select a comment)
                         </div>
-                        <div class="poster-comment" ng-if="selectedComment" style="color: {{textColor.value}}">
-                            <div class="poster-comment-text" style="font-family: '{{font.name}}'">
+                        <div class="poster-comment" ng-show="selectedComment" style="color: {{textColor.value}}">
+                            <div id="posterCommentText" class="poster-comment-text">
                                 <div class="poster-comment-quotes">&rdquo;</div>
-                                <!-- <div ng-bind-html="commentHTML"></div> -->
                                 <div id="commentHTML"></div>
                                 <div class="poster-comment-quotes">&ldquo;</div>
                             </div>

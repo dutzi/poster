@@ -113,7 +113,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 				setTimeout(function () {
 					deferred.resolve();
-				}, 500);
+				}, (num > 3)?0:100);
 			}
 		}
 
@@ -125,13 +125,13 @@ angular.module('posterApp').controller('MainCtrl', function (
 	function halogenAnimate(el) {
 		var hideInterval = setInterval(function () {
 			el.style.display = 'none';
-		}, Math.random() * 100);
+		}, Math.random() * 60 + 40);
 
 		var showInterval = setInterval(function () {
 			el.style.display = 'block';
 			el.style.transform = 'scale(' + 12 + ')';
 
-		}, Math.random() * 100);
+		}, Math.random() * 60 + 40);
 
 		setTimeout(function () {
 			clearInterval(hideInterval);
@@ -139,6 +139,47 @@ angular.module('posterApp').controller('MainCtrl', function (
 			el.style.transform = 'scale(1)';
 			el.style.display = 'block';
 		}, 500);
+	}
+
+	var stopFontAnimation;
+	function fontAnimate() {
+		var el = $('#posterCommentText')[0];
+		var numFonts = appData.fonts.length;
+
+		var animInterval = setInterval(function () {
+			el.style.fontFamily = appData.fonts[
+				Math.floor(Math.random() * numFonts)
+			].name;
+		}, 400);
+
+		stopFontAnimation = function () {
+			clearInterval(animInterval);
+			el.style.fontFamily = appData.fonts[0].name;
+		};
+
+		setTimeout(stopFontAnimation, 1500);
+	}
+
+	function animShadow() {
+		var el = $('#posterCommentText')[0];
+		var color = appData.bgColors[
+			Math.floor(Math.random() * appData.bgColors.length)
+		].value;
+
+		var onInterval = setInterval(function () {
+			var dist = 50 - Math.floor(Math.random() * 100);
+			el.style.textShadow = dist + 'px ' + '0' + 'px ' + color;
+		}, 250);
+
+		var offInterval = setInterval(function () {
+			el.style.textShadow = '';
+		}, 470);
+
+		setTimeout(function () {
+			clearInterval(onInterval);
+			clearInterval(offInterval);
+			el.style.textShadow = '';
+		}, 1500);
 	}
 
 	$scope.onCommentClick = function (comment) {
@@ -157,10 +198,6 @@ angular.module('posterApp').controller('MainCtrl', function (
 				}
 			}
 		}
-
-		// Choose a font
-		//
-		$scope.font = appData.fonts[0];
 
 		// Choose a random layout
 		//
@@ -189,7 +226,12 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 		updateDebugOptions();
 
+		fontAnimate();
+		animShadow();
+
 		fakeHueristics(text, knownWordIndex).then(function () {
+
+			stopFontAnimation();
 
 			// Choose a random icon type
 			//
