@@ -122,6 +122,25 @@ angular.module('posterApp').controller('MainCtrl', function (
 		return deferred.promise;
 	}
 
+	function halogenAnimate(el) {
+		var hideInterval = setInterval(function () {
+			el.style.display = 'none';
+		}, Math.random() * 100);
+
+		var showInterval = setInterval(function () {
+			el.style.display = 'block';
+			el.style.transform = 'scale(' + 12 + ')';
+
+		}, Math.random() * 100);
+
+		setTimeout(function () {
+			clearInterval(hideInterval);
+			clearInterval(showInterval);
+			el.style.transform = 'scale(1)';
+			el.style.display = 'block';
+		}, 500);
+	}
+
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
 		$scope.selectedComment = comment;
@@ -177,6 +196,11 @@ angular.module('posterApp').controller('MainCtrl', function (
 			$scope.icon = appData.icons[
 				Math.floor(Math.random() * appData.icons.length)
 			];
+
+			for (var i = 0; i < $scope.layout.data.length; i++) {
+				var imageEl = $('#iconImage' + i)[0];
+				halogenAnimate(imageEl);
+			}
 
 			updateIconSize();
 			updateDebugOptions();
