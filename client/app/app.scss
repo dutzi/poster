@@ -1,7 +1,7 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import 'bootstrap-no-print';
 @import 'font-awesome/scss/font-awesome';
 
 /**
@@ -19,6 +19,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
+@import 'bootstrap-no-print.scss';
 @import 'main/main.scss';
 @import 'privacy-policy/privacy-policy.scss';
 @import 'modal/modal.scss';

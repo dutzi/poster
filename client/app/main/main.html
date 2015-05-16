@@ -15,6 +15,15 @@
     </div>
 </div>
 
+<div class="assets-preloader">
+    <div ng-repeat="font in appData.fonts">
+        <span style="font-family: '{{font.name}}'"></span>
+    </div>
+    <div ng-repeat="icon in appData.icons">
+        <div class="{{icon.className}}"></div>
+    </div>
+</div>
+
 <div class="container poster-editor">
     <div class="row">
         <div class="col-sm-7">
@@ -37,7 +46,7 @@
                             (select a comment)
                         </div>
                         <div class="poster-comment" ng-show="selectedComment" style="color: {{textColor.value}}">
-                            <div id="posterCommentText" class="poster-comment-text">
+                            <div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
                                 <div class="poster-comment-quotes">&rdquo;</div>
                                 <div id="commentHTML"></div>
                                 <div class="poster-comment-quotes">&ldquo;</div>

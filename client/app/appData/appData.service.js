@@ -18,61 +18,71 @@ angular.module('posterApp').service('appData', function () {
 				label: 'Mandatory 29',
 				name: 'Mandatory-29',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Noyland-AAA-Regular.otf'
 			},
 			{
 				label: 'Noyland AAA Regular',
 				name: 'Noyland-AAA-Regular',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-29.otf'
 			},
 			{
 				label: 'Mandatory 47',
 				name: 'Mandatory-47',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-47.otf'
 			},
 			{
 				label: 'Mandatory 17',
 				name: 'Mandatory-17',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-17.otf'
 			},
 			{
 				label: 'Mandatory 18',
 				name: 'Mandatory-18',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-18.otf'
 			},
 			{
 				label: 'Mandatory 29 Shaded',
 				name: 'Mandatory-29 Shaded',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-29 Shaded.otf'
 			},
 			{
 				label: 'Mandatory 36',
 				name: 'Mandatory-36',
 				hebOnly: false,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/Mandatory-36.otf'
 			},
 			{
 				label: 'Almoni Dl AAA Light',
 				name: 'ALMONI-DL-AAA-LIGHT',
 				hebOnly: true,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/ALMONI-DL-AAA-LIGHT.OTF'
 			},
 			{
 				label: 'Stanga AAA Regular',
 				name: 'stanga-aaa-regular',
 				hebOnly: true,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/stanga-aaa-regular.otf'
 			},
 			{
 				label: 'Noyland AAA Extrabold',
 				name: 'noyland-aaa-extrabold',
 				hebOnly: true,
-				lineHeight: '112%'
+				lineHeight: '112%',
+				url: '/assets/fonts/noyland-aaa-extrabold.otf'
 			}
 		],
 
@@ -129,7 +139,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 1800,
 				height: 2600,
-				image: 'ok.png',
+				url: '/assets/images/ok-lc.png',
 				bgColor: '#C6DB62'
 			},
 			{
@@ -138,7 +148,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.57,
 				width: 1722,
 				height: 1839,
-				image: 'heart.png',
+				url: '/assets/images/heart-lc.png',
 				bgColor: '#F8DB89'
 			},
 			{
@@ -147,7 +157,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.65,
 				width: 1417,
 				height: 1168,
-				image: 'poop.png',
+				url: '/assets/images/poop.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -156,7 +166,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.7,
 				width: 1181,
 				height: 1191,
-				image: 'fish.png',
+				url: '/assets/images/fish.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -165,7 +175,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 1063,
 				height: 924,
-				image: 'brain.png',
+				url: '/assets/images/brain.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -174,7 +184,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 1181,
 				height: 928,
-				image: 'astronaut.png',
+				url: '/assets/images/astronaut.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -183,7 +193,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.6,
 				width: 1181,
 				height: 1234,
-				image: 'scream.png',
+				url: '/assets/images/scream.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -192,7 +202,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.6,
 				width: 1063,
 				height: 1235,
-				image: 'popsicle.png',
+				url: '/assets/images/popsicle.png',
 				bgColor: '#C39A6B'
 			},
 			{
@@ -201,7 +211,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.8,
 				width: 1417,
 				height: 742,
-				image: 'fist.png',
+				url: '/assets/images/fist.png',
 				bgColor: '#C39A6B'
 			}
 		],

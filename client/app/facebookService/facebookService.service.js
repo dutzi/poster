@@ -13,7 +13,8 @@ angular.module('posterApp').service('facebookService', function ($q) {
 			if (res.status === 'connected') {
 				fbLoaded.resolve();
 			} else {
-				alert('Error: FB auth error');
+				fbLoaded.reject();
+				// alert('Error: FB auth error');
 			}
 		});
 	};
@@ -102,6 +103,10 @@ angular.module('posterApp').service('facebookService', function ($q) {
 	var nextFeedPosts;
 
 	return {
+		init: function () {
+			return fbLoaded.promise;
+		},
+
 		reset: function () {
 			nextFeedPosts = null;
 		},

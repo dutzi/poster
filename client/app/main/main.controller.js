@@ -6,6 +6,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 	$q,
 	socket,
 	facebookService,
+	$location,
 	appData
 ) {
 	$scope.debugOptions = {};
@@ -22,6 +23,11 @@ angular.module('posterApp').controller('MainCtrl', function (
 			);
 		}
 	}
+
+	facebookService.init().then(function (res) {
+	}, function (err) {
+		$location.path('/login');
+	});
 
 	$scope.appData = appData;
 
@@ -87,7 +93,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		return split.join(' ');
 	}
 
-	function fakeHueristics(text, knownWordIndex) {
+	function animWords(text, knownWordIndex) {
 		var deferred = $q.defer();
 
 		var num = numWords(text);
@@ -113,7 +119,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 				setTimeout(function () {
 					deferred.resolve();
-				}, (num > 3)?0:100);
+				}, (num > 2)?0:100);
 			}
 		}
 
@@ -122,7 +128,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		return deferred.promise;
 	}
 
-	function halogenAnimate(el) {
+	function animHalogen(el) {
 		var hideInterval = setInterval(function () {
 			el.style.display = 'none';
 		}, Math.random() * 60 + 40);
@@ -130,7 +136,6 @@ angular.module('posterApp').controller('MainCtrl', function (
 		var showInterval = setInterval(function () {
 			el.style.display = 'block';
 			el.style.transform = 'scale(' + 12 + ')';
-
 		}, Math.random() * 60 + 40);
 
 		setTimeout(function () {
@@ -141,8 +146,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		}, 500);
 	}
 
-	var stopFontAnimation;
-	function fontAnimate() {
+	function animFont() {
 		var el = $('#posterCommentText')[0];
 		var numFonts = appData.fonts.length;
 
@@ -152,12 +156,14 @@ angular.module('posterApp').controller('MainCtrl', function (
 			].name;
 		}, 400);
 
-		stopFontAnimation = function () {
+		var stopAnim = function () {
 			clearInterval(animInterval);
 			el.style.fontFamily = appData.fonts[0].name;
 		};
 
-		setTimeout(stopFontAnimation, 1500);
+		setTimeout(stopAnim, 1500);
+
+		return stopAnim;
 	}
 
 	function animShadow() {
@@ -175,11 +181,15 @@ angular.module('posterApp').controller('MainCtrl', function (
 			el.style.textShadow = '';
 		}, 470);
 
-		setTimeout(function () {
+		function stopAnim() {
 			clearInterval(onInterval);
 			clearInterval(offInterval);
 			el.style.textShadow = '';
-		}, 1500);
+		}
+
+		setTimeout(stopAnim, 1500);
+
+		return stopAnim;
 	}
 
 	$scope.onCommentClick = function (comment) {
@@ -199,6 +209,10 @@ angular.module('posterApp').controller('MainCtrl', function (
 			}
 		}
 
+		// Choose a font
+		//
+		$scope.font = appData.fonts[0];
+
 		// Choose a random layout
 		//
 		$scope.layout = appData.layouts[
@@ -212,7 +226,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		];
 
 		// Choose random color if background is white, otherwise set text color
-		// to be white.
+		// to white.
 		//
 		if ($scope.bgColor.value === '#ffffff' || $scope.bgColor.value === '#333333') {
 			$scope.textColor = appData.textColors[
@@ -226,10 +240,10 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 		updateDebugOptions();
 
-		fontAnimate();
+		var stopFontAnimation = animFont();
 		animShadow();
 
-		fakeHueristics(text, knownWordIndex).then(function () {
+		animWords(text, knownWordIndex).then(function () {
 
 			stopFontAnimation();
 
@@ -241,7 +255,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 			for (var i = 0; i < $scope.layout.data.length; i++) {
 				var imageEl = $('#iconImage' + i)[0];
-				halogenAnimate(imageEl);
+				animHalogen(imageEl);
 			}
 
 			updateIconSize();
