@@ -188,10 +188,18 @@ body {
     .highlighted {
         text-decoration: underline;
     }
+
+    .suspected {
+        // background: white;
+        // opacity: 0;
+        display: none;
+    }
 }
 
 .poster-comment-from {
-    font-size: 0.5em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.55em;
+    font-style: italic;
 }
 
 .poster-icons-container {

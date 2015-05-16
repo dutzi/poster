@@ -3,6 +3,7 @@
 angular.module('posterApp').controller('MainCtrl', function (
 	$scope,
 	$http,
+	$q,
 	socket,
 	facebookService,
 	appData
@@ -16,7 +17,6 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 	function updateDebugOptions() {
 		for (var name in appData) {
-			if (name === 'knownWords') { continue; }
 			$scope.debugOptions[name] = appData[name].indexOf(
 				$scope[name.slice(0, -1)]
 			);
@@ -24,6 +24,12 @@ angular.module('posterApp').controller('MainCtrl', function (
 	}
 
 	$scope.appData = appData;
+
+	$scope.proximity = facebookService.proximity;
+
+	facebookService.calculateProximity(0).then(function () {
+		console.log('Done calculating proximity for iteration = 1');
+	});
 
 	$scope.posts = [];
 
@@ -41,7 +47,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
 
-			$scope.onCommentClick($scope.posts[2].comments.data[0]);
+			$scope.onCommentClick($scope.posts[3].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
@@ -71,35 +77,71 @@ angular.module('posterApp').controller('MainCtrl', function (
 		};
 	}
 
+	function numWords(str) {
+		return str.split(' ').length;
+	}
+
+	function emWord(str, index, className) {
+		var split = str.split(' ');
+		split[index] = '<span class="' + className + '">' + split[index] + '</span>';
+		return split.join(' ');
+	}
+
+	function fakeHueristics(text, knownWordIndex) {
+		var deferred = $q.defer();
+
+		var num = numWords(text);
+		var timeDelta = 10;
+		var maxTimeDelta = Math.min(num * 150 / 14, 200);
+
+		function emRandomWord() {
+			var index, newText;
+
+			if (timeDelta < maxTimeDelta) {
+				index = Math.floor(Math.random() * num);
+				newText = emWord(text, index, 'suspected');
+
+				$('#commentHTML').html(newText);
+				setTimeout(emRandomWord, timeDelta);
+				timeDelta = timeDelta * 1.07;
+			} else {
+				if (knownWordIndex > -1) {
+					$('#commentHTML').html(emWord(text, knownWordIndex, 'highlighted'));
+				} else {
+					$('#commentHTML').html(text);
+				}
+
+				setTimeout(function () {
+					deferred.resolve();
+				}, 500);
+			}
+		}
+
+		emRandomWord();
+
+		return deferred.promise;
+	}
+
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
 		$scope.selectedComment = comment;
 
 		var text = $scope.selectedComment.message;
 		var textWords = text.split(/\s/);
+		var knownWordIndex = -1;
 
-		// debugger;
+		var words = text.split(' ');
 		for (var i = 0; i < appData.knownWords.length; i++) {
-			var index = text.indexOf(appData.knownWords[i]);
-			if (index > -1) {
-				text = text.substr(0, index) + '<span class="highlighted">' +
-					appData.knownWords[i] +
-					'</span>' + text.substr(index + appData.knownWords[i].length);
-				break;
+			for (var j = 0; j < words.length; j++) {
+				if (words[j].indexOf(appData.knownWords[i]) > -1) {
+					knownWordIndex = j;
+				}
 			}
 		}
-
-		$scope.commentHTML = text;
 
 		// Choose a font
 		//
 		$scope.font = appData.fonts[0];
-
-		// Choose a random icon type
-		//
-		$scope.icon = appData.icons[
-			Math.floor(Math.random() * appData.icons.length)
-		];
 
 		// Choose a random layout
 		//
@@ -116,7 +158,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		// Choose random color if background is white, otherwise set text color
 		// to be white.
 		//
-		if ($scope.bgColor.value === '#ffffff') {
+		if ($scope.bgColor.value === '#ffffff' || $scope.bgColor.value === '#333333') {
 			$scope.textColor = appData.textColors[
 				Math.floor(Math.random() * (appData.textColors.length - 1) + 1)
 			];
@@ -124,8 +166,22 @@ angular.module('posterApp').controller('MainCtrl', function (
 			$scope.textColor = appData.textColors[0];
 		}
 
-		updateIconSize();
+		$scope.icon = null;
+
 		updateDebugOptions();
+
+		fakeHueristics(text, knownWordIndex).then(function () {
+
+			// Choose a random icon type
+			//
+			$scope.icon = appData.icons[
+				Math.floor(Math.random() * appData.icons.length)
+			];
+
+			updateIconSize();
+			updateDebugOptions();
+
+		});
 	};
 
 	// Not the prettiest thing, but will do for now.

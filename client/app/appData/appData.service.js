@@ -78,8 +78,8 @@ angular.module('posterApp').service('appData', function () {
 
 		bgColors: [
 			{
-				label: 'yellow (#F1E54D)',
-				value: '#F1E54D'
+				label: 'yellow (#f6f086)',
+				value: '#f6f086'
 			},
 			{
 				label: 'green (#C6DB62)',
@@ -100,6 +100,10 @@ angular.module('posterApp').service('appData', function () {
 			{
 				label: 'white (#ffffff)',
 				value: '#ffffff'
+			},
+			{
+				label: 'black (#333333)',
+				value: '#333333'
 			}
 		],
 

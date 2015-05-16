@@ -39,7 +39,8 @@
                         <div class="poster-comment" ng-if="selectedComment" style="color: {{textColor.value}}">
                             <div class="poster-comment-text" style="font-family: '{{font.name}}'">
                                 <div class="poster-comment-quotes">&rdquo;</div>
-                                <div ng-bind-html="commentHTML"></div>
+                                <!-- <div ng-bind-html="commentHTML"></div> -->
+                                <div id="commentHTML"></div>
                                 <div class="poster-comment-quotes">&ldquo;</div>
                             </div>
                             <div class="poster-comment-from">&mdash; {{selectedComment.from.name}} &mdash;</div>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="pc-post-comments">
                     <div class="pc-comment" ng-repeat="comment in post.comments.data" ng-click="onCommentClick(comment)">
-                        <span class="pc-comment-from">{{comment.from.name}}:</span>
+                        <span class="pc-comment-from">{{comment.from.name}} ({{proximity(comment.from.id)}}):</span>
                         <span class="pc-comment-message">{{comment.message}}</span>
                     </div>
                 </div>
