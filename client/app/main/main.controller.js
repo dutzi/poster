@@ -269,7 +269,9 @@ angular.module('posterApp').controller('MainCtrl', function (
 	window.onresize = function () {
 		var maxWidth = $('.poster-container').parent().width(),
 			maxHeight = window.innerHeight - 90,
-			A3_ASPECT = 1.414141414141;
+			// A3_ASPECT = 1.414141414141;
+			A3_ASPECT = 297/210,
+			A3_TARGET_WIDTH = 1020; // A4_TARGET_WIDTH = 646.21;
 
 		var width = (maxWidth * A3_ASPECT > maxHeight)
 			? maxHeight / A3_ASPECT
@@ -282,7 +284,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		$('.poster-container').css({
 			width: width,
 			height: height,
-			marginRight: (maxWidth - width) / 2
+			marginRight: ($('.poster-container').parent().width() - width) / 2
 		});
 
 		$('.poster-comment-valign').css({
@@ -292,8 +294,17 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 		updateIconSize();
 
+		var printScale = A3_TARGET_WIDTH / width,
+		    rule = document.styleSheets[5].cssRules[0].cssRules[0];
+		rule.style.cssText = 'transform: scale(' + printScale + ');';
+
 		$scope.$digest();
 	};
 
+	// For some reason I need to call this after a while (1 sec or more),
+	// otherwise the scaling for printing gets screwed up...
+	//
 	setTimeout(window.onresize, 100);
+	setTimeout(window.onresize, 1000);
+
 });

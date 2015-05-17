@@ -242,6 +242,10 @@ body {
     background-image: url('/assets/images/fist.png');
 }
 
+.assets-preloader {
+    opacity: 0;
+}
+
 .debug-box {
     direction: ltr;
     position: fixed;
@@ -264,5 +268,37 @@ body {
         width: 100%;
         padding: 2px;
         font-size: 0.8em;
+    }
+}
+
+@media print {
+    .poster-container {
+        box-shadow: none;
+        margin-right: 0px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .row {
+        margin: 0px;
+    }
+
+    .hidden-print {
+        display: none;
+    }
+
+    .poster-container {
+        transform-origin: 50% 0px 0px;
+        margin: auto !important;
+        position: relative;
+        // transform: scale(1.28);
+    }
+
+    #posterContainerCol {
+        width: 100% !important;
     }
 }

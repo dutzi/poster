@@ -18,3 +18,7 @@
 `$ grunt buildcontrol:heroku`
 
 ![Poster Slogan](assets/slogan.png)
+
+## Printing
+
+To override bootstrap's printing CSS rules I modified app.scss to use 'bootstrap-no-print.scss'. It's similar to 'bootstrap.scss' except I removed this line: `@import "bootstrap/print";`.
