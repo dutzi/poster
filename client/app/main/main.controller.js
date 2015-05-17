@@ -294,9 +294,24 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 		updateIconSize();
 
-		var printScale = A3_TARGET_WIDTH / width,
-		    rule = document.styleSheets[5].cssRules[0].cssRules[0];
-		rule.style.cssText = 'transform: scale(' + printScale + ');';
+		var styleSheets = document.styleSheets,
+		    printScale = A3_TARGET_WIDTH / width,
+		    rule;
+
+		for (var i = 0; i < styleSheets.length; i++) {
+			var styleSheet = styleSheets[i];
+			if (styleSheet.ownerNode &&
+				styleSheet.ownerNode.parentNode &&
+				styleSheet.ownerNode.parentNode.id === 'printStyleContainer') {
+
+				rule = styleSheet.cssRules[0].cssRules[0];
+			}
+		}
+
+		if (rule) {
+			rule.style.cssText = 'transform: scale(' + printScale + ');';
+			console.log('Setting printScale to ', printScale);
+		}
 
 		$scope.$digest();
 	};
