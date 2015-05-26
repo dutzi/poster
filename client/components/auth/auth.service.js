@@ -98,7 +98,6 @@ angular.module('posterApp')
        * @return {Object} user
        */
       getCurrentUser: function() {
-        // debugger;
         return currentUser;
       },
 

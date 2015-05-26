@@ -15,71 +15,81 @@ angular.module('posterApp').service('appData', function () {
 
 		fonts: [
 			{
+				id: 'mandatory-29',
 				label: 'Mandatory 29',
-				name: 'Mandatory-29',
+				fontName: 'Mandatory-29',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Noyland-AAA-Regular.otf'
 			},
 			{
+				id: 'noyland-aaa-regular',
 				label: 'Noyland AAA Regular',
-				name: 'Noyland-AAA-Regular',
+				fontName: 'Noyland-AAA-Regular',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-29.otf'
 			},
 			{
+				id: 'mandatory-47',
 				label: 'Mandatory 47',
-				name: 'Mandatory-47',
+				fontName: 'Mandatory-47',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-47.otf'
 			},
 			{
+				id: 'mandatory-17',
 				label: 'Mandatory 17',
-				name: 'Mandatory-17',
+				fontName: 'Mandatory-17',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-17.otf'
 			},
 			{
+				id: 'mandatory-18',
 				label: 'Mandatory 18',
-				name: 'Mandatory-18',
+				fontName: 'Mandatory-18',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-18.otf'
 			},
 			{
+				id: 'mandatory-29-shaded',
 				label: 'Mandatory 29 Shaded',
-				name: 'Mandatory-29 Shaded',
+				fontName: 'Mandatory-29 Shaded',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-29 Shaded.otf'
 			},
 			{
+				id: 'mandatory-36',
 				label: 'Mandatory 36',
-				name: 'Mandatory-36',
+				fontName: 'Mandatory-36',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-36.otf'
 			},
 			{
+				id: 'almoni-dl-aaa-light',
 				label: 'Almoni Dl AAA Light',
-				name: 'ALMONI-DL-AAA-LIGHT',
+				fontName: 'ALMONI-DL-AAA-LIGHT',
 				hebOnly: true,
 				lineHeight: '112%',
 				url: '/assets/fonts/ALMONI-DL-AAA-LIGHT.OTF'
 			},
 			{
+				id: 'stanga-aaa-regular',
 				label: 'Stanga AAA Regular',
-				name: 'stanga-aaa-regular',
+				fontName: 'stanga-aaa-regular',
 				hebOnly: true,
 				lineHeight: '112%',
 				url: '/assets/fonts/stanga-aaa-regular.otf'
 			},
 			{
+				id: 'noyland-aaa-extrabold',
 				label: 'Noyland AAA Extrabold',
-				name: 'noyland-aaa-extrabold',
+				fontName: 'noyland-aaa-extrabold',
 				hebOnly: true,
 				lineHeight: '112%',
 				url: '/assets/fonts/noyland-aaa-extrabold.otf'
@@ -88,30 +98,37 @@ angular.module('posterApp').service('appData', function () {
 
 		bgColors: [
 			{
+				id: 'yellow-f6f086',
 				label: 'yellow (#f6f086)',
 				value: '#f6f086'
 			},
 			{
+				id: 'green-C6DB62',
 				label: 'green (#C6DB62)',
 				value: '#C6DB62'
 			},
 			{
+				id: 'orange-F8DB89',
 				label: 'orange (#F8DB89)',
 				value: '#F8DB89'
 			},
 			{
+				id: 'light-blue-7FCEE4',
 				label: 'light blue (#7FCEE4)',
 				value: '#7FCEE4'
 			},
 			{
+				id: 'grey-D1D2D4',
 				label: 'grey (#D1D2D4)',
 				value: '#D1D2D4'
 			},
 			{
+				id: 'white-ffffff',
 				label: 'white (#ffffff)',
 				value: '#ffffff'
 			},
 			{
+				id: 'black-333333',
 				label: 'black (#333333)',
 				value: '#333333'
 			}
@@ -119,14 +136,17 @@ angular.module('posterApp').service('appData', function () {
 
 		textColors: [
 			{
+				id: 'white-ffffff',
 				label: 'white (#ffffff)',
 				value: '#ffffff'
 			},
 			{
+				id: 'blue-00bff3',
 				label: 'blue (#00bff3)',
 				value: '#00bff3'
 			},
 			{
+				id: 'pink-ED2A7B',
 				label: 'pink (#ED2A7B)',
 				value: '#ED2A7B'
 			},
@@ -134,6 +154,7 @@ angular.module('posterApp').service('appData', function () {
 
 		icons: [
 			{
+				id: 'ok-hands',
 				label: 'OK hands',
 				className: 'icon-pink-hands',
 				ratio: 0.5,
@@ -143,6 +164,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C6DB62'
 			},
 			{
+				id: 'heart',
 				label: 'Heart',
 				className: 'icon-heart',
 				ratio: 0.57,
@@ -152,6 +174,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#F8DB89'
 			},
 			{
+				id: 'kaki',
 				label: 'Kaki',
 				className: 'icon-kaki',
 				ratio: 0.65,
@@ -161,6 +184,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'fish',
 				label: 'Fish',
 				className: 'icon-fish',
 				ratio: 0.7,
@@ -170,6 +194,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'brain',
 				label: 'Brain',
 				className: 'icon-brain',
 				ratio: 0.5,
@@ -179,6 +204,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'astronaut',
 				label: 'Astronaut',
 				className: 'icon-astronaut',
 				ratio: 0.5,
@@ -188,6 +214,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'scream',
 				label: 'Scream',
 				className: 'icon-scream',
 				ratio: 0.6,
@@ -197,6 +224,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'popsicle',
 				label: 'Popsicle',
 				className: 'icon-popsicle',
 				ratio: 0.6,
@@ -206,6 +234,7 @@ angular.module('posterApp').service('appData', function () {
 				bgColor: '#C39A6B'
 			},
 			{
+				id: 'fist',
 				label: 'Fist',
 				className: 'icon-fist',
 				ratio: 0.8,
@@ -218,6 +247,7 @@ angular.module('posterApp').service('appData', function () {
 
 		layouts: [
 			{
+				id: 'threes-0',
 				label: 'Threes 1',
 				data: [
 					{ x: -0.01, y: -0.05 },
@@ -226,6 +256,7 @@ angular.module('posterApp').service('appData', function () {
 				]
 			},
 			{
+				id: 'threes-1',
 				label: 'Threes 2',
 				data: [
 					{ x: 0.49, y: -0.04 },
@@ -234,6 +265,7 @@ angular.module('posterApp').service('appData', function () {
 				]
 			},
 			{
+				id: 'big-one',
 				label: 'Big One',
 				data: [
 					{ x: 0.8, y: 0.7, scale: 2 }

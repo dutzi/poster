@@ -1,0 +1,62 @@
+<div class="poster-container" style="color: {{ textColor.value }}">
+	<div class="poster-bg" style="background-color: {{bgColor.value}}">
+		<div class="poster-icons-container">
+			<div ng-repeat="item in layout.data track by $index"
+				style="
+					position: absolute;
+					right: {{item.x * 100}}%;
+					top: {{item.y * 100}}%;
+					transform: scale({{item.scale}});">
+				<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
+			</div>
+		</div>
+		<div class="poster-comment-valign">
+			<div class="poster-comment-tooltip" ng-if="!comment">
+				(select a comment)
+			</div>
+			<div class="poster-comment" ng-show="comment" style="color: {{textColor.value}}">
+				<div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
+					<div class="poster-comment-quotes">&rdquo;</div>
+					<div id="commentHTML"></div>
+					<div class="poster-comment-quotes">&ldquo;</div>
+				</div>
+				<div class="poster-comment-from">&mdash; {{comment.from.name}} &mdash;</div>
+			</div>
+		</div>
+		<div class="poster-footer" ng-if="comment">
+			<div class="poster-footer-time" style="border-color: {{ textColor.value }}">
+				<div class="poster-footer-date">{{ comment.created_time | date : 'dd/MM/yy' }}</div>
+				<div class="poster-footer-logo" style="background: {{ textColor.value }};">
+					<img src="/assets/images/logo_footer.png">
+				</div>
+				<div class="poster-footer-datetime">{{ comment.created_time | date : 'HH:mm:ss' }}</div>
+			</div>
+			<div class="poster-footer-metadata">
+				<div class="poster-footer-bars">
+					<div class="poster-footer-bar" ng-repeat="bar in bars" style="height: {{ bar.height }}; background: {{ textColor.value }}"></div>
+					<div>
+						<div>Relative Post</div>
+						<div>Engagement Level</div>
+					</div>
+				</div>
+				<div class="poster-footer-image">
+					<img ng-src="http://graph.facebook.com/v2.3/{{ comment.from.id }}/picture">
+				</div>
+				<div class="poster-footer-data">
+					<div>Processed Words</div>
+					<div>Heart, Like</div>
+				</div>
+				<div class="poster-footer-icon" style="-webkit-mask-image: url({{ footerIconPreview }}); background: {{ textColor.value }}"></div>
+				<div class="poster-footer-data">
+					<div>Author</div>
+					<div>{{ comment.from.name }}</div>
+				</div>
+				<div class="poster-footer-closeness">
+					<div class="poster-footer-closeness-border" style="border-color: {{ textColor.value }}">
+						<div ng-repeat="bar in closenessBars" class="poster-footer-closeness-bar" style="background: {{ textColor.value }}; opacity: {{ bar.opacity }}"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

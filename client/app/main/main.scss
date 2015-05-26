@@ -146,10 +146,14 @@ body {
     color: #888;
 }
 
+#mainPoster {
+    position: fixed;
+}
+
 .poster-container {
     overflow: hidden;
     margin: auto;
-    position: fixed;
+    position: relative;
     box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.29);
 }
 
@@ -172,6 +176,10 @@ body {
     .poster-comment-quotes {
         line-height: 0px;
         margin-top: 30px;
+    }
+
+    .poster-comment-quotes:last-child {
+        margin-top: 9%;
     }
 }
 
@@ -201,6 +209,126 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 0.80em;
     font-style: italic;
+}
+
+$footerImageHeight: 30px;
+
+.poster-footer {
+    direction: ltr;
+    font-family: 'ALMONI-DL-AAA-LIGHT';
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    right: 0px;
+    left: 0px;
+    z-index: 2;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+
+    > div {
+        display: flex;
+        align-items: center;
+    }
+
+    hr {
+        margin: 2px 0px 5px;
+    }
+
+    .poster-footer-time {
+        font-size: 1.1em;
+        padding-bottom: 5px;
+
+        .poster-footer-logo {
+            margin: 0px 2.4% -0.9%;
+            -webkit-flex: 0 0 22%;
+            flex: 0 0 22%;
+            -webkit-mask-image: url(/assets/images/logo_footer.png);
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: 100% 100%;
+
+            img {
+                width: 100%;
+                opacity: 0;
+            }
+        }
+
+        .poster-footer-date {
+            flex: 1;
+            border-bottom: 1px solid;
+        }
+
+        .poster-footer-datetime {
+            flex: 1;
+            text-align: right;
+            border-bottom: 1px solid;
+        }
+
+    }
+
+    .poster-footer-metadata {
+        font-size: 0.9em;
+
+        .poster-footer-closeness {
+            flex: 1;
+            align-self: stretch;
+
+            .poster-footer-closeness-border {
+                display: flex;
+                flex: 1;
+                border: 1px solid white;
+
+                .poster-footer-closeness-bar {
+                    height: 10px;
+                    background: white;
+                    flex: 1;
+                }
+            }
+        }
+
+    }
+
+    .poster-footer-image {
+
+        flex: 0 0 $footerImageHeight;
+        margin-right: 8px;
+
+        img {
+            border-radius: 100%;
+            width: 100%;
+        }
+    }
+
+    .poster-footer-icon {
+
+        flex: 0 0 $footerImageHeight;
+        height: $footerImageHeight;
+        align-items: center;
+
+        -webkit-mask-image: url(/assets/images/fist.png);
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: 50% 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .poster-footer-bars {
+
+        display: flex;
+        align-items: baseline;
+        height: $footerImageHeight;
+
+        .poster-footer-bar {
+            width: 2px;
+            float: left;
+            margin-right: 2px;
+        }
+    }
 }
 
 .poster-icons-container {
@@ -248,14 +376,15 @@ body {
 }
 
 .debug-box {
+
     direction: ltr;
     position: fixed;
     z-index: 10000000;
-    top: 61px;
-    left: 10px;
+    top: 0px;
     background: rgba(255, 255, 255, 0.5);
-    padding: 10px;
+    padding: 3px;
     border: 1px solid #bbb;
+    margin-right: 340px;
 
     > div {
         margin-top: 10px;
@@ -269,6 +398,21 @@ body {
         width: 100%;
         padding: 2px;
         font-size: 0.8em;
+    }
+}
+
+.gallery {
+    overflow-y: scroll;
+    position: fixed;
+    padding: 0px 10px;
+
+    button {
+        margin: 7px 0px;
+        width: 100%;
+    }
+
+    .poster-container {
+        font-size: 0.4em;
     }
 }
 
@@ -292,10 +436,13 @@ body {
         display: none;
     }
 
+    #mainPoster {
+        position: relative;
+    }
+
     .poster-container {
         transform-origin: 50% 0px 0px;
         margin: auto !important;
-        position: relative;
         // transform: scale(1.28);
     }
 

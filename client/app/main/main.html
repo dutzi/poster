@@ -10,18 +10,21 @@
     </style>
 </div>
 <div ng-include="'components/navbar/navbar.html'" class="hidden-print"></div>
-<div class="debug-box hidden-print">
+<div class="container">
+    <div class="debug-box hidden-print">
 
-    <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Toggle</button>
+        <button class="btn btn-default" ng-click="onSave()">Save</button>
+        <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Toggle</button>
 
-    <div ng-show="showDebugBox">
-        <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
+        <div ng-show="showDebugBox">
+            <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
 
-            <span style="display: inline-block; width: 100px">{{name}}</span>
-            <select ng-model="debugOptions[name]" ng-change="onDebugOptionChange(name)">
-                <option ng-repeat="option in data" value="{{$index}}">{{option.label}}</option>
-            </select>
+                <span style="display: inline-block; width: 100px">{{name}}</span>
+                <select ng-model="debugOptions[name]" ng-change="onDebugOptionChange(name)">
+                    <option ng-repeat="option in data" value="{{$index}}">{{option.label}}</option>
+                </select>
 
+            </div>
         </div>
     </div>
 </div>
@@ -35,40 +38,42 @@
     </div>
 </div>
 
-<div class="container poster-editor">
+<div class="container poster-editor" style="width: 100%;">
     <div class="row">
-        <div id="posterContainerCol" class="col-sm-7">
-            <div class="poster-container">
-                <div class="poster-bg" style="background-color: {{bgColor.value}}">
-                    <div class="poster-icons-container">
-                        <div ng-repeat="item in layout.data track by $index"
-                            style="
-                                position: absolute;
-                                right: {{item.x * 100}}%;
-                                top: {{item.y * 100}}%;
-                                transform: scale({{item.scale}});
-                            "
-                        >
-                            <div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
-                        </div>
-                    </div>
-                    <div class="poster-comment-valign">
-                        <div class="poster-comment-tooltip" ng-if="!selectedComment">
-                            (select a comment)
-                        </div>
-                        <div class="poster-comment" ng-show="selectedComment" style="color: {{textColor.value}}">
-                            <div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
-                                <div class="poster-comment-quotes">&rdquo;</div>
-                                <div id="commentHTML"></div>
-                                <div class="poster-comment-quotes">&ldquo;</div>
-                            </div>
-                            <div class="poster-comment-from">&mdash; {{selectedComment.from.name}} &mdash;</div>
-                        </div>
-                    </div>
+        <div class="col-sm-2 hidden-print">
+            <div id="gallery" class="gallery">
+                <div ng-repeat="poster in gallery.posters">
+                    <!-- {{poster._id}} -->
+                    <!-- {{poster.comment.message}} -->
+                    <div class="poster"
+                        comment    = "poster.comment"
+                        font       = "poster.font"
+                        layout     = "poster.layout"
+                        bg-color   = "poster.bgColor"
+                        text-color = "poster.textColor"
+                        icon       = "poster.icon"
+                        animate    = "false"
+                        width      = "175"
+                        height     = "247"
+                    ></div>
+                    <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button>
                 </div>
             </div>
         </div>
-        <div class="col-sm-5 hidden-print">
+        <div id="posterContainerCol" class="col-sm-6">
+            <div id="mainPoster" class="poster"
+                comment    = "selectedComment"
+                font       = "font"
+                layout     = "layout"
+                bg-color   = "bgColor"
+                text-color = "textColor"
+                icon       = "icon"
+                animate    = "true"
+                width      = "{{ posterWidth }}"
+                height     = "{{ posterHeight }}"
+            ></div>
+        </div>
+        <div class="col-sm-4 hidden-print">
             <div class="pc-post" ng-repeat="post in posts">
                 <div class="pc-post-message">
                     <div ng-if="post.picture" class="pc-post-picture">
