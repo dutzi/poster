@@ -82,12 +82,13 @@ body {
 
 .hero {
 	position: relative;
-	width: 960px;
+	max-width: 960px;
 	margin: 30px auto 20px;
 }
 
 .hero img {
-	width: 960px;
+	width: 100%;
+	max-width: 960px;
 }
 
 .hero .hero-image {
@@ -151,11 +152,11 @@ body {
 }
 
 .main-gallery-line:nth-child(odd) {
-	margin: 0 12% 70px;
+	margin: 0 12% 45px;
 }
 
 .main-gallery-line:nth-child(even) {
-	margin: 0 0 70px 25%;
+	margin: 0 0 45px 25%;
 }
 
 .main-gallery-line:nth-child(odd) .main-gallery-poster-container {
@@ -180,6 +181,54 @@ body {
 	z-index: 100;
 	width: 220px;
 	height: 311px;
+}
+
+.main-gallery-poster-info {
+	color: #ccc;
+	border-color: #ccc;
+	transition: color 0.5s, border-color 0.5s;
+}
+
+.main-gallery-poster-container:hover .main-gallery-poster-info {
+	color: black;
+	border-color: black;
+}
+
+.main-gallery-poster-container:hover .main-gallery-poster-hr {
+	opacity: 1;
+}
+
+.main-gallery-poster-container:hover .main-gallery-poster-buttons {
+	opacity: 1;
+}
+
+.main-gallery-poster-credit {
+	text-align: center;
+	font-size: 1.1em;
+	margin-top: 10px;
+}
+
+.main-gallery-poster-buttons {
+	opacity: 0;
+	transition: opacity 0.5s;
+	width: 128px;
+	margin: auto;
+}
+
+.main-gallery-poster-buttons div {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border: 1px solid;
+	font-size: 28px;
+	text-align: center;
+}
+
+.main-gallery-poster-hr {
+	opacity: 0;
+	transition: opacity 0.5s;
+	margin: 9px 60px 15px;
+	border-color: inherit;
 }
 
 </style>
@@ -232,7 +281,15 @@ body {
 							width      = "220"
 							height     = "311"
 						></div>
-
+					</div>
+					<div class="main-gallery-poster-info">
+						<div class="main-gallery-poster-credit">By Amos Shmuel</div>
+						<hr class="main-gallery-poster-hr"/>
+						<div class="main-gallery-poster-buttons">
+							<div><i class="fa fa-print"></i></div>
+							<div><i class="fa fa-facebook"></i></div>
+							<div><i class="fa fa-shopping-cart"></i></div>
+						</div>
 					</div>
 				</div>
 			</div>
