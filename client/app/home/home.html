@@ -1,3 +1,241 @@
-<div class="col-md-12">
-This is the home view.
+<style>
+body {
+	font-family: 'Open Sans';
+	direction: ltr;
+}
+
+.jumbo {
+	text-align: center;
+	color: white;
+	overflow: hidden;
+}
+
+.jumbo-bg {
+	transition: all 1.0s;
+}
+
+.logo {
+	margin: 30px 0px 20px;
+}
+
+.logo-bottom-border {
+	display: inline-block;
+	margin: auto;
+	padding: 10px 40px;
+	border-bottom: 1px solid white;
+}
+
+.logo img {
+	width: 190px;
+}
+
+.slogan {
+	font-size: 1.15em;
+	margin-bottom: 20px;
+}
+
+.connect-button {
+	display: inline-block;
+	border: 1px solid white;
+	padding: 10px 32px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.4s;
+}
+
+.connect-button:hover {
+	background-color: white;
+	transition: all 1s;
+}
+
+.connect-button i {
+	display: inline-block;
+	font-size: 1.4em;
+	margin: 0px 0px 0px 5px;
+}
+
+.gallery-tab-container {
+	height: 70px;
+	display: block;
+	overflow: hidden;
+	margin: -55px 0px 20px;
+}
+
+.gallery-tab {
+	margin: auto;
+	border-radius: 100%;
+	background-color: white;
+	color: black;
+	width: 160px;
+	height: 160px;
+	position: relative;
+}
+
+.gallery-tab-text {
+	text-align: center;
+	padding-top: 23px;
+	text-transform: uppercase;
+	color: white;
+	font-size: 1.3em;
+	transition: all 1s;
+}
+
+.hero {
+	position: relative;
+	width: 960px;
+	margin: 30px auto 20px;
+}
+
+.hero img {
+	width: 960px;
+}
+
+.hero .hero-image {
+	top: 0px;
+	position: absolute;
+	left: 0px;
+	transition: all 1.0s;
+}
+
+.paging .page {
+	border: 1px solid white;
+	width: 9px;
+	height: 9px;
+	border-radius: 100%;
+	display: inline-block;
+	margin-right: 5px;
+	transition: all 0.3;
+	cursor: pointer;
+}
+
+.paging .page.selected {
+	background-color: white;
+}
+
+.selected-0 .hero-image:nth-child(1) { opacity: 1; left: 0px; }
+.selected-0 .hero-image:nth-child(2) { opacity: 0; left: 20px; }
+.selected-0 .hero-image:nth-child(3) { opacity: 0; left: 40px; }
+
+.selected-1 .hero-image:nth-child(1) { opacity: 0; left: -20px; }
+.selected-1 .hero-image:nth-child(2) { opacity: 1; left: 0px; }
+.selected-1 .hero-image:nth-child(3) { opacity: 0; left: 20px; }
+
+.selected-2 .hero-image:nth-child(1) { opacity: 0; left: -40px; }
+.selected-2 .hero-image:nth-child(2) { opacity: 0; left: -20px; }
+.selected-2 .hero-image:nth-child(3) { opacity: 1; left: 0px; }
+
+.selected-0 .connect-button:hover { color: #7fcee4; }
+.selected-1 .connect-button:hover { color: #f2d47d; }
+.selected-2 .connect-button:hover { color: #c6db62; }
+
+
+.counter-container {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.counter {
+	border: 1px solid black;
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: white;
+}
+
+.counter-bottom-border {
+	border-bottom: 1px solid black;
+	margin-top: -15px;
+}
+
+.main-gallery-poster-container {
+	display: inline-block;
+}
+
+.main-gallery-line:nth-child(odd) {
+	margin: 0 12% 70px;
+}
+
+.main-gallery-line:nth-child(even) {
+	margin: 0 0 70px 25%;
+}
+
+.main-gallery-line:nth-child(odd) .main-gallery-poster-container {
+	width: 33%;
+}
+
+.main-gallery-line:nth-child(even) .main-gallery-poster-container {
+	width: 33%;
+}
+
+.main-gallery-poster-border {
+	margin: auto;
+	width: 234px;
+	height: 325px;
+	border: 7px solid #333;
+	box-shadow: 0px 2px 10px -3px #555;
+}
+
+.main-gallery-poster-border .poster-vignette {
+	box-shadow: 0px 0px 45px -15px black inset;
+	position: absolute;
+	z-index: 100;
+	width: 220px;
+	height: 311px;
+}
+
+</style>
+
+<div class="jumbo-bg selected-{{selectedImageIndex}}" style="background-color: {{ images[selectedImageIndex].color }}">
+	<div class="container">
+		<div class="jumbo">
+			<div class="logo">
+				<div class="logo-bottom-border">
+					<img src="assets/images/logo-white.png">
+				</div>
+			</div>
+			<div class="slogan">Turn your Facebook comments into awesome posters, in one click.</div>
+			<div class="connect-button">Connect with <i class="fa fa-facebook"></i></div>
+			<div class="hero">
+				<img ng-repeat="image in images" class="hero-image" src="{{ image.url }}">
+				<img ng-src="{{ images[0].url }}" style="opacity: 0">
+			</div>
+			<div class="paging">
+				<div ng-repeat="image in images" class="page" ng-class="{selected: image.selected}" ng-click="setSelectedImage($index)"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="gallery-container">
+	<div class="gallery-tab-container">
+		<div class="gallery-tab">
+			<div class="gallery-tab-text" style="color: {{ images[selectedImageIndex].color }}">Gallery</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="counter-container">
+			<div class="counter">{{ gallery.posters.length | number }} Posters Created</div>
+			<div class="counter-bottom-border"></div>
+		</div>
+		<div class="main-gallery">
+			<div class="main-gallery-line" ng-repeat="line in gallery.lines">
+				<div class="main-gallery-poster-container" ng-repeat="poster in line">
+					<div class="main-gallery-poster-border">
+						<div class="poster-vignette"></div>
+						<div class="poster"
+							comment    = "poster.comment"
+							font       = "poster.font"
+							layout     = "poster.layout"
+							bg-color   = "poster.bgColor"
+							text-color = "poster.textColor"
+							icon       = "poster.icon"
+							animate    = "false"
+							width      = "220"
+							height     = "311"
+						></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
