@@ -1,6 +1,31 @@
 'use strict';
 
 angular.module('posterApp').service('facebookService', function ($q) {
+	var POST_FIELDS = [
+		'id',
+		'caption',
+		'created_time',
+		'description',
+		'from',
+		'link',
+		'message',
+		'message_tags',
+		'name',
+		'object_id',
+		'picture',
+		'full_picture',
+		'place',
+		'properties',
+		'shares',
+		'source',
+		'status_type',
+		'story',
+		'story_tags',
+		'to',
+		'type',
+		'updated_time',
+		'comments'
+	].join(',');
 
 	var fbLoaded = $q.defer(),
 		oldFBAsyncInit = window.fbAsyncInit,
@@ -119,8 +144,9 @@ angular.module('posterApp').service('facebookService', function ($q) {
 
 		getFeed: function () {
 			var deferred = $q.defer();
+			var request = nextFeedPosts || '/me/feed?fields=' + POST_FIELDS;
 			fbLoaded.promise.then(function () {
-				FB.api(nextFeedPosts || '/me/feed', function (response) {
+				FB.api(request, function (response) {
 					response.data = dedupeFBPosts(response.data, 'id');
 
 					deferred.resolve(response);

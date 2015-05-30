@@ -3,6 +3,7 @@
 angular.module('posterApp').controller('HomeCtrl', function (
 	$scope,
 	$interval,
+	$window,
 	appData,
 	Poster
 ) {
@@ -13,6 +14,7 @@ angular.module('posterApp').controller('HomeCtrl', function (
 	$scope.images = [
 		{
 			url: '/assets/images/introduction1.png',
+			iframeUrl: '/assets/animations/anim1/index.html',
 			color: '#7fcee4',
 			selected: true
 		},
@@ -44,7 +46,15 @@ angular.module('posterApp').controller('HomeCtrl', function (
 
 	$interval(function () {
 		$scope.setSelectedImage($scope.selectedImageIndex + 1);
-	}, 5000);
+	}, 8000);
+
+	/*******************************/
+	/************ Login ************/
+	/*******************************/
+
+	$scope.loginOauth = function() {
+		$window.location.href = '/auth/facebook';
+    };
 
 	/*******************************/
 	/*********** Gallery ***********/

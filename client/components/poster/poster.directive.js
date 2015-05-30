@@ -21,6 +21,7 @@ angular.module('posterApp').directive('poster', function (
 			height    : '@'
 		},
 		link: function(scope, element, attrs, ngModel) {
+			var POSTER_WIDTH = 1020;
 
 			scope.closenessBars = [];
 			for (var i = 0; i < 7; i++) {
@@ -31,7 +32,7 @@ angular.module('posterApp').directive('poster', function (
 			function updateIconSize() {
 				if (!scope.icon) { return; }
 
-				var width = scope.width * scope.icon.ratio;
+				var width = POSTER_WIDTH * scope.icon.ratio;
 				scope.iconCSS = {
 					'width': width,
 					'height': width / scope.icon.width * scope.icon.height,
@@ -207,20 +208,11 @@ angular.module('posterApp').directive('poster', function (
 			}
 
 			function onResize() {
-				var container = element.find('.poster-container');
-				container.css({
-					width: scope.width,
-					height: scope.height,
-					marginRight: (container.parent().parent().width() - scope.width) / 2
-				});
-
-				element.find('.poster-comment-valign').css({
-					width: scope.width,
-					height: scope.height
-				});
-
+				scope.scale = scope.width / POSTER_WIDTH;
+				// debugger;
+				element[0].style.width = scope.width + 'px';
+				element[0].style.height = scope.height + 'px';
 				updateIconSize();
-
 			}
 
 			scope.$watch('font', function () {

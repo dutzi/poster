@@ -10,12 +10,13 @@ angular.module('posterApp').controller('MainCtrl', function (
 	appData,
 	Poster
 ) {
+	var POSTER_WIDTH = 1020; // A3
+	    // POSTER_WIDTH = 646.21; // A4
 
 	$scope.debugOptions = {};
 
 	$scope.onDebugOptionChange = function (name, value) {
 		$scope[name.slice(0, -1)] = appData[name][$scope.debugOptions[name]];
-		// updateIconSize();
 	};
 
 	function updateDebugOptions() {
@@ -48,6 +49,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 		facebookService.getFeed().then(function (res) {
 
 			console.log(res);
+
 			var data = res.data.map(function (item) {
 				item.message = item.message && item.message.replace(/\n/g, '<br/>');
 				return item;
@@ -170,36 +172,33 @@ angular.module('posterApp').controller('MainCtrl', function (
 		$scope.gallery.posters.splice($scope.gallery.posters.indexOf(poster), 1);
 	};
 
-	function updatePrintScale(width) {
-		var TARGET_WIDTH = 1020; // A3
-		    // TARGET_WIDTH = 646.21; // A4
+	// function updatePrintScale(width) {
+	// 	var styleSheets = document.styleSheets,
+	// 	    printScale = POSTER_WIDTH / width,
+	// 	    rule;
 
-		var styleSheets = document.styleSheets,
-		    printScale = TARGET_WIDTH / width,
-		    rule;
+	// 	for (var i = 0; i < styleSheets.length; i++) {
+	// 		var styleSheet = styleSheets[i];
+	// 		if (styleSheet.ownerNode &&
+	// 			styleSheet.ownerNode.parentNode &&
+	// 			styleSheet.ownerNode.parentNode.id === 'printStyleContainer') {
 
-		for (var i = 0; i < styleSheets.length; i++) {
-			var styleSheet = styleSheets[i];
-			if (styleSheet.ownerNode &&
-				styleSheet.ownerNode.parentNode &&
-				styleSheet.ownerNode.parentNode.id === 'printStyleContainer') {
+	// 			rule = styleSheet.cssRules[0].cssRules[0];
+	// 		}
+	// 	}
 
-				rule = styleSheet.cssRules[0].cssRules[0];
-			}
-		}
+	// 	if (rule) {
+	// 		rule.style.cssText = 'transform: scale(' + printScale + ');';
+	// 		console.log('Setting printScale to ', printScale);
+	// 	}
 
-		if (rule) {
-			rule.style.cssText = 'transform: scale(' + printScale + ');';
-			console.log('Setting printScale to ', printScale);
-		}
-
-	}
+	// }
 
 	// Not the prettiest thing, but will do for now.
 	//
 	window.onresize = function () {
 		var maxWidth = $('#mainPoster').parent().width(),
-			maxHeight = window.innerHeight - 90,
+			maxHeight = window.innerHeight - 100,
 			// A_SERIES_ASPECT = 1.414141414141;
 			A_SERIES_ASPECT = 297/210;
 
@@ -208,15 +207,11 @@ angular.module('posterApp').controller('MainCtrl', function (
 			: maxWidth;
 
 		var height = width * A_SERIES_ASPECT;
-
+		$scope.posterMargin = maxWidth / 2 - width / 2;
 		$scope.posterWidth = width;
 		$scope.posterHeight = height;
 
 		$('#gallery').height(window.innerHeight - 70);
-
-		// updateIconSize();
-
-		updatePrintScale(width);
 
 		$scope.$digest();
 	};
