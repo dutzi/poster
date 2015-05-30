@@ -15,7 +15,7 @@
 					ng-if="image.selected"
 					src="{{ image.iframeUrl }}"
 					allowtransparency="true"
-					style="opacity: 0"
+					style="opacity: 0; margin-left: {{ image.marginLeft }}px"
 					onload="this.style.opacity = 1"
 				></iframe>
 			</div>

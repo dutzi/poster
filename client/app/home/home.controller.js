@@ -2,7 +2,7 @@
 
 angular.module('posterApp').controller('HomeCtrl', function (
 	$scope,
-	$interval,
+	$timeout,
 	$window,
 	appData,
 	Poster
@@ -14,39 +14,50 @@ angular.module('posterApp').controller('HomeCtrl', function (
 	$scope.images = [
 		{
 			url: '/assets/images/introduction1.png',
-			iframeUrl: '/assets/animations/anim1/index.html',
+			iframeUrl: '/assets/animations/animation1/index.html',
+			duration: 10,
 			color: '#7fcee4',
 			selected: true
 		},
 		{
 			url: '/assets/images/introduction2.png',
+			iframeUrl: '/assets/animations/animation2/index.html',
+			duration: 12,
 			color: '#f2d47d',
 			selected: false
 		},
 		{
 			url: '/assets/images/introduction3.png',
+			iframeUrl: '/assets/animations/animation3/index.html',
+			marginLeft: 50,
+			duration: 10,
 			color: '#c6db62',
 			selected: false
 		}
 	];
 
 	$scope.selectedImageIndex = 0;
+	var playNextAnimationTimer;
 
 	$scope.setSelectedImage = function (index) {
 		$scope.images[$scope.selectedImageIndex].selected = false;
 
-		if (index >= 3) {
-			$scope.selectedImageIndex = 0;
-		} else {
-			$scope.selectedImageIndex = index;
-		}
+		if (index >= 3) { index = 0; }
 
-		$scope.images[$scope.selectedImageIndex].selected = true;
+		$scope.selectedImageIndex = index;
+
+		$scope.images[index].selected = true;
+
+		if (playNextAnimationTimer) {
+			$timeout.cancel(playNextAnimationTimer);
+		}
+		playNextAnimationTimer = $timeout(function () {
+			$scope.setSelectedImage(index + 1);
+		}, $scope.images[index].duration * 1000);
 	};
 
-	$interval(function () {
-		$scope.setSelectedImage($scope.selectedImageIndex + 1);
-	}, 8000);
+	$scope.setSelectedImage(0);
+
 
 	/*******************************/
 	/************ Login ************/
