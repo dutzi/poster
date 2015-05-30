@@ -57,7 +57,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
 
-			$scope.onCommentClick($scope.posts[3].comments.data[0]);
+			// $scope.onCommentClick($scope.posts[3].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//

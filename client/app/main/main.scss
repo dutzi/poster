@@ -56,7 +56,6 @@ body {
 }
 
 .navbar {
-	background-color: #F2F2F2;
 	position: fixed;
 	width: 100%;
 	top: 0px;
@@ -189,7 +188,15 @@ body {
 
 .btn-load-more {
 	width: 100%;
-	margin-bottom: 10px;
+	border: 3px solid #333;
+	margin-bottom: 20px;
+	border-radius: 0px;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn-load-more:hover {
+	background: #f7f7f7;
 }
 
 .pc-post-picture-container {
@@ -261,7 +268,15 @@ body {
 }
 
 .poster-comment-tooltip {
-	color: #aaa;
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	background-color: white;
+	background-image: url(/assets/images/logo-grey.png);
+	background-repeat: no-repeat;
+	background-position: 50%;
 }
 
 .poster-comment-text {
