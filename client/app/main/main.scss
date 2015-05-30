@@ -564,6 +564,21 @@ $footerImageHeight: 30px;
 }
 
 .logo {
+	margin: 30px 0px 20px;
+}
+
+.logo-bottom-border {
+	display: inline-block;
+	margin: auto;
+	padding: 10px 40px;
+	border-bottom: 1px solid white;
+}
+
+.logo img {
+	width: 190px;
+}
+
+.navbar-logo {
 	width: 119px;
 	margin: 15px 30px 5px;
 }
