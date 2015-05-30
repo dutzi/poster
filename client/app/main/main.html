@@ -46,7 +46,9 @@ body {
                 <div class="pc-post-message">
                     <div class="pc-post-message-text" data-dir-detect="post.message" ng-bind-html="post.message"></div>
                     <div ng-if="post.full_picture" class="pc-post-picture">
-                        <img ng-src="{{post.full_picture}}">
+                        <div class="pc-post-picture-container">
+                            <img ng-src="{{post.full_picture}}">
+                        </div>
                         <div ng-if="post.caption" class="pc-post-caption">({{post.caption}})</div>
                     </div>
                     <!-- <strong style="font-size: 0.9em">{{$index}}</strong> -->
@@ -97,7 +99,16 @@ body {
                         width      = "175"
                         height     = "247"
                     ></div>
-                    <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button>
+                    <div class="main-gallery-poster-info">
+                        <div class="main-gallery-poster-credit">By Amos Shmuel</div>
+                        <hr class="main-gallery-poster-hr"/>
+                        <div class="main-gallery-poster-buttons">
+                            <div><i class="fa fa-print"></i></div>
+                            <div><i class="fa fa-facebook"></i></div>
+                            <div><i class="fa fa-shopping-cart"></i></div>
+                        </div>
+                    </div>
+                    <!-- <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button> -->
                 </div>
             </div>
         </div>
