@@ -170,7 +170,7 @@ body {
 	border-bottom: none;
 }
 
-.pc-comment:hover {
+.pc-comment:hover, .pc-comment.selected {
 	outline: 7px solid #333;
 	margin-left: -14px;
 	margin-right: -13px;

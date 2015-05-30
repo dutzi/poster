@@ -54,7 +54,7 @@ body {
                     <!-- <strong style="font-size: 0.9em">{{$index}}</strong> -->
                 </div>
                 <div class="pc-post-comments" ng-if="post.comments.data.length">
-                    <div class="pc-comment" ng-repeat="comment in post.comments.data" ng-click="onCommentClick(comment)">
+                    <div class="pc-comment" ng-repeat="comment in post.comments.data" ng-click="onCommentClick(comment)" ng-class="{ selected: selectedComment === comment }">
                         <div class="pc-post-from">
                             <img ng-src="http://graph.facebook.com/v2.3/{{ comment.from.id }}/picture">
                             <div class="pc-post-from-name">{{ comment.from.name }} <!--({{proximity(comment.from.id)}})--></div>
