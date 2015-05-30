@@ -4,6 +4,7 @@ angular.module('posterApp').controller('MainCtrl', function (
 	$scope,
 	$http,
 	$q,
+	$timeout,
 	socket,
 	facebookService,
 	$location,
@@ -74,6 +75,13 @@ angular.module('posterApp').controller('MainCtrl', function (
 
 	facebookService.reset();
 	$scope.loadMore();
+
+	$scope.shakeMe = function (post) {
+		post.isShaking = true;
+		$timeout(function () {
+			post.isShaking = false;
+		}, 300);
+	};
 
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
