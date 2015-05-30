@@ -51,11 +51,12 @@ body {
 	color: white;
 }
 
-.flex {
+.flex-container {
 	display: flex;
 }
 
 .navbar {
+	background-color: #F2F2F2;
 	position: fixed;
 	width: 100%;
 	top: 0px;
@@ -442,7 +443,8 @@ $footerImageHeight: 30px;
 	background: rgba(255, 255, 255, 0.5);
 	padding: 3px;
 	border: 1px solid #bbb;
-	margin-left: 500px;
+	right: 0px;
+	opacity: 0;
 
 	> div {
 		margin-top: 10px;
@@ -457,6 +459,9 @@ $footerImageHeight: 30px;
 		padding: 2px;
 		font-size: 0.8em;
 	}
+}
+.debug-box:hover {
+	opacity: 1;
 }
 
 .gallery {
@@ -534,10 +539,6 @@ $footerImageHeight: 30px;
 	transition: all 1.0s;
 }
 
-.logo {
-	margin: 30px 0px 20px;
-}
-
 .logo-bottom-border {
 	display: inline-block;
 	margin: auto;
@@ -545,8 +546,9 @@ $footerImageHeight: 30px;
 	border-bottom: 1px solid white;
 }
 
-.logo img {
-	width: 190px;
+.logo {
+	width: 119px;
+	margin: 15px 30px 5px;
 }
 
 .slogan {
