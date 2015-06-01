@@ -74,7 +74,7 @@ angular.module('posterApp').service('appData', function () {
 				id: 'almoni-dl-aaa-light',
 				label: 'Almoni Dl AAA Light',
 				fontName: 'ALMONI-DL-AAA-LIGHT',
-				hebOnly: true,
+				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/ALMONI-DL-AAA-LIGHT.OTF'
 			},
@@ -93,6 +93,70 @@ angular.module('posterApp').service('appData', function () {
 				hebOnly: true,
 				lineHeight: '112%',
 				url: '/assets/fonts/noyland-aaa-extrabold.otf'
+			},
+			{
+				id: 'ALMONI-TZAR-AAA-BOLD',
+				label: 'ALMONI-TZAR-AAA-BOLD',
+				fontName: 'ALMONI-TZAR-AAA-BOLD',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/ALMONI-TZAR-AAA-BOLD.OTF'
+			},
+			{
+				id: 'CosHalavDfusRegular',
+				label: 'CosHalavDfusRegular',
+				fontName: 'CosHalavDfusRegular',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/CosHalavDfusRegular.otf'
+			},
+			{
+				id: 'KartivBold',
+				label: 'KartivBold',
+				fontName: 'KartivBold',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/KartivBold.otf'
+			},
+			{
+				id: 'KartivKerah',
+				label: 'KartivKerah',
+				fontName: 'KartivKerah',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/KartivKerah.otf'
+			},
+			{
+				id: 'LimonArakBold',
+				label: 'LimonArakBold',
+				fontName: 'LimonArakBold',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/LimonArakBold.otf'
+			},
+			{
+				id: 'LimonArakRegular',
+				label: 'LimonArakRegular',
+				fontName: 'LimonArakRegular',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/LimonArakRegular.otf'
+			},
+			{
+				id: 'Plastic-Black',
+				label: 'Plastic-Black',
+				fontName: 'Plastic-Black',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/Plastic-Black.otf'
+			},
+			{
+				id: 'stanga-aaa-regular',
+				label: 'stanga-aaa-regular',
+				fontName: 'stanga-aaa-regular',
+				hebOnly: true,
+				lineHeight: '112%',
+				url: '/assets/fonts/stanga-aaa-regular.otf'
 			}
 		],
 
