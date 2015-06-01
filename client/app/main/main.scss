@@ -399,7 +399,7 @@ $footerImageHeight: 30px;
 		height: $footerImageHeight;
 		align-items: center;
 
-		-webkit-mask-image: url(/assets/images/fist.png);
+		-webkit-mask-image: url(/assets/images/punch.png);
 		-webkit-mask-size: contain;
 		-webkit-mask-repeat: no-repeat;
 		-webkit-mask-position: 50% 50%;
@@ -436,33 +436,55 @@ $footerImageHeight: 30px;
 	background-repeat: no-repeat;
 }
 
-.icon-pink-hands {
-	background-image: url('/assets/images/ok-lc.png');
-}
-.icon-heart {
-	background-image: url('/assets/images/heart-lc.png');
-}
-.icon-kaki {
-	background-image: url('/assets/images/poop.png');
-}
-.icon-fish {
-	background-image: url('/assets/images/fish.png');
+.icon-astronaut {
+	background-image: url('/assets/images/astronaut.png');
 }
 .icon-brain {
 	background-image: url('/assets/images/brain.png');
 }
-.icon-astronaut {
-	background-image: url('/assets/images/astronaut.png');
+.icon-cactus {
+	background-image: url('/assets/images/cactus.png');
 }
-.icon-scream {
-	background-image: url('/assets/images/scream.png');
+.icon-confetti {
+	background-image: url('/assets/images/confetti.png');
+}
+.icon-dance {
+	background-image: url('/assets/images/dance.png');
+}
+.icon-fish {
+	background-image: url('/assets/images/fish.png');
+}
+.icon-fuck {
+	background-image: url('/assets/images/fuck.png');
+}
+.icon-heart {
+	background-image: url('/assets/images/heart-lc.png');
+}
+.icon-israel {
+	background-image: url('/assets/images/israel.png');
+}
+.icon-kaki {
+	background-image: url('/assets/images/poop.png');
+}
+.icon-pink-
+hands {background-image: url('/assets/images/ok-lc.png');
 }
 .icon-popsicle {
 	background-image: url('/assets/images/popsicle.png');
 }
-.icon-fist {
-	background-image: url('/assets/images/fist.png');
+.icon-punch {
+	background-image: url('/assets/images/punch.png');
 }
+.icon-rogatka {
+	background-image: url('/assets/images/rogatka.png');
+}
+.icon-scream {
+	background-image: url('/assets/images/scream.png');
+}
+.icon-teeth {
+	background-image: url('/assets/images/teeth.png');
+}
+
 
 .assets-preloader {
 	opacity: 0;

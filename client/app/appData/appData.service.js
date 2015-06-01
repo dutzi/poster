@@ -154,24 +154,85 @@ angular.module('posterApp').service('appData', function () {
 
 		icons: [
 			{
-				id: 'ok-hands',
-				label: 'OK hands',
-				className: 'icon-pink-hands',
+				id: 'astronaut',
+				label: 'Astronaut',
+				className: 'icon-astronaut',
 				ratio: 0.5,
-				width: 1800,
-				height: 2600,
-				url: '/assets/images/ok-lc.png',
-				bgColor: '#C6DB62'
+				width: 1181,
+				height: 928,
+				url: '/assets/images/astronaut.png'
+			},
+			{
+				id: 'brain',
+				label: 'Brain',
+				className: 'icon-brain',
+				ratio: 0.45,
+				width: 1063,
+				height: 924,
+				url: '/assets/images/brain.png'
+			},
+			{
+				id: 'cactus',
+				label: 'Cactus',
+				className: 'icon-cactus',
+				ratio: 0.4,
+				width: 424,
+				height: 945,
+				url: '/assets/images/cactus.png'
+			},
+			{
+				id: 'confetti',
+				label: 'Confetti',
+				className: 'icon-confetti',
+				ratio: 0.4,
+				width: 945,
+				height: 1362,
+				url: '/assets/images/confetti.png'
+			},
+			{
+				id: 'dance',
+				label: 'Dance',
+				className: 'icon-dance',
+				ratio: 0.4,
+				width: 827,
+				height: 907,
+				url: '/assets/images/dance.png'
+			},
+			{
+				id: 'fish',
+				label: 'Fish',
+				className: 'icon-fish',
+				ratio: 0.5,
+				width: 945,
+				height: 1102,
+				url: '/assets/images/fish.png'
+			},
+			{
+				id: 'fuck',
+				label: 'Fuck',
+				className: 'icon-fuck',
+				ratio: 0.4,
+				width: 827,
+				height: 662,
+				url: '/assets/images/fuck.png'
 			},
 			{
 				id: 'heart',
 				label: 'Heart',
 				className: 'icon-heart',
-				ratio: 0.57,
-				width: 1722,
-				height: 1839,
-				url: '/assets/images/heart-lc.png',
-				bgColor: '#F8DB89'
+				ratio: 0.4,
+				width: 1063,
+				height: 1063,
+				url: '/assets/images/heart-lc.png'
+			},
+			{
+				id: 'israel',
+				label: 'Israel',
+				className: 'icon-israel',
+				ratio: 0.4,
+				width: 739,
+				height: 1181,
+				url: '/assets/images/israel.png'
 			},
 			{
 				id: 'kaki',
@@ -180,68 +241,61 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.65,
 				width: 1417,
 				height: 1168,
-				url: '/assets/images/poop.png',
-				bgColor: '#C39A6B'
+				url: '/assets/images/poop.png'
 			},
 			{
-				id: 'fish',
-				label: 'Fish',
-				className: 'icon-fish',
-				ratio: 0.7,
-				width: 1181,
-				height: 1191,
-				url: '/assets/images/fish.png',
-				bgColor: '#C39A6B'
-			},
-			{
-				id: 'brain',
-				label: 'Brain',
-				className: 'icon-brain',
+				id: 'ok-hands',
+				label: 'OK hands',
+				className: 'icon-pink-hands',
 				ratio: 0.5,
-				width: 1063,
-				height: 924,
-				url: '/assets/images/brain.png',
-				bgColor: '#C39A6B'
-			},
-			{
-				id: 'astronaut',
-				label: 'Astronaut',
-				className: 'icon-astronaut',
-				ratio: 0.5,
-				width: 1181,
-				height: 928,
-				url: '/assets/images/astronaut.png',
-				bgColor: '#C39A6B'
-			},
-			{
-				id: 'scream',
-				label: 'Scream',
-				className: 'icon-scream',
-				ratio: 0.6,
-				width: 1181,
-				height: 1234,
-				url: '/assets/images/scream.png',
-				bgColor: '#C39A6B'
+				width: 757,
+				height: 1181,
+				url: '/assets/images/ok-lc.png'
 			},
 			{
 				id: 'popsicle',
 				label: 'Popsicle',
 				className: 'icon-popsicle',
 				ratio: 0.6,
-				width: 1063,
-				height: 1235,
-				url: '/assets/images/popsicle.png',
-				bgColor: '#C39A6B'
+				width: 945,
+				height: 928,
+				url: '/assets/images/popsicle.png'
 			},
 			{
-				id: 'fist',
-				label: 'Fist',
-				className: 'icon-fist',
-				ratio: 0.8,
-				width: 1417,
-				height: 742,
-				url: '/assets/images/fist.png',
-				bgColor: '#C39A6B'
+				id: 'punch',
+				label: 'Punch',
+				className: 'icon-punch',
+				ratio: 0.6,
+				width: 945,
+				height: 1503,
+				url: '/assets/images/punch.png'
+			},
+			{
+				id: 'rogatka',
+				label: 'Rogatka',
+				className: 'icon-rogatka',
+				ratio: 0.6,
+				width: 945,
+				height: 662,
+				url: '/assets/images/rogatka.png'
+			},
+			{
+				id: 'scream',
+				label: 'Scream',
+				className: 'icon-scream',
+				ratio: 0.6,
+				width: 713,
+				height: 709,
+				url: '/assets/images/scream.png'
+			},
+			{
+				id: 'teeth',
+				label: 'Teeth',
+				className: 'icon-teeth',
+				ratio: 0.6,
+				width: 604,
+				height: 1181,
+				url: '/assets/images/teeth.png'
 			}
 		],
 
