@@ -3,9 +3,9 @@
 angular.module('posterApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('main', {
+      .state('studio', {
         url: '/studio',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/studio/studio.html',
+        controller: 'StudioCtrl'
       });
   });

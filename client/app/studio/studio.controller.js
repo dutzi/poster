@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('posterApp').controller('MainCtrl', function (
+angular.module('posterApp').controller('StudioCtrl', function (
 	$scope,
 	$http,
 	$q,
