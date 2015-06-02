@@ -331,6 +331,15 @@ body {
 	}
 }
 
+.giant-text-container {
+	font-size: 32em;
+	position: absolute;
+	top: -29%;
+	line-height: 40%;
+	left: -60%;
+	width: 270%;
+}
+
 .poster-comment-from {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 0.80em;
@@ -462,6 +471,10 @@ $footerImageHeight: 30px;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+
+	> div {
+		position: absolute;
+	}
 }
 
 .icon-image {
@@ -484,6 +497,9 @@ $footerImageHeight: 30px;
 .icon-dance {
 	background-image: url('/assets/images/dance.png');
 }
+.icon-eat {
+	background-image: url('/assets/images/eat.png');
+}
 .icon-fish {
 	background-image: url('/assets/images/fish.png');
 }
@@ -499,8 +515,8 @@ $footerImageHeight: 30px;
 .icon-kaki {
 	background-image: url('/assets/images/poop.png');
 }
-.icon-pink-
-hands {background-image: url('/assets/images/ok-lc.png');
+.icon-pink-hands {
+	background-image: url('/assets/images/ok-lc.png');
 }
 .icon-popsicle {
 	background-image: url('/assets/images/popsicle.png');
@@ -514,9 +530,13 @@ hands {background-image: url('/assets/images/ok-lc.png');
 .icon-scream {
 	background-image: url('/assets/images/scream.png');
 }
+.icon-stab {
+	background-image: url('/assets/images/stab.png');
+}
 .icon-teeth {
 	background-image: url('/assets/images/teeth.png');
 }
+
 
 
 .assets-preloader {
@@ -577,6 +597,10 @@ hands {background-image: url('/assets/images/ok-lc.png');
 		.poster-container {
 			transform: scale(1) !important;
 		}
+	}
+
+	#posterMargin {
+		margin: 0px !important;
 	}
 
 	.poster-container {

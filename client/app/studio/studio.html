@@ -9,7 +9,7 @@ body {
     <div class="debug-box">
 
         <button class="btn btn-default" ng-click="onSave()">Save</button>
-        <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Toggle</button>
+        <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Tools</button>
 
         <div ng-show="showDebugBox">
             <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">
@@ -70,13 +70,16 @@ body {
             <button class="btn btn-default btn-load-more" ng-click="loadMore()" ng-disabled="isLoadingPosts">Load More</button>
         </div>
         <div style="flex: 1" id="posterContainerCol" >
-            <div style="margin-left: {{ posterMargin }}px">
+            <div id="posterMargin" style="width: {{ posterWidth }}px; margin: auto">
                 <div id="mainPoster" class="poster"
                     comment    = "selectedComment"
                     font       = "font"
                     layout     = "layout"
                     bg-color   = "bgColor"
+                    post       = "post"
+                    text-post  = "textPost"
                     text-color = "textColor"
+                    giant-text = "giantText"
                     icon       = "icon"
                     animate    = "true"
                     width      = "{{ posterWidth }}"
@@ -85,7 +88,7 @@ body {
             </div>
         </div>
         <div style="flex: 0 0 200px" class="hidden-print">
-            <div id="gallery" class="gallery">
+            <div id="gallery" class="gallery" style="display: none">
                 <div ng-repeat="poster in gallery.posters">
                     <!-- {{poster._id}} -->
                     <!-- {{poster.comment.message}} -->
@@ -94,7 +97,10 @@ body {
                         font       = "poster.font"
                         layout     = "poster.layout"
                         bg-color   = "poster.bgColor"
+                        post       = "poster.post"
+                        text-post  = "poster.textPost"
                         text-color = "poster.textColor"
+                        giant-text = "poster.giantText"
                         icon       = "poster.icon"
                         animate    = "false"
                         width      = "175"

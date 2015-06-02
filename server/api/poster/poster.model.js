@@ -19,6 +19,9 @@ var PosterSchema = new Schema({
 	font: String,
 	layout: String,
 	bgColor: String,
+	post: String,
+	textPost: String,
+	giantText: String,
 	textColor: String,
 	icon: String
 });

@@ -1,12 +1,8 @@
 <div class="poster-container" style="color: {{ textColor.value }}; transform: scale({{ scale }})">
 	<div class="poster-bg" style="background-color: {{bgColor.value}}">
-		<div class="poster-icons-container">
-			<div ng-repeat="item in layout.data track by $index"
-				style="
-					position: absolute;
-					right: {{item.x * 100}}%;
-					top: {{item.y * 100}}%;
-					transform: scale({{item.scale}});">
+		<div class="giant-text-container" ng-style="giantText.data">{{comment.message}}</div>
+		<div class="poster-icons-container" ng-style="post.data">
+			<div ng-repeat="item in layout.data track by $index" ng-style="item.style">
 				<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
 			</div>
 		</div>
@@ -14,9 +10,12 @@
 			<div class="poster-comment-tooltip" ng-if="!comment"></div>
 			<div class="poster-comment" ng-show="comment" style="color: {{textColor.value}}">
 				<div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
-					<div class="poster-comment-quotes">&rdquo;</div>
-					<div id="commentHTML"></div>
-					<div class="poster-comment-quotes">&ldquo;</div>
+					<span ng-style="textPost.data">
+						<div class="poster-comment-quotes">&rdquo;</div>
+						<div data-dir-detect="comment.message" id="commentHTML"
+						></div>
+						<div class="poster-comment-quotes">&ldquo;</div>
+					</span>
 				</div>
 				<div class="poster-comment-from">&mdash; {{comment.from.name}} &mdash;</div>
 			</div>

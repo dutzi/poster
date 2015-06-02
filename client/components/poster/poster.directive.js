@@ -14,7 +14,10 @@ angular.module('posterApp').directive('poster', function (
 			font      : '=',
 			layout    : '=',
 			bgColor   : '=',
+			post      : '=',
+			textPost  : '=',
 			textColor : '=',
+			giantText : '=',
 			icon      : '=',
 			animate   : '=',
 			width     : '@',
@@ -120,7 +123,7 @@ angular.module('posterApp').directive('poster', function (
 
 				var stopAnim = function () {
 					clearInterval(animInterval);
-					el.style.fontFamily = appData.fonts[0].fontName;
+					el.style.fontFamily = scope.font.fontName;
 				};
 
 				setTimeout(stopAnim, (immediate) ? 0 : 1500);
@@ -209,7 +212,6 @@ angular.module('posterApp').directive('poster', function (
 
 			function onResize() {
 				scope.scale = scope.width / POSTER_WIDTH;
-				// debugger;
 				element[0].style.width = scope.width + 'px';
 				element[0].style.height = scope.height + 'px';
 				updateIconSize();
@@ -225,6 +227,7 @@ angular.module('posterApp').directive('poster', function (
 			scope.$watch('icon', function () {
 				if (scope.icon) {
 					scope.footerIconPreview = scope.icon.url;
+					updateIconSize();
 				}
 			});
 

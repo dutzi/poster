@@ -58,7 +58,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
 
-			$scope.onCommentClick($scope.posts[3].comments.data[0]);
+			$scope.onCommentClick($scope.posts[4].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
@@ -87,20 +87,46 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		console.log(comment);
 		$scope.selectedComment = comment;
 
-		// Choose a font
+		// Choose a random font
 		//
-		$scope.font = appData.fonts[0];
+		$scope.font = appData.fonts[
+			Math.floor(Math.random() * appData.fonts.length)
+			// 0
+		];
 
 		// Choose a random layout
 		//
 		$scope.layout = appData.layouts[
 			Math.floor(Math.random() * appData.layouts.length)
+			// 0
 		];
 
 		// Choose random color
 		//
 		$scope.bgColor = appData.bgColors[
 			Math.floor(Math.random() * appData.bgColors.length)
+			// 6
+		];
+
+		// Choose random post effect
+		//
+		$scope.post = appData.posts[
+			Math.floor(Math.random() * appData.posts.length)
+			// 6
+		];
+
+		// Choose random post effect
+		//
+		$scope.textPost = appData.textPosts[
+			Math.floor(Math.random() * appData.textPosts.length)
+			// 6
+		];
+
+		// Choose random post effect
+		//
+		$scope.giantText = appData.giantTexts[
+			Math.floor(Math.random() * appData.giantTexts.length)
+			// 6
 		];
 
 		// Choose random color if background is white, otherwise set text color
@@ -127,11 +153,14 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	/*******************************/
 
 	function preparePoster(poster) {
-		poster.font      = _.find(appData.fonts,      { id: poster.font });
-		poster.layout    = _.find(appData.layouts,    { id: poster.layout });
-		poster.bgColor   = _.find(appData.bgColors,   { id: poster.bgColor });
-		poster.textColor = _.find(appData.textColors, { id: poster.textColor });
-		poster.icon      = _.find(appData.icons,      { id: poster.icon });
+		poster.font       = _.find(appData.fonts,      { id: poster.font });
+		poster.layout     = _.find(appData.layouts,    { id: poster.layout });
+		poster.bgColor    = _.find(appData.bgColors,   { id: poster.bgColor });
+		poster.post       = _.find(appData.posts,      { id: poster.post });
+		poster.textPost   = _.find(appData.textPosts,  { id: poster.textPost });
+		poster.giantText  = _.find(appData.giantTexts, { id: poster.giantText });
+		poster.textColor  = _.find(appData.textColors, { id: poster.textColor });
+		poster.icon       = _.find(appData.icons,      { id: poster.icon });
 	}
 
 	Poster.query(function (data) {
@@ -151,6 +180,9 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			font      : $scope.font.id,
 			layout    : $scope.layout.id,
 			bgColor   : $scope.bgColor.id,
+			post      : $scope.post.id,
+			textPost  : $scope.textPost.id,
+			giantText : $scope.giantText.id,
 			textColor : $scope.textColor.id,
 			icon      : $scope.icon.id
 		});
@@ -161,6 +193,9 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			font      : $scope.font,
 			layout    : $scope.layout,
 			bgColor   : $scope.bgColor,
+			post      : $scope.post,
+			textPost  : $scope.textPost,
+			giantText : $scope.giantText,
 			textColor : $scope.textColor,
 			icon      : $scope.icon,
 			poster    : poster
@@ -205,7 +240,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	// Not the prettiest thing, but will do for now.
 	//
 	window.onresize = function () {
-		var maxWidth = $('#mainPoster').parent().width(),
+		var maxWidth = $('#mainPoster').parent().parent().width(),
 			maxHeight = window.innerHeight - 100,
 			// A_SERIES_ASPECT = 1.414141414141;
 			A_SERIES_ASPECT = 297/210;

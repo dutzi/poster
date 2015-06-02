@@ -72,11 +72,14 @@ angular.module('posterApp').controller('HomeCtrl', function (
 	/*******************************/
 
 	function preparePoster(poster) {
-		poster.font      = _.find(appData.fonts,      { id: poster.font });
-		poster.layout    = _.find(appData.layouts,    { id: poster.layout });
-		poster.bgColor   = _.find(appData.bgColors,   { id: poster.bgColor });
-		poster.textColor = _.find(appData.textColors, { id: poster.textColor });
-		poster.icon      = _.find(appData.icons,      { id: poster.icon });
+		poster.font       = _.find(appData.fonts,      { id: poster.font });
+		poster.layout     = _.find(appData.layouts,    { id: poster.layout });
+		poster.bgColor    = _.find(appData.bgColors,   { id: poster.bgColor });
+		poster.post       = _.find(appData.posts,      { id: poster.post });
+		poster.textPost   = _.find(appData.textPosts,  { id: poster.textPost });
+		poster.giantText  = _.find(appData.giantTexts, { id: poster.giantText });
+		poster.textColor  = _.find(appData.textColors, { id: poster.textColor });
+		poster.icon       = _.find(appData.icons,      { id: poster.icon });
 	}
 
 	Poster.query(function (data) {
