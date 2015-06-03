@@ -83,51 +83,72 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		}, 300);
 	};
 
+	function chooseWeightedRandom(set) {
+		var rand = Math.random(),
+		    sum = 0;
+		for (var i = 0; i < set.length; i++) {
+			sum += set[i].weight;
+
+			if (rand < sum) {
+				return set[i];
+			}
+		}
+
+		debugger;
+		throw new Error('WTF');
+	}
+
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
 		$scope.selectedComment = comment;
 
 		// Choose a random font
 		//
-		$scope.font = appData.fonts[
-			Math.floor(Math.random() * appData.fonts.length)
-			// 0
-		];
+		$scope.font = chooseWeightedRandom(appData.fonts);
+		// [
+		// 	Math.floor(Math.random() * appData.fonts.length)
+		// 	// 0
+		// ];
 
 		// Choose a random layout
 		//
-		$scope.layout = appData.layouts[
-			Math.floor(Math.random() * appData.layouts.length)
-			// 0
-		];
+		$scope.layout = chooseWeightedRandom(appData.layouts);
+		// [
+		// 	Math.floor(Math.random() * appData.layouts.length)
+		// 	// 0
+		// ];
 
 		// Choose random color
 		//
-		$scope.bgColor = appData.bgColors[
-			Math.floor(Math.random() * appData.bgColors.length)
-			// 6
-		];
+		$scope.bgColor = chooseWeightedRandom(appData.bgColors);
+		// [
+		// 	Math.floor(Math.random() * appData.bgColors.length)
+		// 	// 6
+		// ];
 
 		// Choose random post effect
 		//
-		$scope.post = appData.posts[
-			Math.floor(Math.random() * appData.posts.length)
-			// 6
-		];
+		$scope.post = chooseWeightedRandom(appData.posts);
+		// [
+		// 	Math.floor(Math.random() * appData.posts.length)
+		// 	// 6
+		// ];
 
 		// Choose random post effect
 		//
-		$scope.textPost = appData.textPosts[
-			Math.floor(Math.random() * appData.textPosts.length)
-			// 6
-		];
+		$scope.textPost = chooseWeightedRandom(appData.textPosts);
+		// [
+		// 	Math.floor(Math.random() * appData.textPosts.length)
+		// 	// 6
+		// ];
 
 		// Choose random post effect
 		//
-		$scope.giantText = appData.giantTexts[
-			Math.floor(Math.random() * appData.giantTexts.length)
-			// 6
-		];
+		$scope.giantText = chooseWeightedRandom(appData.giantTexts);
+		// [
+		// 	Math.floor(Math.random() * appData.giantTexts.length)
+		// 	// 6
+		// ];
 
 		// Choose random color if background is white, otherwise set text color
 		// to white.

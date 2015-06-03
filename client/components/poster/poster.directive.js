@@ -157,8 +157,6 @@ angular.module('posterApp').directive('poster', function (
 				return stopAnim;
 			}
 
-			var asd = 'wtf';
-
 			function onUpdate() {
 
 				if (!scope.comment) { return; }

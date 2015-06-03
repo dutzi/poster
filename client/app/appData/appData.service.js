@@ -441,45 +441,27 @@ angular.module('posterApp').service('appData', function () {
 				data: {}
 			},
 			{
-				id: 'white-shadow',
-				label: 'White Shadow',
-				data: {
-					'-webkit-filter': 'drop-shadow(40px 0px #ffffff) drop-shadow(40px 0px #ffffff) drop-shadow(40px 0px #ffffff)'
-				}
-			},
-			{
 				id: 'blue-shadow',
 				label: 'Blue Shadow',
 				data: {
-					'-webkit-filter': 'drop-shadow(40px 0px #00bff3) drop-shadow(40px 0px #00bff3) drop-shadow(40px 0px #00bff3)'
+					'-webkit-filter': 'drop-shadow(40px 0px #00bff3) drop-' +
+						'shadow(40px 0px #00bff3) drop-shadow(40px 0px #00bff3)'
 				}
 			},
 			{
 				id: 'pink-shadow',
 				label: 'Pink Shadow',
 				data: {
-					'-webkit-filter': 'drop-shadow(40px 0px #ED2A7B) drop-shadow(40px 0px #ED2A7B) drop-shadow(40px 0px #ED2A7B)'
+					'-webkit-filter': 'drop-shadow(40px 0px #ED2A7B) drop-' +
+						'shadow(40px 0px #ED2A7B) drop-shadow(40px 0px #ED2A7B)'
 				}
 			},
 			{
 				id: 'yellow-shadow',
 				label: 'Yellow Shadow',
 				data: {
-					'-webkit-filter': 'drop-shadow(40px 0px #f6f086) drop-shadow(40px 0px #f6f086) drop-shadow(40px 0px #f6f086)'
-				}
-			},
-			{
-				id: 'burn',
-				label: 'Burn',
-				data: {
-					'-webkit-filter': 'saturate(490%) contrast(100%)'
-				}
-			},
-			{
-				id: 'burn-2',
-				label: 'Burn 2',
-				data: {
-					'-webkit-filter': 'saturate(500%) brightness(530%)'
+					'-webkit-filter': 'drop-shadow(40px 0px #f6f086) drop-' +
+						'shadow(40px 0px #f6f086) drop-shadow(40px 0px #f6f086)'
 				}
 			},
 			{
@@ -496,14 +478,6 @@ angular.module('posterApp').service('appData', function () {
 				id: 'none',
 				label: 'None',
 				data: {}
-			},
-			{
-				id: 'burn',
-				label: 'Burn',
-				data: {
-					'text-shadow': '0px 0px 110px',
-					'-webkit-filter': 'saturate(500%) brightness(530%)'
-				}
 			}
 		],
 
@@ -511,17 +485,30 @@ angular.module('posterApp').service('appData', function () {
 			{
 				id: 'none',
 				label: 'None',
+				weight: 0.7,
 				data: {
 					'display': 'none'
 				}
 			},
 			{
-				id: 'blurry-nineties',
-				label: 'Blurry Nineties',
+				id: 'rotated',
+				label: 'Rotated',
 				data: {
-					'font-family': 'Mandatory-29',
+					'top': '2%',
+					'transform': 'rotate(40deg)',
 					'color': 'rgb(0, 191, 243)',
-					'-webkit-filter': 'brightness(500%) saturate(500%) blur(40px)',
+					'-webkit-filter': 'brightness(500%) saturate(500%)',
+					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
+				}
+			},
+			{
+				id: 'rotated-blurry',
+				label: 'Rotated Blurry',
+				data: {
+					'top': '2%',
+					'transform': 'rotate(40deg)',
+					'color': 'rgb(0, 191, 243)',
+					'-webkit-filter': 'brightness(500%) saturate(500%)',
 					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
 				}
 			},
@@ -529,27 +516,66 @@ angular.module('posterApp').service('appData', function () {
 				id: 'burnt-nineties',
 				label: 'Burnt Nineties',
 				data: {
-					'font-family': 'Mandatory-29',
 					'color': 'rgb(0, 191, 243)',
 					'-webkit-filter': 'brightness(500%) saturate(500%)',
 					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
 				}
 			},
 			{
-				id: 'dusky nineties',
+				id: 'dusky-nineties',
 				label: 'Dusky Nineties',
 				data: {
-					'font-family': 'Mandatory-29',
 					'color': 'rgb(0, 191, 243)',
 					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
+				}
+			},
+			{
+				id: 'blue-nineties',
+				label: 'Blue Nineties',
+				data: {
+					'color': 'rgb(0, 191, 243)'
+				}
+			},
+			{
+				id: 'pink-nineties',
+				label: 'pink Nineties',
+				data: {
+					'color': 'rgb(236, 41, 122)'
 				}
 			}
 		]
 	};
+	var i;
+
+	function setSortFunc (a, b) {
+		return a.weight < b.weight;
+	}
+
+	for (var key in data) {
+		if (key === 'knownWords') { continue; }
+
+		var set = data[key],
+		    unWeighted = [],
+		    sum = 0;
+
+		for (i = 0; i < set.length; i++) {
+			if (set[i].weight === undefined) {
+				unWeighted.push(set[i]);
+			} else {
+				sum += set[i].weight;
+			}
+		}
+
+		for (i = 0; i < unWeighted.length; i++) {
+			unWeighted[i].weight = (1 - sum) / unWeighted.length;
+		}
+
+		data[key] = set.sort(setSortFunc);
+	}
 
 	// Prepare data
 	//
-	for (var i = 0; i < data.layouts.length; i++) {
+	for (i = 0; i < data.layouts.length; i++) {
 		var layout = data.layouts[i],
 		    j;
 
