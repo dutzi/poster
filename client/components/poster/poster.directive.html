@@ -1,9 +1,11 @@
-<div class="poster-container" style="color: {{ textColor.value }}; transform: scale({{ scale }})">
+<div class="poster-container" style="color: {{ textColor.value }}; transform: scale({{ scale }}); -webkit-transform: scale({{ scale }})">
 	<div class="poster-bg" style="background-color: {{bgColor.value}}">
 		<div class="giant-text-container" ng-style="giantText.data">{{comment.message}}</div>
-		<div class="poster-icons-container" ng-style="post.data">
-			<div ng-repeat="item in layout.data track by $index" ng-style="item.style">
-				<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
+		<div class="printhack">
+			<div class="poster-icons-container" ng-style="post.data">
+				<div ng-repeat="item in layout.data track by $index" ng-style="item.style">
+					<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
+				</div>
 			</div>
 		</div>
 		<div class="poster-comment-valign">

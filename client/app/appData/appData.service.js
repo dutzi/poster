@@ -496,6 +496,7 @@ angular.module('posterApp').service('appData', function () {
 				data: {
 					'top': '2%',
 					'transform': 'rotate(40deg)',
+					'-webkit-transform': 'rotate(40deg)',
 					'color': 'rgb(0, 191, 243)',
 					'-webkit-filter': 'brightness(500%) saturate(500%)',
 					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
@@ -507,6 +508,7 @@ angular.module('posterApp').service('appData', function () {
 				data: {
 					'top': '2%',
 					'transform': 'rotate(40deg)',
+					'-webkit-transform': 'rotate(40deg)',
 					'color': 'rgb(0, 191, 243)',
 					'-webkit-filter': 'brightness(500%) saturate(500%)',
 					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
@@ -588,6 +590,7 @@ angular.module('posterApp').service('appData', function () {
 			item.style.right = (item.x * 100) + '%';
 			item.style.top = (item.y * 100) + '%';
 			item.style.transform = 'scale(' + item.scale + ')';
+			item.style['-webkit-transform'] = 'scale(' + item.scale + ')';
 		}
 	}
 

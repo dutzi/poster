@@ -100,6 +100,7 @@ angular.module('posterApp').directive('poster', function (
 					var showInterval = setInterval(function () {
 						el.style.display = 'block';
 						el.style.transform = 'scale(' + 12 + ')';
+						el.style['-webkit-transform'] = 'scale(' + 12 + ')';
 					}, Math.random() * 60 + 40);
 				}
 
@@ -107,6 +108,7 @@ angular.module('posterApp').directive('poster', function (
 					clearInterval(hideInterval);
 					clearInterval(showInterval);
 					el.style.transform = 'scale(1)';
+					el.style['-webkit-transform'] = 'scale(1)';
 					el.style.display = 'block';
 				}, (immediate) ? 0 : 500);
 			}

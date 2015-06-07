@@ -193,7 +193,7 @@ body {
 	margin-bottom: 8px;
 	cursor: pointer;
 	background-color: white;
-	transition: margin-left 0.2s, margin-right 0.2s, padding-left 0.2s, padding-right 0.2s, margin-top 0.2s, padding-top 0.2s, transform 0.2s, background-color 0.2s;
+	transition: margin-left 0.2s, margin-right 0.2s, padding-left 0.2s, padding-right 0.2s, margin-top 0.2s, padding-top 0.2s, transform 0.2s, -webkit-transform 0.2s, background-color 0.2s;
 	position: relative;
 	border-bottom: 1px solid #CBCBCB;
 }
@@ -211,6 +211,7 @@ body {
 	margin-top: -6px;
 	padding-top: 11px;
 	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
 	background-color: white;
 	border-bottom-color: white;
 	z-index: 1;
@@ -271,6 +272,7 @@ body {
 	margin: auto;
 	position: relative;
 	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
 }
 
 .poster-comment-valign {
@@ -361,6 +363,7 @@ $footerImageHeight: 30px;
 	padding: 5px 15px;
 	display: flex;
 	flex-direction: column;
+	-webkit-flex-direction: column;
 
 	> div {
 		display: flex;
@@ -392,11 +395,13 @@ $footerImageHeight: 30px;
 
 		.poster-footer-date {
 			flex: 1;
+			-webkit-flex: 1;
 			border-bottom: 1px solid;
 		}
 
 		.poster-footer-datetime {
 			flex: 1;
+			-webkit-flex: 1;
 			text-align: right;
 			border-bottom: 1px solid;
 		}
@@ -407,18 +412,21 @@ $footerImageHeight: 30px;
 		font-size: 0.9em;
 
 		.poster-footer-closeness {
+			-webkit-flex: 1;
 			flex: 1;
 			align-self: stretch;
 
 			.poster-footer-closeness-border {
 				display: flex;
+				-webkit-flex: 1;
 				flex: 1;
 				border: 1px solid white;
 
 				.poster-footer-closeness-bar {
 					height: 10px;
 					background: white;
-					flex: 1;
+					-webkit-flex: 1;
+				flex: 1;
 				}
 			}
 		}
@@ -428,6 +436,7 @@ $footerImageHeight: 30px;
 	.poster-footer-image {
 
 		flex: 0 0 $footerImageHeight;
+		-webkit-flex: 0 0 $footerImageHeight;
 		margin-right: 8px;
 
 		img {
@@ -439,6 +448,7 @@ $footerImageHeight: 30px;
 	.poster-footer-icon {
 
 		flex: 0 0 $footerImageHeight;
+		-webkit-flex: 0 0 $footerImageHeight;
 		height: $footerImageHeight;
 		align-items: center;
 
@@ -464,6 +474,10 @@ $footerImageHeight: 30px;
 			margin-right: 2px;
 		}
 	}
+}
+
+.printhack {
+	-webkit-filter: blur(0);
 }
 
 .poster-icons-container {
@@ -597,6 +611,7 @@ $footerImageHeight: 30px;
 
 		.poster-container {
 			transform: scale(1) !important;
+			-webkit-transform: scale(1) !important;
 		}
 	}
 
@@ -629,6 +644,7 @@ $footerImageHeight: 30px;
 
 	.poster-container {
 		transform-origin: 50% 0px 0px;
+		-webkit-transform-origin: 50% 0px 0px;
 		margin: auto !important;
 		// transform: scale(1.28);
 	}
