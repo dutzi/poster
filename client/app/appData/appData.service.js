@@ -15,17 +15,17 @@ angular.module('posterApp').service('appData', function () {
 
 		fonts: [
 			{
-				id: 'mandatory-29',
-				label: 'Mandatory 29',
-				fontName: 'Mandatory-29',
-				hebOnly: false,
+				id: 'noyland-aaa-regular',
+				label: 'Noyland AAA Regular',
+				fontName: 'Noyland-AAA-Regular',
+				hebOnly: true,
 				lineHeight: '112%',
 				url: '/assets/fonts/Noyland-AAA-Regular.otf'
 			},
 			{
-				id: 'noyland-aaa-regular',
-				label: 'Noyland AAA Regular',
-				fontName: 'Noyland-AAA-Regular',
+				id: 'mandatory-29',
+				label: 'Mandatory 29',
+				fontName: 'Mandatory-29',
 				hebOnly: false,
 				lineHeight: '112%',
 				url: '/assets/fonts/Mandatory-29.otf'
