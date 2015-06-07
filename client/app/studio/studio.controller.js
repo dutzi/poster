@@ -98,13 +98,21 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		throw new Error('WTF');
 	}
 
+	function isHebOnly(text) {
+		return !/[a-z|A-Z]/.test(text);
+	}
+
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
 		$scope.selectedComment = comment;
 
+		var isHeb = isHebOnly(comment.message);
+
 		// Choose a random font
 		//
-		$scope.font = chooseWeightedRandom(appData.fonts);
+		do {
+			$scope.font = chooseWeightedRandom(appData.fonts);
+		} while (!isHeb && $scope.font.hebOnly);
 		// [
 		// 	Math.floor(Math.random() * appData.fonts.length)
 		// 	// 0
