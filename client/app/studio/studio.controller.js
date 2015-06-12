@@ -322,7 +322,8 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		var maxWidth = $('#mainPoster').parent().parent().width() - 77,
 			maxHeight = window.innerHeight - 100,
 			// A_SERIES_ASPECT = 1.414141414141;
-			A_SERIES_ASPECT = 297/210;
+			// A_SERIES_ASPECT = 297/210;
+			A_SERIES_ASPECT = Math.sqrt(2);
 
 		var width = (maxWidth * A_SERIES_ASPECT > maxHeight)
 			? maxHeight / A_SERIES_ASPECT

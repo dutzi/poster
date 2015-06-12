@@ -117,6 +117,13 @@ body {
 	padding: 0px 70px;
 }
 
+.poster-preview {
+	margin-top: 69px;
+	padding: 0px 70px;
+	display: flex;
+	justify-content: center;
+}
+
 .thing-form {
 	margin: 20px 0;
 }
@@ -272,7 +279,7 @@ body {
 }
 
 .pc-post-picture-container {
-	max-height: 170px;
+	max-height: 150px;
 	overflow: hidden;
 }
 
@@ -651,6 +658,13 @@ $footerImageHeight: 30px;
 	}
 
 	.poster-column {
+		display: block !important;
+	}
+
+
+	.poster-preview {
+		margin-top: 0px !important;
+		padding: 0px !important;
 		display: block !important;
 	}
 

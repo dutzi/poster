@@ -1,0 +1,29 @@
+<style>
+body {
+    background-color: #F2F2F2;
+}
+</style>
+
+<div ng-include="'components/navbar/navbar.html'" class="hidden-print"></div>
+<div class="poster-preview">
+	<div id="posterMargin" style="flex: 0 0 {{ posterWidth }}px; -webkit-flex: 0 0 {{ posterWidth }}px;">
+	    <div id="mainPoster" class="poster"
+	        comment    = "poster.comment"
+	        font       = "poster.font"
+	        layout     = "poster.layout"
+	        bg-color   = "poster.bgColor"
+	        post       = "poster.post"
+	        text-post  = "poster.textPost"
+	        text-color = "poster.textColor"
+	        giant-text = "poster.giantText"
+	        icon       = "poster.icon"
+	        animate    = "false"
+	        width      = "{{ posterWidth }}"
+	        height     = "{{ posterHeight }}"
+	    ></div>
+	</div>
+	<div class="publish-buttons hidden-print">
+	    <button ng-click="onShare()" class="share-button">Share</button>
+	    <button ng-click="onPrint()" class="print-button">Print</button>
+	</div>
+</div>
