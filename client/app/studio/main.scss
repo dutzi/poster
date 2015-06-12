@@ -159,7 +159,7 @@ body {
 	display: flex;
 	flex: 1;
 	-webkit-flex: 1;
-	padding-right: 30px;
+	padding-right: 40px;
 	border-right: 1px solid #E6E6E6;
 	justify-content: center;
 }
@@ -302,6 +302,14 @@ body {
 	box-shadow: 0px 4px 20px -1px #999;
 }
 
+.first-load-spinner {
+	padding-top: 120px;
+	font-size: 3em;
+	color: rgb(173, 173, 173);
+	border-top: 4px solid black;
+	text-align: center;
+}
+
 .poster-container {
 	width: $posterWidth;
 	height: 1422px;
@@ -349,7 +357,9 @@ body {
 	background-color: white;
 	background-image: url(/assets/images/logo-grey.png);
 	background-repeat: no-repeat;
-	background-position: 50%;
+	background-position: 50% 28%;
+	padding: 54% 0px 0px;
+	color: #ddd;
 }
 
 .poster-comment-text {
@@ -463,7 +473,7 @@ $footerImageHeight: 30px;
 					height: 10px;
 					background: white;
 					-webkit-flex: 1;
-				flex: 1;
+					flex: 1;
 				}
 			}
 		}
@@ -1056,7 +1066,7 @@ $footerImageHeight: 30px;
 		margin-left: 2px;
 		background-color: black;
 		margin: 0px 0px 4px 2px;
-		transition: all 5s;
+		transition: height 0.5s;
 	}
 
 	.closeness-bar-container {
@@ -1079,6 +1089,7 @@ $footerImageHeight: 30px;
 			font-size: 0.8em;
 			position: relative;
 			-webkit-transform: translateX(-4px);
+			transition: left 0.5s;
 
 			.number {
 				display: inline-block;

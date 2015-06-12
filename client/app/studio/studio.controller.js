@@ -15,6 +15,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	    // POSTER_WIDTH = 646.21; // A4
 
 	$scope.debugOptions = {};
+	$scope.firstLoad = true;
 	var userData;
 
 	$scope.onDebugOptionChange = function (name, value) {
@@ -62,8 +63,9 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			});
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
+			$scope.firstLoad = false;
 
-			$scope.onCommentClick($scope.posts[0].comments.data[0]);
+			// $scope.onCommentClick($scope.posts[0].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
@@ -170,10 +172,10 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		// 	// 6
 		// ];
 
-		$scope.engagementBars = [];
+		$scope.eBars = [];
 		var i;
 		for (i = 0; i < 7; i++) {
-			$scope.engagementBars.push({
+			$scope.eBars.push({
 				height: Math.random()
 			});
 		}
