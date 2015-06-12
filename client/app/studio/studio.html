@@ -131,7 +131,19 @@ body {
                 </div>
 
                 <div class="sidebar-header">Controls</div>
-                hu
+                <div class="poster-controls">
+                    <div class="poster-controls-params">
+                        <div class="poster-controls-param" ng-repeat="control in controls" ng-class="{selected: control.selected}" ng-click="selectControl(control)">
+                            {{ control.label }}
+                            <i class="fa fa-caret-right"></i>
+                        </div>
+                    </div>
+                    <div class="poster-controls-values">
+                        <div class="poster-controls-value" ng-repeat="value in selectedControl.data">
+                            {{ value.label }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div style="flex: 0 0 200px; -webkit-flex: 0 0 200px" class="hidden-print">

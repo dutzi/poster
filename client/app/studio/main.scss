@@ -1100,6 +1100,61 @@ $footerImageHeight: 30px;
 		height: 30px;
 	}
 
+	.poster-controls {
+		display: flex;
+		border: 2px solid #ddd;
+		font-size: 0.85em;
+		background-color: white;
+
+		.poster-controls-params {
+			flex: 3;
+			-webkit-flex: 3;
+			border-right: 2px solid #ddd;
+		}
+
+		.poster-controls-param {
+			background-color: #333;
+			color: #fff;
+			cursor: pointer;
+			padding: 5px 10px;
+
+			i {
+				float: right;
+				margin-top: 2px;
+				display: none;
+			}
+		}
+
+		.poster-controls-param:hover {
+			background-color: #555;
+		}
+
+		.poster-controls-param.selected {
+			background-color: #fff;
+			color: #333;
+
+			i {
+				display: initial;
+			}
+		}
+
+		.poster-controls-values {
+			flex: 4;
+			-webkit-flex: 4;
+			height: 216px;
+			overflow: scroll;
+
+			.poster-controls-value {
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			.poster-controls-value.selected {
+				background-color: #fff;
+				color: #333;
+			}
+		}
+	}
 
 }
 

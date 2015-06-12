@@ -163,37 +163,37 @@ angular.module('posterApp').service('appData', function () {
 		bgColors: [
 			{
 				id: 'yellow-f6f086',
-				label: 'yellow (#f6f086)',
+				label: 'Yellow (#f6f086)',
 				value: '#f6f086'
 			},
 			{
 				id: 'green-C6DB62',
-				label: 'green (#C6DB62)',
+				label: 'Green (#C6DB62)',
 				value: '#C6DB62'
 			},
 			{
 				id: 'orange-F8DB89',
-				label: 'orange (#F8DB89)',
+				label: 'Orange (#F8DB89)',
 				value: '#F8DB89'
 			},
 			{
 				id: 'light-blue-7FCEE4',
-				label: 'light blue (#7FCEE4)',
+				label: 'Light Blue (#7FCEE4)',
 				value: '#7FCEE4'
 			},
 			{
 				id: 'grey-D1D2D4',
-				label: 'grey (#D1D2D4)',
+				label: 'Grey (#D1D2D4)',
 				value: '#D1D2D4'
 			},
 			{
 				id: 'white-ffffff',
-				label: 'white (#ffffff)',
+				label: 'White (#ffffff)',
 				value: '#ffffff'
 			},
 			{
 				id: 'black-333333',
-				label: 'black (#333333)',
+				label: 'Black (#333333)',
 				value: '#333333'
 			}
 		],
@@ -201,17 +201,17 @@ angular.module('posterApp').service('appData', function () {
 		textColors: [
 			{
 				id: 'white-ffffff',
-				label: 'white (#ffffff)',
+				label: 'White (#ffffff)',
 				value: '#ffffff'
 			},
 			{
 				id: 'blue-00bff3',
-				label: 'blue (#00bff3)',
+				label: 'Blue (#00bff3)',
 				value: '#00bff3'
 			},
 			{
 				id: 'pink-ED2A7B',
-				label: 'pink (#ED2A7B)',
+				label: 'Pink (#ED2A7B)',
 				value: '#ED2A7B'
 			},
 		],

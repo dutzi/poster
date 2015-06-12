@@ -335,6 +335,55 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		$scope.$digest();
 	};
 
+	// Should probably be in appData.service, but fuck it for now
+	//
+	var selectedControl;
+
+	$scope.controls = [
+		{
+			label: 'Image',
+			data: appData.icons
+		},
+		{
+			label: 'Layout',
+			data: appData.layouts
+		},
+		{
+			label: 'Font',
+			data: appData.fonts
+		},
+		{
+			label: 'Font Color',
+			data: appData.textColors
+		},
+		{
+			label: 'Background',
+			data: appData.bgColors
+		},
+		{
+			label: 'Effect',
+			data: appData.posts
+		},
+		{
+			label: 'Extra Text',
+			data: appData.giantTexts
+		},
+		{
+			label: 'Text Effect',
+			data: appData.textPosts
+		}
+	];
+
+	$scope.selectControl = function (control) {
+		if ($scope.selectedControl) {
+			$scope.selectedControl.selected = false;
+		}
+		$scope.selectedControl = control;
+		$scope.selectedControl.selected = true;
+	};
+
+	$scope.selectControl($scope.controls[0]);
+
 	// For some reason I need to call this after a while (1 sec or more),
 	// otherwise the scaling for printing gets screwed up...
 	//
