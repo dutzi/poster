@@ -156,6 +156,16 @@ angular.module('posterApp').service('facebookService', function ($q) {
 			return deferred.promise;
 		},
 
+		share: function (posterId) {
+			console.log('Sharing URL: http://comment-poster.herokuapp.com/poster/' + posterId);
+			FB.ui({
+				method: 'share',
+				href: 'http://comment-poster.herokuapp.com/poster/' + posterId,
+			}, function(response){
+
+			});
+		},
+
 		getUserData: function () {
 			var deferred = $q.defer();
 			fbLoaded.promise.then(function () {

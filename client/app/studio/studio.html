@@ -35,7 +35,7 @@ body {
 
 <div class="container poster-editor" style="width: 100%;">
     <div class="flex-container">
-        <div class="posts-container hidden-print">
+        <div class="posts-column hidden-print">
             <div class="pc-post" ng-repeat="post in posts" ng-class="{ shake: post.isShaking }">
                 <div class="pc-post-from">
                     <img ng-src="http://graph.facebook.com/v2.3/{{ post.from.id }}/picture">
@@ -69,7 +69,7 @@ body {
             </div>
             <button class="btn btn-default btn-load-more" ng-click="loadMore()" ng-disabled="isLoadingPosts">Load More</button>
         </div>
-        <div style="flex: 1; -webkit-flex: 1" id="posterContainerCol" >
+        <div class="poster-column" id="posterContainerCol" >
             <div id="posterMargin" style="width: {{ posterWidth }}px; margin: auto">
                 <div id="mainPoster" class="poster"
                     comment    = "selectedComment"
@@ -85,6 +85,11 @@ body {
                     width      = "{{ posterWidth }}"
                     height     = "{{ posterHeight }}"
                 ></div>
+            </div>
+            <div class="publish-buttons hidden-print">
+                <button ng-click="onSave()" class="save-button">Save</button>
+                <button ng-click="onShare()" class="share-button">Share</button>
+                <button ng-click="onPrint()" class="print-button">Print</button>
             </div>
         </div>
         <div style="flex: 0 0 200px; -webkit-flex: 0 0 200px" class="hidden-print">

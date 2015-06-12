@@ -146,10 +146,17 @@ body {
 	border-top: 1px solid #E5E5E5;
 }
 
-.posts-container {
+.posts-column {
 	flex: 0 0 430px;
 	padding-right: 20px;
 	-webkit-flex: 0 0 430px;
+	border-right: 1px solid #E6E6E6;
+}
+
+.poster-column {
+	flex: 1;
+	-webkit-flex: 1;
+	padding-right: 20px;
 	border-right: 1px solid #E6E6E6;
 }
 
@@ -931,4 +938,48 @@ $footerImageHeight: 30px;
 
 .shake {
 	animation: shake 0.3s;
+}
+
+.publish-buttons {
+	float: right;
+
+	button {
+		border: 1px solid black;
+		display: block;
+		padding: 7px 0px 7px 43px;
+		text-align: left;
+		background-color: transparent;
+		background-size: 25px 25px;
+		background-position: 6px;
+		width: 100px;
+		margin-bottom: 9px;
+	}
+
+	.save-button {
+		background-image: url(/assets/images/save_grey.png);
+		background-repeat: no-repeat;
+	}
+
+	.save-button:hover {
+		background-image: url(/assets/images/save.png);
+	}
+
+	.share-button {
+		background-image: url(/assets/images/share_grey.png);
+		background-repeat: no-repeat;
+	}
+
+	.share-button:hover {
+		background-image: url(/assets/images/share.png);
+	}
+
+	.print-button {
+		background-image: url(/assets/images/print_grey.png);
+		background-repeat: no-repeat;
+	}
+
+	.print-button:hover {
+		background-image: url(/assets/images/print.png);
+	}
+
 }

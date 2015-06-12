@@ -223,7 +223,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 				id: userData.id
 			}
 		});
-		poster.$save();
 
 		$scope.gallery.posters.unshift({
 			comment   : $scope.selectedComment,
@@ -236,6 +235,18 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			textColor : $scope.textColor,
 			icon      : $scope.icon,
 			poster    : poster
+		});
+
+		return poster.$save();
+	};
+
+	$scope.onPrint = function () {
+		window.print();
+	};
+
+	$scope.onShare = function () {
+		$scope.onSave().then(function (res) {
+			facebookService.share(res._id);
 		});
 	};
 
