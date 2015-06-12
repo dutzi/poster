@@ -70,7 +70,7 @@ body {
             <button class="btn btn-default btn-load-more" ng-click="loadMore()" ng-disabled="isLoadingPosts">Load More</button>
         </div>
         <div class="poster-column" id="posterContainerCol" >
-            <div id="posterMargin" style="width: {{ posterWidth }}px; margin: auto">
+            <div id="posterMargin" style="flex: 0 0 {{ posterWidth }}px; -webkit-flex: 0 0 {{ posterWidth }}px;">
                 <div id="mainPoster" class="poster"
                     comment    = "selectedComment"
                     font       = "font"
