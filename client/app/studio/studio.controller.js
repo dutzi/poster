@@ -18,8 +18,9 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	$scope.firstLoad = true;
 	var userData;
 
-	$scope.onDebugOptionChange = function (name, value) {
-		$scope[name.slice(0, -1)] = appData[name][$scope.debugOptions[name]];
+	$scope.onDebugOptionChange = function (name, index) {
+		$scope[name.slice(0, -1)] = appData[name][index];
+		$scope.debugOptions[name] = index;
 	};
 
 	function updateDebugOptions() {
@@ -344,34 +345,42 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	$scope.controls = [
 		{
 			label: 'Image',
+			name: 'icons',
 			data: appData.icons
 		},
 		{
 			label: 'Layout',
+			name: 'layouts',
 			data: appData.layouts
 		},
 		{
 			label: 'Font',
+			name: 'fonts',
 			data: appData.fonts
 		},
 		{
 			label: 'Font Color',
+			name: 'textColors',
 			data: appData.textColors
 		},
 		{
 			label: 'Background',
+			name: 'bgColors',
 			data: appData.bgColors
 		},
 		{
 			label: 'Effect',
+			name: 'posts',
 			data: appData.posts
 		},
 		{
 			label: 'Extra Text',
+			name: 'giantTexts',
 			data: appData.giantTexts
 		},
 		{
 			label: 'Text Effect',
+			name: 'textPosts',
 			data: appData.textPosts
 		}
 	];

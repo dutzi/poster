@@ -650,6 +650,10 @@ $footerImageHeight: 30px;
 		background-color: white !important;
 	}
 
+	.poster-column {
+		display: block !important;
+	}
+
 	#mainPoster {
 		width: auto !important;
 		height: auto !important;
@@ -994,6 +998,10 @@ $footerImageHeight: 30px;
 		border-color: black;
 	}
 
+	button:focus {
+		outline: 2px solid #e7e7e7;
+	}
+
 	.save-button {
 		background-image: url(/assets/images/save_grey.png);
 		background-repeat: no-repeat;
@@ -1172,8 +1180,11 @@ $footerImageHeight: 30px;
 			}
 
 			.poster-controls-value.selected {
-				background-color: #fff;
-				color: #333;
+				background-color: #F0F0F0;
+			}
+
+			.poster-controls-value:hover {
+				background-color: #e7e7e7;
 			}
 		}
 	}

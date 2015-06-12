@@ -97,7 +97,7 @@ body {
                 <button ng-click="onPrint()" class="print-button">Print</button>
             </div>
         </div>
-        <div class="sidebar-column">
+        <div class="sidebar-column hidden-print">
             <div class="sidebar">
 
                 <div class="sidebar-header">Info</div>
@@ -151,7 +151,7 @@ body {
                         </div>
                     </div>
                     <div class="poster-controls-values">
-                        <div class="poster-controls-value" ng-repeat="value in selectedControl.data">
+                        <div class="poster-controls-value" ng-repeat="value in selectedControl.data" ng-class="{ selected: $index === debugOptions[selectedControl.name] }" ng-click="onDebugOptionChange(selectedControl.name, $index)">
                             {{ value.label }}
                         </div>
                     </div>
@@ -189,6 +189,6 @@ body {
                     <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
