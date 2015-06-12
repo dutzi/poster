@@ -316,7 +316,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	// Not the prettiest thing, but will do for now.
 	//
 	window.onresize = function () {
-		var maxWidth = $('#mainPoster').parent().parent().width() - 140,
+		var maxWidth = $('#mainPoster').parent().parent().width() - 77,
 			maxHeight = window.innerHeight - 100,
 			// A_SERIES_ASPECT = 1.414141414141;
 			A_SERIES_ASPECT = 297/210;

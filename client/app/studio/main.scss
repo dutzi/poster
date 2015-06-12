@@ -113,8 +113,8 @@ body {
 }
 
 .poster-editor {
-	margin-top: 70px;
-	padding: 0px 50px;
+	margin-top: 69px;
+	padding: 0px 70px;
 }
 
 .thing-form {
@@ -149,9 +149,9 @@ body {
 }
 
 .posts-column {
-	flex: 0 0 430px;
+	flex: 0 0 380px;
 	padding-right: 20px;
-	-webkit-flex: 0 0 430px;
+	-webkit-flex: 0 0 380px;
 	border-right: 1px solid #E6E6E6;
 }
 
@@ -159,8 +159,9 @@ body {
 	display: flex;
 	flex: 1;
 	-webkit-flex: 1;
-	padding-right: 20px;
+	padding-right: 30px;
 	border-right: 1px solid #E6E6E6;
+	justify-content: center;
 }
 
 .sidebar-column {
@@ -223,25 +224,34 @@ body {
 	transition: margin-left 0.2s, margin-right 0.2s, padding-left 0.2s, padding-right 0.2s, margin-top 0.2s, padding-top 0.2s, transform 0.2s, -webkit-transform 0.2s, background-color 0.2s;
 	position: relative;
 	border-bottom: 1px solid #CBCBCB;
+
+	.selected-state {
+		float: right;
+		margin-top: 7px;
+		display: none;
+		font-size: 0.9em;
+		border: 1px solid;
+		color: #00BFF3;
+		padding: 2px 5px;
+		border-radius: 2px;
+		margin-right: -2px;
+
+		i {
+			margin-right: 4px;
+		}
+	}
 }
 
 .pc-comment:last-child {
 	border-bottom: none;
 }
 
-.pc-comment:hover, .pc-comment.selected {
-	outline: 7px solid #333;
-	margin-left: -14px;
-	margin-right: -13px;
-	padding-left: 19px;
-	padding-right: 18px;
-	margin-top: -6px;
-	padding-top: 11px;
-	transform: scale(1.05);
-	-webkit-transform: scale(1.05);
-	background-color: white;
-	border-bottom-color: white;
-	z-index: 1;
+.pc-comment:hover .pc-comment-message, .pc-comment.selected .pc-comment-message {
+	color: #00BFF3;
+}
+
+.pc-comment.selected .selected-state {
+	display: initial;
 }
 
 .pc-comment-from {
@@ -262,7 +272,7 @@ body {
 }
 
 .pc-post-picture-container {
-	max-height: 200px;
+	max-height: 170px;
 	overflow: hidden;
 }
 
@@ -718,8 +728,8 @@ $footerImageHeight: 30px;
 }
 
 .navbar-logo {
-	width: 119px;
-	margin: 15px 30px 5px;
+	height: 42px;
+	margin: 14px 0px 10px;
 }
 
 .slogan {
@@ -955,22 +965,23 @@ $footerImageHeight: 30px;
 
 .publish-buttons {
 	position: fixed;
+	font-size: 0.9em;
 
 	button {
-		border: 1px solid;
-		color: #CCCCCC;
+		border: 1px solid #ccc;
+		color: transparent;
 		display: block;
-		padding: 7px 0px 7px 43px;
+		padding: 7px 0px 7px 34px;
 		text-align: left;
 		background-color: transparent;
 		background-size: 25px 25px;
-		background-position: 6px;
-		width: 100px;
+		background-position: 5px;
+		width: 37px;
 		margin-bottom: 9px;
 	}
 
 	button:hover {
-		color: black;
+		border-color: black;
 	}
 
 	.save-button {
