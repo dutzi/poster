@@ -92,11 +92,53 @@ body {
                 <button ng-click="onPrint()" class="print-button">Print</button>
             </div>
         </div>
-        <div style="flex: 0 0 200px; -webkit-flex: 0 0 200px" class="hidden-print">
+        <div class="sidebar-column">
+            <div class="sidebar">
+
+                <div class="sidebar-header">Info</div>
+                <div class="info-items">
+                    <div class="info-item">
+                        <div class="info-item-label">Author</div>
+                        <div class="info-item-value info-item-commenter">
+                            <span>{{ selectedComment.from.name }}</span>
+                            <img class="commenter-avatar" ng-src="http://graph.facebook.com/v2.3/{{ selectedComment.from.id }}/picture">
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Engagement</div>
+                        <div class="info-item-value">
+                            <div class="engagement-bar" ng-repeat="bar in engagementBars" style="height: {{ bar.height * 35 }}px;"></div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Closeness</div>
+                        <div class="info-item-value">
+                            <div class="closeness-bar-container">
+                                <div class="closeness-bar-value" style="left: {{ closeness * 100 }}%">
+                                    <div class="number">{{ closeness * 100 | number:1 }}</div>
+                                    <div class="thingy"></div>
+                                </div>
+                                <div class="closeness-bar" ng-repeat="bar in closenessBars" style="opacity: {{ bar.opacity }};"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Words</div>
+                        <div class="info-item-value">
+                            <span ng-repeat="word in knownWords track by $index">{{ word }}<span ng-if="!$last">&nbsp;,</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-header">Controls</div>
+                hu
+            </div>
+        </div>
+        <!-- <div style="flex: 0 0 200px; -webkit-flex: 0 0 200px" class="hidden-print">
             <div id="gallery" class="gallery" style="display: none">
                 <div ng-repeat="poster in gallery.posters">
-                    <!-- {{poster._id}} -->
-                    <!-- {{poster.comment.message}} -->
+                    {{poster._id}}
+                    {{poster.comment.message}}
                     <div class="poster"
                         comment    = "poster.comment"
                         font       = "poster.font"
@@ -120,7 +162,7 @@ body {
                             <div><i class="fa fa-shopping-cart"></i></div>
                         </div>
                     </div>
-                    <!-- <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button> -->
+                    <button class="btn btn-danger" ng-click="deletePoster(poster)">Delete</button>
                 </div>
             </div>
         </div>

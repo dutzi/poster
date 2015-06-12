@@ -63,7 +63,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
 
-			// $scope.onCommentClick($scope.posts[4].comments.data[0]);
+			$scope.onCommentClick($scope.posts[0].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
@@ -105,6 +105,13 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 	function isHebOnly(text) {
 		return !/[a-z|A-Z]/.test(text);
+	}
+
+	$scope.closenessBars = [];
+	for (var i = 0; i < 7; i++) {
+		$scope.closenessBars.push({
+			opacity: 1 - i / 6
+		});
 	}
 
 	$scope.onCommentClick = function (comment) {
@@ -162,6 +169,27 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		// 	Math.floor(Math.random() * appData.giantTexts.length)
 		// 	// 6
 		// ];
+
+		$scope.engagementBars = [];
+		var i;
+		for (i = 0; i < 7; i++) {
+			$scope.engagementBars.push({
+				height: Math.random()
+			});
+		}
+
+		var words = comment.message.split(' ');
+		$scope.knownWords = [];
+		for (i = 0; i < appData.knownWords.length; i++) {
+			for (var j = 0; j < words.length; j++) {
+				if (words[j].indexOf(appData.knownWords[i]) > -1) {
+					$scope.knownWords.push(appData.knownWords[i]);
+				}
+			}
+		}
+
+
+		$scope.closeness = Math.random() * 0.9;
 
 		// Choose random color if background is white, otherwise set text color
 		// to white.
@@ -288,7 +316,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	// Not the prettiest thing, but will do for now.
 	//
 	window.onresize = function () {
-		var maxWidth = $('#mainPoster').parent().parent().width(),
+		var maxWidth = $('#mainPoster').parent().parent().width() - 140,
 			maxHeight = window.innerHeight - 100,
 			// A_SERIES_ASPECT = 1.414141414141;
 			A_SERIES_ASPECT = 297/210;

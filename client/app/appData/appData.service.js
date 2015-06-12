@@ -11,7 +11,7 @@ angular.module('posterApp').service('appData', function () {
 
 	var data = {
 
-		knownWords: ['מזלטוב', 'חרא', 'אכזר', 'אוהב', 'לייק'],
+		knownWords: ['מזלטוב', 'חרא', 'אכזר', 'אוהב', 'לייק', 'כובע', 'דוצי', 'תישרף', 'faces', 'in', 'things'],
 
 		fonts: [
 			{
