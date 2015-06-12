@@ -23,7 +23,11 @@ var PosterSchema = new Schema({
 	textPost: String,
 	giantText: String,
 	textColor: String,
-	icon: String
+	icon: String,
+	creator: {
+		id: String,
+		name: String
+	}
 });
 
 module.exports = mongoose.model('Poster', PosterSchema);

@@ -156,6 +156,14 @@ angular.module('posterApp').service('facebookService', function ($q) {
 			return deferred.promise;
 		},
 
+		getUserData: function () {
+			var deferred = $q.defer();
+			fbLoaded.promise.then(function () {
+				FB.api('/me', deferred.resolve);
+			});
+			return deferred.promise;
+		},
+
 		// This will return a list of people who liked a post
 		getLikes: function (postId) {
 

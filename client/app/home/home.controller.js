@@ -107,6 +107,7 @@ angular.module('posterApp').controller('HomeCtrl', function (
 			lines[currentLine].push(data[i]);
 			j++;
 		}
+
 		$scope.gallery.lines = lines;
 	});
 

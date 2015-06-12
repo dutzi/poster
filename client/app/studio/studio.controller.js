@@ -15,6 +15,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	    // POSTER_WIDTH = 646.21; // A4
 
 	$scope.debugOptions = {};
+	var userData;
 
 	$scope.onDebugOptionChange = function (name, value) {
 		$scope[name.slice(0, -1)] = appData[name][$scope.debugOptions[name]];
@@ -31,6 +32,10 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	facebookService.init().then(function (res) {
 	}, function (err) {
 		$location.path('/login');
+	});
+
+	facebookService.getUserData().then(function (res) {
+		userData = res;
 	});
 
 	$scope.appData = appData;
@@ -58,7 +63,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			$scope.posts = $scope.posts.concat(data);
 			$scope.isLoadingPosts = false;
 
-			$scope.onCommentClick($scope.posts[4].comments.data[0]);
+			// $scope.onCommentClick($scope.posts[4].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
@@ -203,7 +208,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	});
 
 	$scope.onSave = function () {
-
 		var poster = new Poster({
 			comment   : $scope.selectedComment,
 			font      : $scope.font.id,
@@ -213,7 +217,11 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			textPost  : $scope.textPost.id,
 			giantText : $scope.giantText.id,
 			textColor : $scope.textColor.id,
-			icon      : $scope.icon.id
+			icon      : $scope.icon.id,
+			creator   : {
+				name: userData.name,
+				id: userData.id
+			}
 		});
 		poster.$save();
 
