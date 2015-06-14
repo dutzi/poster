@@ -67,7 +67,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			$scope.isLoadingPosts = false;
 			$scope.firstLoad = false;
 
-			$scope.onCommentClick($scope.posts[0].comments.data[0]);
+			// $scope.onCommentClick($scope.posts[0].comments.data[0]);
 
 			// Select the first comment on the first post that has any comments
 			//
