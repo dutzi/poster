@@ -185,7 +185,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 				value = (value.charCodeAt(0) - 48) / 9;
 			}
 			$scope.eBars.push({
-				height: value
+				height: value * 0.7 + 0.3
 			});
 		}
 

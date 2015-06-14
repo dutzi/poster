@@ -404,7 +404,7 @@ body {
 	font-style: italic;
 }
 
-$footerImageHeight: 30px;
+$footerImageHeight: 50px;
 
 .poster-footer {
 	font-family: 'ALMONI-DL-AAA-LIGHT';
@@ -431,7 +431,8 @@ $footerImageHeight: 30px;
 
 	.poster-footer-time {
 		font-size: 1.1em;
-		padding-bottom: 5px;
+		padding-bottom: 15px;
+		margin: 0px 18px;
 
 		.poster-footer-logo {
 			margin: 0px 2.4% -0.9%;
@@ -451,20 +452,28 @@ $footerImageHeight: 30px;
 		.poster-footer-date {
 			flex: 1;
 			-webkit-flex: 1;
-			border-bottom: 1px solid;
+			border-bottom: 2px solid;
 		}
 
 		.poster-footer-datetime {
 			flex: 1;
 			-webkit-flex: 1;
 			text-align: right;
-			border-bottom: 1px solid;
+			border-bottom: 2px solid;
 		}
 
 	}
 
 	.poster-footer-metadata {
-		font-size: 0.9em;
+		font-size: 15px;
+		position: relative;
+		height: 50px;
+		margin-top: 20px;
+		line-height: 17px;
+
+		>div {
+			position: absolute;
+		}
 
 		.poster-footer-closeness {
 			-webkit-flex: 1;
@@ -476,6 +485,29 @@ $footerImageHeight: 30px;
 				-webkit-flex: 1;
 				flex: 1;
 				border: 1px solid white;
+
+				.bottom-thingy-value {
+					font-size: 1.2em;
+					width: 30px;
+					display: block;
+					text-align: center;
+					left: -8px;
+					position: absolute;
+				}
+
+				.bottom-thingy {
+					width: 5px;
+					height: 5px;
+					-webkit-transform: rotate(225deg);
+					margin-left: 8px;
+					border-bottom: 4px solid;
+					border-right: 4px solid;
+					border-top: 4px solid transparent;
+					border-left: 4px solid transparent;
+					position: absolute;
+					left: -4px;
+					top: 21px;
+				}
 
 				.poster-footer-closeness-bar {
 					height: 10px;
@@ -489,24 +521,16 @@ $footerImageHeight: 30px;
 	}
 
 	.poster-footer-image {
-
-		flex: 0 0 $footerImageHeight;
-		-webkit-flex: 0 0 $footerImageHeight;
-		margin-right: 8px;
-
 		img {
 			border-radius: 100%;
-			width: 100%;
+			// width: 100%;
+			width: 50px;
+			height: 50px;
 		}
 	}
 
 	.poster-footer-icon {
-
-		flex: 0 0 $footerImageHeight;
-		-webkit-flex: 0 0 $footerImageHeight;
-		height: $footerImageHeight;
-		align-items: center;
-
+		height: 50px;
 		-webkit-mask-image: url(/assets/images/punch.png);
 		-webkit-mask-size: contain;
 		-webkit-mask-repeat: no-repeat;
@@ -518,16 +542,18 @@ $footerImageHeight: 30px;
 	}
 
 	.poster-footer-bars {
+		.poster-footer-bars-container {
+			display: flex;
+			align-items: baseline;
+			height: 30px;
 
-		display: flex;
-		align-items: baseline;
-		height: $footerImageHeight;
-
-		.poster-footer-bar {
-			width: 2px;
-			float: left;
-			margin-right: 2px;
+			.poster-footer-bar {
+				width: 6px;
+				position: absolute;
+				bottom: 0px;
+			}
 		}
+
 	}
 }
 

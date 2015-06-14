@@ -20,6 +20,7 @@ angular.module('posterApp').directive('poster', function (
 			giantText : '=',
 			icon      : '=',
 			animate   : '=',
+			proximity : '=',
 			width     : '@',
 			height    : '@'
 		},
@@ -205,7 +206,7 @@ angular.module('posterApp').directive('poster', function (
 				scope.bars = [];
 				for (i = 0; i < 11; i++) {
 					scope.bars.push({
-						height: Math.random() * 30 + 'px'
+						height: (0.3 + Math.random() * 0.7) * 55 + 'px'
 					});
 				}
 			}
