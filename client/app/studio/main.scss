@@ -1,4 +1,5 @@
 $posterWidth: 1020px;
+$posterHeight: 1442px;
 $sidebarWidth: 255px;
 
 @font-face {
@@ -319,7 +320,7 @@ body {
 
 .poster-container {
 	width: $posterWidth;
-	height: 1422px;
+	height: $posterHeight;
 	overflow: hidden;
 	margin: auto;
 	position: relative;
@@ -329,7 +330,7 @@ body {
 
 .poster-comment-valign {
 	width: $posterWidth;
-	height: 1422px;
+	height: $posterHeight;
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
