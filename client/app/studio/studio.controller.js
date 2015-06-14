@@ -9,7 +9,8 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	facebookService,
 	$location,
 	appData,
-	Poster
+	Poster,
+	md5
 ) {
 	var POSTER_WIDTH = 1020; // A3
 	    // POSTER_WIDTH = 646.21; // A4
@@ -174,10 +175,17 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		// ];
 
 		$scope.eBars = [];
-		var i;
+		var commentHash = md5.createHash(comment.message),
+		    i;
 		for (i = 0; i < 7; i++) {
+			var value = commentHash.substr(i, 1);
+			if (value >= 'a' && value <= 'z') {
+				value = (value.charCodeAt(0) - 97) / 25;
+			} else if (value >= '0' && value <= '9') {
+				value = (value.charCodeAt(0) - 48) / 9;
+			}
 			$scope.eBars.push({
-				height: Math.random()
+				height: value
 			});
 		}
 
@@ -191,15 +199,14 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			}
 		}
 
-
-		$scope.closeness = Math.random() * 0.9;
+		$scope.closeness = facebookService.proximity(comment.from.id) * 0.9;
 
 		// Choose random color if background is white, otherwise set text color
 		// to white.
 		//
 		if ($scope.bgColor.value === '#ffffff' || $scope.bgColor.value === '#333333') {
 			$scope.textColor = appData.textColors[
-				Math.floor(Math.random() * (appData.textColors.length - 1) + 1)
+				Math.floor(Math.random() * (appData.textColors.length - 2) + 1)
 			];
 		} else {
 			$scope.textColor = appData.textColors[0];

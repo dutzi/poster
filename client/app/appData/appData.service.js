@@ -214,6 +214,11 @@ angular.module('posterApp').service('appData', function () {
 				label: 'Pink (#ED2A7B)',
 				value: '#ED2A7B'
 			},
+			{ // KEEP THIS ONE LAST
+				id: 'black-494949',
+				label: 'Black (#494949)',
+				value: '#494949'
+			}
 		],
 
 		icons: [
@@ -249,8 +254,8 @@ angular.module('posterApp').service('appData', function () {
 				label: 'Confetti',
 				className: 'icon-confetti',
 				ratio: 0.4,
-				width: 945,
-				height: 1540,
+				width: 941,
+				height: 1534,
 				url: '/assets/images/confetti.png'
 			},
 			{
@@ -466,6 +471,7 @@ angular.module('posterApp').service('appData', function () {
 			},
 			{
 				id: 'black-and-white',
+				weight: 0.15,
 				label: 'Black and White',
 				data: {
 					'-webkit-filter': 'contrast(0%)'
@@ -485,7 +491,7 @@ angular.module('posterApp').service('appData', function () {
 			{
 				id: 'none',
 				label: 'None',
-				weight: 0.7,
+				weight: 0.75,
 				data: {
 					'display': 'none'
 				}
@@ -493,18 +499,6 @@ angular.module('posterApp').service('appData', function () {
 			{
 				id: 'rotated',
 				label: 'Rotated',
-				data: {
-					'top': '2%',
-					'transform': 'rotate(40deg)',
-					'-webkit-transform': 'rotate(40deg)',
-					'color': 'rgb(0, 191, 243)',
-					'-webkit-filter': 'brightness(500%) saturate(500%)',
-					'text-shadow': '150px 0px 0px rgb(236, 41, 122)'
-				}
-			},
-			{
-				id: 'rotated-blurry',
-				label: 'Rotated Blurry',
 				data: {
 					'top': '2%',
 					'transform': 'rotate(40deg)',
@@ -540,7 +534,7 @@ angular.module('posterApp').service('appData', function () {
 			},
 			{
 				id: 'pink-nineties',
-				label: 'pink Nineties',
+				label: 'Pink Nineties',
 				data: {
 					'color': 'rgb(236, 41, 122)'
 				}
