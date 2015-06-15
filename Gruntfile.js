@@ -14,7 +14,8 @@ module.exports = function (grunt) {
     express: 'grunt-express-server',
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
+    //googleCdnify: 'grunt-google-cdn',
+    cdnify: 'grunt-cdnify',
     protractor: 'grunt-protractor-runner',
     injector: 'grunt-asset-injector',
     buildcontrol: 'grunt-build-control'
@@ -335,9 +336,24 @@ module.exports = function (grunt) {
     },
 
     // Replace Google CDN references
+    // googleCdnify: {
+    //   dist: {
+    //     html: ['<%= yeoman.dist %>/public/*.html']
+    //   }
+    // },
+
+    // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/public/*.html']
+        options: {
+          base: '//cdn.poster.re/'
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>/public',
+          src: '**/*.{css,html}',
+          dest: '<%= yeoman.dist %>/public'
+        }]
       }
     },
 
@@ -655,11 +671,11 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'cdnify'
   ]);
 
   grunt.registerTask('heroku', [
