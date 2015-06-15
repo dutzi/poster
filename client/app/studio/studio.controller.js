@@ -191,13 +191,21 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 		var words = comment.message.split(' ');
 		$scope.knownWords = [];
+		$scope.possibleIcons = [];
 		for (i = 0; i < appData.knownWords.length; i++) {
-			for (var j = 0; j < words.length; j++) {
-				if (words[j].indexOf(appData.knownWords[i]) > -1) {
-					$scope.knownWords.push(appData.knownWords[i]);
+			var section = appData.knownWords[i];
+			for (var j = 0; j < section.words.length; j++) {
+				for (var k = 0; k < words.length; k++) {
+					if (words[k].indexOf(section.words[j]) > -1) {
+						$scope.knownWords.push(section.words[j]);
+						$scope.possibleIcons.push(section.id);
+					}
 				}
 			}
 		}
+
+		console.log('knownWords', $scope.knownWords);
+		console.log('possibleIcons', $scope.possibleIcons);
 
 		$scope.closeness = facebookService.proximity(comment.from.id) * 0.9;
 

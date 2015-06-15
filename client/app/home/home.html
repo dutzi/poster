@@ -39,8 +39,8 @@
 		</div>
 		<div class="main-gallery">
 			<div class="main-gallery-line" ng-repeat="line in gallery.lines">
-				<div class="main-gallery-poster-container" ng-repeat="poster in line">
-					<div class="main-gallery-poster-border">
+				<div ng-if="$parent.$index < numVisibleLines" class="main-gallery-poster-container" ng-repeat="poster in line">
+					<div class="main-gallery-poster-border" ng-click="openPoster(poster)">
 						<div class="poster-vignette"></div>
 						<div class="poster"
 							comment    = "poster.comment"
@@ -61,9 +61,9 @@
 						<div class="main-gallery-poster-credit">By {{ poster.creator.name }}</div>
 						<hr class="main-gallery-poster-hr"/>
 						<div class="main-gallery-poster-buttons">
-							<div><i class="fa fa-print"></i></div>
-							<div><i class="fa fa-facebook"></i></div>
-							<div><i class="fa fa-shopping-cart"></i></div>
+							<div class="poster-button" ng-click="printPoster(poster)"><i class="fa fa-print"></i></div>
+							<div class="poster-button" ng-click="sharePoster(poster)"><i class="fa fa-facebook"></i></div>
+							<div class="poster-button"><i class="fa fa-shopping-cart"></i></div>
 						</div>
 					</div>
 				</div>

@@ -3,6 +3,8 @@
 angular.module('posterApp').controller('PosterCtrl', function (
 	$scope,
 	$stateParams,
+	$timeout,
+	$location,
 	facebookService,
 	appData,
 	Poster
@@ -56,6 +58,10 @@ angular.module('posterApp').controller('PosterCtrl', function (
 
 		$scope.$digest();
 	};
+
+	if ($location.search().print) {
+		$timeout($scope.onPrint, 1000);
+	}
 
 	setTimeout(window.onresize, 100);
 	setTimeout(window.onresize, 1000);

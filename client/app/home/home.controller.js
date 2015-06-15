@@ -3,9 +3,12 @@
 angular.module('posterApp').controller('HomeCtrl', function (
 	$scope,
 	$timeout,
+	$interval,
 	$window,
+	$location,
 	appData,
-	Poster
+	Poster,
+	facebookService
 ) {
 	/*******************************/
 	/********** Hero Image *********/
@@ -110,6 +113,28 @@ angular.module('posterApp').controller('HomeCtrl', function (
 
 		$scope.gallery.lines = lines;
 	});
+
+	$scope.openPoster = function (poster) {
+		$location.path('/poster/' + poster._id);
+	};
+
+	$scope.printPoster = function (poster) {
+		$location.path('/poster/' + poster._id);
+		$location.search({print: true});
+	};
+
+	$scope.sharePoster = function (poster) {
+		facebookService.share(poster._id);
+	};
+
+
+	$scope.numVisibleLines = 1;
+
+	$interval(function () {
+		if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+			$scope.numVisibleLines++;
+		}
+	}, 1000);
 
 	/*******************************/
 	/*********** Resize ************/

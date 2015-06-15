@@ -14,6 +14,8 @@ module.exports = function (grunt) {
     express: 'grunt-express-server',
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
+    // If I don't use cdnify as this tasks name, it will fail, leaving this
+    // commented for now...
     //googleCdnify: 'grunt-google-cdn',
     cdnify: 'grunt-cdnify',
     protractor: 'grunt-protractor-runner',
@@ -346,7 +348,22 @@ module.exports = function (grunt) {
     cdnify: {
       dist: {
         options: {
-          base: '//cdn.poster.re/'
+          rewriter: function (url) {
+
+            if (url.toLowerCase().indexOf('enabler.js') > -1 ||
+                url.indexOf('//') === 0 || url.indexOf('http://') === 0 ||
+                url.indexOf('https://') === 0) {
+
+              return url;
+
+            } else {
+              if (url.indexOf('/') === 0)
+                return '//d3pfuchcj8b83r.cloudfront.net' + url;
+              else
+                return '//d3pfuchcj8b83r.cloudfront.net/' + url;
+            }
+          }
+
         },
         files: [{
           expand: true,
