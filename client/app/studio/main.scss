@@ -1,6 +1,7 @@
 $posterWidth: 1020px;
 $posterHeight: 1442px;
 $sidebarWidth: 255px;
+$siteBlue: #00BFF3;
 
 @font-face {
 	font-family: 'Noyland-AAA-Regular';
@@ -239,7 +240,7 @@ body {
 		display: none;
 		font-size: 0.9em;
 		border: 1px solid;
-		color: #00BFF3;
+		color: $siteBlue;
 		padding: 2px 5px;
 		border-radius: 2px;
 		margin-right: -2px;
@@ -255,7 +256,7 @@ body {
 }
 
 .pc-comment:hover .pc-comment-message, .pc-comment.selected .pc-comment-message {
-	color: #00BFF3;
+	color: $siteBlue;
 }
 
 .pc-comment.selected .selected-state {
@@ -774,7 +775,7 @@ $footerImageHeight: 50px;
 .logo-bottom-border {
 	display: inline-block;
 	margin: auto;
-	padding: 10px 40px;
+	padding: 6px 40px;
 	border-bottom: 1px solid white;
 }
 
@@ -999,7 +1000,7 @@ $footerImageHeight: 50px;
 .main-gallery-poster-hr {
 	opacity: 0;
 	transition: opacity 0.5s;
-	margin: 9px 60px 15px;
+	margin: 9px 60px 2px;
 	border-color: inherit;
 }
 
@@ -1030,8 +1031,8 @@ $footerImageHeight: 50px;
 	position: fixed;
 	font-size: 0.9em;
 
-	button {
-		border: 1px solid #ccc;
+	.poster-button {
+		border: 1px solid black;
 		color: transparent;
 		display: block;
 		padding: 7px 0px 7px 34px;
@@ -1043,41 +1044,54 @@ $footerImageHeight: 50px;
 		margin-bottom: 9px;
 	}
 
-	button:hover {
-		border-color: black;
+	.poster-button:hover {
+		border-color: $siteBlue;
 	}
 
-	button:focus {
+	.poster-button:focus {
 		outline: 2px solid #e7e7e7;
 	}
 
 	.save-button {
-		background-image: url(/assets/images/save_grey.png);
+		background-image: url(/assets/images/save.png);
 		background-repeat: no-repeat;
 	}
 
 	.save-button:hover {
-		background-image: url(/assets/images/save.png);
+		background-image: url(/assets/images/save_blue.png);
 	}
 
 	.share-button {
-		background-image: url(/assets/images/share_grey.png);
+		background-image: url(/assets/images/share.png);
 		background-repeat: no-repeat;
 	}
 
 	.share-button:hover {
-		background-image: url(/assets/images/share.png);
+		background-image: url(/assets/images/share_blue.png);
 	}
 
 	.print-button {
-		background-image: url(/assets/images/print_grey.png);
+		background-image: url(/assets/images/print.png);
 		background-repeat: no-repeat;
 	}
 
 	.print-button:hover {
-		background-image: url(/assets/images/print.png);
+		background-image: url(/assets/images/print_blue.png);
 	}
 
+}
+
+.publish-buttons.main-gallery-poster-buttons {
+	position: initial;
+
+	.poster-button {
+		display: inline-block;
+		border: none;
+	}
+
+	.poster-button:focus {
+		outline: 0px;
+	}
 }
 
 .sidebar {

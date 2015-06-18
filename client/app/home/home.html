@@ -3,7 +3,7 @@
 		<div class="jumbo">
 			<div class="logo">
 				<div class="logo-bottom-border">
-					<img src="assets/images/logo-white.png">
+					<img src="assets/images/new_logo.png">
 				</div>
 			</div>
 			<div class="slogan">Turn your Facebook comments into awesome posters, in one click.</div>
@@ -63,9 +63,12 @@
 					<div class="main-gallery-poster-info">
 						<div class="main-gallery-poster-credit">By {{ poster.creator.name }}</div>
 						<hr class="main-gallery-poster-hr"/>
-						<div class="main-gallery-poster-buttons">
-							<a class="poster-button" href="/poster/{{ poster._id }}?print"><i class="fa fa-print"></i></a>
-							<div class="poster-button" ng-click="sharePoster(poster)"><i class="fa fa-facebook"></i></div>
+						<div class="main-gallery-poster-buttons publish-buttons">
+							<!-- <button ng-click="onShare()" class="">Share</button> -->
+							<!-- <button ng-click="onPrint()" class="">Print</button> -->
+
+							<a class="poster-button print-button" href="/poster/{{ poster._id }}?print"></a>
+							<div class="poster-button share-button" ng-click="sharePoster(poster)"></div>
 						</div>
 					</div>
 				</div>
