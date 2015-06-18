@@ -46,7 +46,7 @@ module.exports = function(app) {
       if(err) { return ''; }
       if(!poster) { return '' }
       var metadata = '<meta property="og:description" content="&ldquo;' + poster.comment.message + '&rdquo;" />';
-      metadata += '<meta property="og:url" content="http://www.poster.re/poster/' + req.params.id + '?fb" />';
+      // metadata += '<meta property="og:url" content="http://www.poster.re/poster/' + req.params.id + '?fb" />';
 
       res.send(html.replace('<head>', '<head>' + metadata));
     });

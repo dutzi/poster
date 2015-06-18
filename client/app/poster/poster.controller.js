@@ -68,7 +68,7 @@ angular.module('posterApp').controller('PosterCtrl', function (
 		$timeout($scope.onPrint, 1000);
 	}
 
-	$scope.isFBShare = $location.search().fb;
+	$scope.isFBShare = document.referrer.indexOf('www.facebook') > -1;
 
 	$scope.showOnlyPoster = $location.search().blank;
 

@@ -160,7 +160,7 @@ angular.module('posterApp').service('facebookService', function ($q) {
 			console.log('Sharing URL: http://comment-poster.herokuapp.com/poster/' + posterId);
 			FB.ui({
 				method: 'share',
-				href: 'http://comment-poster.herokuapp.com/poster/' + posterId,
+				href: 'http://www.poster.re/poster/' + posterId,
 			}, function(response){
 
 			});
