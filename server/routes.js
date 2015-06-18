@@ -45,7 +45,7 @@ module.exports = function(app) {
     Poster.findById(req.params.id, function (err, poster) {
       if(err) { return ''; }
       if(!poster) { return '' }
-      var metadata = '<meta property="og:description" content="' + poster.comment.message + '" />';
+      var metadata = '<meta property="og:description" content="&ldquo;' + poster.comment.message + '&rdquo;" />';
       res.send(html.replace('<head>', '<head>' + metadata));
     });
 
