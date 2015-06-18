@@ -8,6 +8,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	socket,
 	facebookService,
 	$location,
+	$window,
 	appData,
 	Poster,
 	md5
@@ -34,7 +35,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 	facebookService.init().then(function (res) {
 	}, function (err) {
-		$location.path('/login');
+		$window.location.href = '/auth/facebook';
 	});
 
 	facebookService.getUserData().then(function (res) {

@@ -6,7 +6,7 @@ body {
 
 <div ng-class="{ 'poster-hide-all': showOnlyPoster }">
 	<div ng-include="'components/navbar/navbar.html'" class="hidden-print"></div>
-	<div ng-if="isFBShare" class="make-a-poster-btn">Make a Poster</div>
+	<div ng-if="isFBShare" ng-click="makeAPoster()" class="make-a-poster-btn">Make a Poster</div>
 	<div class="poster-preview">
 		<div id="posterMargin" style="flex: 0 0 {{ posterWidth }}px; -webkit-flex: 0 0 {{ posterWidth }}px;">
 		    <div id="mainPoster" class="poster"

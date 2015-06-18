@@ -5,6 +5,7 @@ angular.module('posterApp').controller('PosterCtrl', function (
 	$stateParams,
 	$timeout,
 	$location,
+	$window,
 	facebookService,
 	appData,
 	Poster
@@ -71,6 +72,10 @@ angular.module('posterApp').controller('PosterCtrl', function (
 	$scope.isFBShare = document.referrer.indexOf('www.facebook') > -1;
 
 	$scope.showOnlyPoster = $location.search().blank;
+
+	$scope.makeAPoster = function () {
+		$window.location.href = '/auth/facebook';
+	};
 
 	setTimeout(window.onresize, 100);
 	setTimeout(window.onresize, 1000);
