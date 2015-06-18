@@ -126,7 +126,7 @@ body {
                     <div class="info-item">
                         <div class="info-item-label">Closeness</div>
                         <div class="info-item-value">
-                            <div class="closeness-bar-container">
+                            <div class="closeness-bar-container" ng-if="selectedComment">
                                 <div class="closeness-bar-value" style="left: {{ closeness * 100 }}%">
                                     <div class="number">{{ closeness * 100 | number:1 }}</div>
                                     <div class="thingy"></div>
@@ -138,7 +138,7 @@ body {
                     <div class="info-item">
                         <div class="info-item-label">Words</div>
                         <div class="info-item-value">
-                            <span ng-hide="knownWords.length">(none)</span>
+                            <span ng-hide="knownWords.length" ng-if="selectedComment">(none)</span>
                             <span ng-repeat="word in knownWords track by $index">{{ word }}<span ng-if="!$last">&nbsp;,</span></span>
                         </div>
                     </div>

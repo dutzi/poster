@@ -4,6 +4,10 @@ $sidebarWidth: 255px;
 $siteBlue: #00BFF3;
 
 @font-face {
+	font-family: 'ALMONI-DL-AAA-REGULAR';
+	src: url('/assets/fonts/ALMONI-DL-AAA-REGULAR.OTF') format('opentype');
+}
+@font-face {
 	font-family: 'Noyland-AAA-Regular';
 	src: url('/assets/fonts/Noyland-AAA-Regular.otf') format('opentype');
 }
@@ -408,8 +412,7 @@ body {
 $footerImageHeight: 50px;
 
 .poster-footer {
-	font-family: 'ALMONI-DL-AAA-LIGHT';
-	font-weight: bold;
+	font-family: 'ALMONI-DL-AAA-REGULAR';
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
