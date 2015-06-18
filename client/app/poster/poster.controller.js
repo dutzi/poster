@@ -68,6 +68,8 @@ angular.module('posterApp').controller('PosterCtrl', function (
 		$timeout($scope.onPrint, 1000);
 	}
 
+	$scope.isFBShare = $location.search().fb;
+
 	$scope.showOnlyPoster = $location.search().blank;
 
 	setTimeout(window.onresize, 100);

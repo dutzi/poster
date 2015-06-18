@@ -1273,3 +1273,15 @@ $footerImageHeight: 50px;
 	}
 }
 
+.make-a-poster-btn {
+	position: absolute;
+	top: 18px;
+	left: 125px;
+	z-index: 10000;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 5px 13px;
+	cursor: pointer;
+}
+
+
