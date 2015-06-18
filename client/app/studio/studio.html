@@ -8,8 +8,7 @@ body {
 <div class="container hidden-print">
     <div class="debug-box">
 
-        <button class="btn btn-default" ng-click="onSave()">Save</button>
-        <button class="btn btn-default" ng-click="showDebugBox = !showDebugBox">Tools</button>
+        <button class="btn btn-default" ng-click="randomize = !randomize">Randomize</button>
 
         <div ng-show="showDebugBox">
             <div ng-repeat="(name, data) in appData" ng-if="name !== 'knownWords'">

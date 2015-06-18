@@ -175,7 +175,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			}
 		}
 
-		if ($scope.possibleWords.length) {
+		if ($scope.possibleWords.length && !$scope.randomize) {
 			var data = $scope.possibleWords[
 				Math.floor(Math.random() * $scope.possibleWords.length)
 			];
