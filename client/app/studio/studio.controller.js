@@ -68,17 +68,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			$scope.firstLoad = false;
 
 			// $scope.onCommentClick($scope.posts[0].comments.data[0]);
-
-			// Select the first comment on the first post that has any comments
-			//
-			// if (!$scope.selectedComment) {
-			// 	for (var i = 0; i < $scope.posts.length; i++) {
-			// 		if ($scope.posts[i].comments) {
-			// 			$scope.onCommentClick($scope.posts[i].comments.data[1]);
-			// 			break;
-			// 		}
-			// 	}
-			// }
 		});
 	};
 
@@ -129,50 +118,26 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		do {
 			$scope.font = chooseWeightedRandom(appData.fonts);
 		} while (!isHeb && $scope.font.hebOnly);
-		// [
-		// 	Math.floor(Math.random() * appData.fonts.length)
-		// 	// 0
-		// ];
 
 		// Choose a random layout
 		//
 		$scope.layout = chooseWeightedRandom(appData.layouts);
-		// [
-		// 	Math.floor(Math.random() * appData.layouts.length)
-		// 	// 0
-		// ];
 
 		// Choose random color
 		//
 		$scope.bgColor = chooseWeightedRandom(appData.bgColors);
-		// [
-		// 	Math.floor(Math.random() * appData.bgColors.length)
-		// 	// 6
-		// ];
 
 		// Choose random post effect
 		//
 		$scope.post = chooseWeightedRandom(appData.posts);
-		// [
-		// 	Math.floor(Math.random() * appData.posts.length)
-		// 	// 6
-		// ];
 
 		// Choose random post effect
 		//
 		$scope.textPost = chooseWeightedRandom(appData.textPosts);
-		// [
-		// 	Math.floor(Math.random() * appData.textPosts.length)
-		// 	// 6
-		// ];
 
 		// Choose random post effect
 		//
 		$scope.giantText = chooseWeightedRandom(appData.giantTexts);
-		// [
-		// 	Math.floor(Math.random() * appData.giantTexts.length)
-		// 	// 6
-		// ];
 
 		$scope.eBars = [];
 		var commentHash = md5.createHash(comment.message),
@@ -191,21 +156,35 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 		var words = comment.message.split(' ');
 		$scope.knownWords = [];
-		$scope.possibleIcons = [];
+		$scope.possibleWords = [];
 		for (i = 0; i < appData.knownWords.length; i++) {
 			var section = appData.knownWords[i];
 			for (var j = 0; j < section.words.length; j++) {
 				for (var k = 0; k < words.length; k++) {
-					if (words[k].indexOf(section.words[j]) > -1) {
-						$scope.knownWords.push(section.words[j]);
-						$scope.possibleIcons.push(section.id);
+					var word = section.words[j];
+					if (words[k].indexOf(word) > -1 &&
+						$scope.knownWords.indexOf(word) === -1) {
+
+						$scope.knownWords.push(word);
+						$scope.possibleWords.push({
+							word: word,
+							id: section.id
+						});
 					}
 				}
 			}
 		}
 
-		console.log('knownWords', $scope.knownWords);
-		console.log('possibleIcons', $scope.possibleIcons);
+		if ($scope.possibleWords.length) {
+			var data = $scope.possibleWords[
+				Math.floor(Math.random() * $scope.possibleWords.length)
+			];
+			$scope.knownWord = data.word;
+			$scope.icon = _.find(appData.icons, { id: data.id });
+		} else {
+			$scope.knownWord = '';
+			$scope.icon = chooseWeightedRandom(appData.icons);
+		}
 
 		$scope.closeness = facebookService.proximity(comment.from.id) * 0.9;
 
@@ -219,11 +198,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		} else {
 			$scope.textColor = appData.textColors[0];
 		}
-
-		// $scope.icon = null;
-		$scope.icon = appData.icons[
-			Math.floor(Math.random() * appData.icons.length)
-		];
 
 		updateDebugOptions();
 	};
@@ -261,6 +235,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			bgColor   : $scope.bgColor.id,
 			post      : $scope.post.id,
 			textPost  : $scope.textPost.id,
+			knownWord : $scope.knownWord,
 			giantText : $scope.giantText.id,
 			textColor : $scope.textColor.id,
 			icon      : $scope.icon.id,
@@ -277,6 +252,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			bgColor   : $scope.bgColor,
 			post      : $scope.post,
 			textPost  : $scope.textPost,
+			knownWord : $scope.knownWord,
 			giantText : $scope.giantText,
 			textColor : $scope.textColor,
 			icon      : $scope.icon,
@@ -308,28 +284,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 		$scope.gallery.posters.splice($scope.gallery.posters.indexOf(poster), 1);
 	};
-
-	// function updatePrintScale(width) {
-	// 	var styleSheets = document.styleSheets,
-	// 	    printScale = POSTER_WIDTH / width,
-	// 	    rule;
-
-	// 	for (var i = 0; i < styleSheets.length; i++) {
-	// 		var styleSheet = styleSheets[i];
-	// 		if (styleSheet.ownerNode &&
-	// 			styleSheet.ownerNode.parentNode &&
-	// 			styleSheet.ownerNode.parentNode.id === 'printStyleContainer') {
-
-	// 			rule = styleSheet.cssRules[0].cssRules[0];
-	// 		}
-	// 	}
-
-	// 	if (rule) {
-	// 		rule.style.cssText = 'transform: scale(' + printScale + ');';
-	// 		console.log('Setting printScale to ', printScale);
-	// 	}
-
-	// }
 
 	// Not the prettiest thing, but will do for now.
 	//

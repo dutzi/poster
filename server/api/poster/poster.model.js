@@ -24,6 +24,7 @@ var PosterSchema = new Schema({
 	giantText: String,
 	textColor: String,
 	icon: String,
+	knownWord: String,
 	creator: {
 		id: String,
 		name: String

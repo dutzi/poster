@@ -2,6 +2,9 @@
 
 var _ = require('lodash');
 var Poster = require('./poster.model');
+// var config = require('../../config/environment');
+// var screenshot = require('url-to-screenshot');
+// var fs = require('fs');
 
 // Get list of posters
 exports.index = function(req, res) {
@@ -23,7 +26,19 @@ exports.show = function(req, res) {
 // Creates a new poster in the DB.
 exports.create = function(req, res) {
   Poster.create(req.body, function(err, poster) {
-    if(err) { return handleError(res, err); }
+    // console.log('created poster', poster);
+
+    // screenshot(config.DOMAIN + '/poster/' + poster._id + '?blank')
+    //     .width(245)
+    //     .height(346)
+    //     .capture(function(err, img) {
+    //         if (err) { throw err; }
+    //         var filename = config.root + '/data/screenshots/' + poster._id + '.png';
+    //         fs.writeFileSync(filename, img);
+    //         console.log('open ' + filename);
+    //     });
+
+    if (err) { return handleError(res, err); }
     return res.json(201, poster);
   });
 };

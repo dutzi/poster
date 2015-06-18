@@ -358,9 +358,9 @@ module.exports = function (grunt) {
 
             } else {
               if (url.indexOf('/') === 0)
-                return '//d3pfuchcj8b83r.cloudfront.net' + url;
+                return '//cdn.poster.re' + url;
               else
-                return '//d3pfuchcj8b83r.cloudfront.net/' + url;
+                return '//cdn.poster.re/' + url;
             }
           }
 

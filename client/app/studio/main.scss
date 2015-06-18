@@ -976,19 +976,25 @@ $footerImageHeight: 50px;
 .main-gallery-poster-buttons {
 	opacity: 0;
 	transition: opacity 0.5s;
-	width: 128px;
+	width: 90px;
 	margin: auto;
+
+	.poster-button {
+		color: black;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border: 1px solid;
+		font-size: 28px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.poster-button:first-child {
+		margin-right: 10px;
+	}
 }
 
-.main-gallery-poster-buttons .poster-button {
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	border: 1px solid;
-	font-size: 28px;
-	text-align: center;
-	cursor: pointer;
-}
 
 .main-gallery-poster-hr {
 	opacity: 0;
@@ -1232,5 +1238,21 @@ $footerImageHeight: 50px;
 		}
 	}
 
+}
+
+.poster-hide-all {
+	#posterMargin {
+		margin: 0px;
+	}
+
+	.poster-preview {
+		margin: 0px;
+		justify-content: flex-start;
+		padding: 0px;
+	}
+
+	.hidden-print {
+		display: none;
+	}
 }
 

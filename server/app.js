@@ -7,6 +7,7 @@
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+// var fs = require('fs');
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
@@ -16,6 +17,13 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
+
+// if (!fs.existsSync(config.root + '/data/')) {
+// 	fs.mkdirSync(config.root + '/data/');
+// }
+// if (!fs.existsSync(config.root + '/data/screenshots/')) {
+// 	fs.mkdirSync(config.root + '/data/screenshots/');
+// }
 
 // Setup server
 var app = express();

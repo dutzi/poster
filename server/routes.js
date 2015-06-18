@@ -15,6 +15,28 @@ module.exports = function(app) {
 
   app.use('/auth', require('./auth'));
 
+
+
+  // var fs = require('fs');
+  // var express = require('express');
+  // var config = require('./config/environment');
+  // var posterRouter = express.Router();
+  // posterRouter.get('/:id', function (req, res) {
+  //   var html = fs.readFileSync(app.get('appPath') + '/index.html', 'utf8');
+  //   // res.sendfile(app.get('appPath') + '/index.html');
+  //   var metadata = '<meta property="og:image" content="/screenshots/' + req.params.id + '.png" />';
+  //   res.send(html.replace('<head>', '<head>' + metadata));
+  // });
+  // app.use('/poster', posterRouter);
+
+  // var screenshotsRouter = express.Router();
+  // screenshotsRouter.get('/:id', function (req, res) {
+  //   res.sendfile(config.root + '/data/screenshots/' + req.params.id);
+  // });
+  // app.use('/screenshots', screenshotsRouter);
+
+
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

@@ -40,30 +40,32 @@
 		<div class="main-gallery">
 			<div class="main-gallery-line" ng-repeat="line in gallery.lines">
 				<div ng-if="$parent.$index < numVisibleLines" class="main-gallery-poster-container" ng-repeat="poster in line">
-					<div class="main-gallery-poster-border" ng-click="openPoster(poster)">
-						<div class="poster-vignette"></div>
-						<div class="poster"
-							comment    = "poster.comment"
-							font       = "poster.font"
-							layout     = "poster.layout"
-							bg-color   = "poster.bgColor"
-							post       = "poster.post"
-							text-post  = "poster.textPost"
-							text-color = "poster.textColor"
-							giant-text = "poster.giantText"
-							icon       = "poster.icon"
-							animate    = "false"
-							width      = "220"
-							height     = "311"
-						></div>
-					</div>
+					<a href="/poster/{{ poster._id }}">
+						<div class="main-gallery-poster-border">
+							<div class="poster-vignette"></div>
+							<div class="poster"
+								comment    = "poster.comment"
+								font       = "poster.font"
+								layout     = "poster.layout"
+								bg-color   = "poster.bgColor"
+								post       = "poster.post"
+								text-post  = "poster.textPost"
+								text-color = "poster.textColor"
+								giant-text = "poster.giantText"
+								icon       = "poster.icon"
+								known-word = "poster.knownWord"
+								animate    = "false"
+								width      = "220"
+								height     = "311"
+							></div>
+						</div>
+					</a>
 					<div class="main-gallery-poster-info">
 						<div class="main-gallery-poster-credit">By {{ poster.creator.name }}</div>
 						<hr class="main-gallery-poster-hr"/>
 						<div class="main-gallery-poster-buttons">
-							<div class="poster-button" ng-click="printPoster(poster)"><i class="fa fa-print"></i></div>
+							<a class="poster-button" href="/poster/{{ poster._id }}?print"><i class="fa fa-print"></i></a>
 							<div class="poster-button" ng-click="sharePoster(poster)"><i class="fa fa-facebook"></i></div>
-							<div class="poster-button"><i class="fa fa-shopping-cart"></i></div>
 						</div>
 					</div>
 				</div>

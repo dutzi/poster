@@ -45,6 +45,11 @@ angular.module('posterApp').controller('PosterCtrl', function (
 			// A_SERIES_ASPECT = 297/210;
 			A_SERIES_ASPECT = Math.sqrt(2);
 
+		if ($scope.showOnlyPoster) {
+			maxWidth = 245;
+			maxHeight = 10000;
+		}
+
 		var width = (maxWidth * A_SERIES_ASPECT > maxHeight)
 			? maxHeight / A_SERIES_ASPECT
 			: maxWidth;
@@ -62,6 +67,8 @@ angular.module('posterApp').controller('PosterCtrl', function (
 	if ($location.search().print) {
 		$timeout($scope.onPrint, 1000);
 	}
+
+	$scope.showOnlyPoster = $location.search().blank;
 
 	setTimeout(window.onresize, 100);
 	setTimeout(window.onresize, 1000);

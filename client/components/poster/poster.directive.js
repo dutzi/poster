@@ -21,6 +21,7 @@ angular.module('posterApp').directive('poster', function (
 			icon      : '=',
 			animate   : '=',
 			proximity : '=',
+			knownWord : '=',
 			width     : '@',
 			height    : '@'
 		},
@@ -49,34 +50,41 @@ angular.module('posterApp').directive('poster', function (
 				return str.split(' ').length;
 			}
 
-			function emWord(str, index, className) {
-				var split = str.split(' ');
-				split[index] = '<span class="' + className + '">' + split[index] + '</span>';
-				return split.join(' ');
+			function emWord(str, index, endIndex, className) {
+				return str.substr(0, index) +
+					'<span class="' + className + '">' +
+						str.substr(index, endIndex - index) +
+					'</span>' +
+					str.substr(endIndex);
 			}
 
-			function animWords(text, knownWordIndex, immediate) {
+			function animWords(text, knownWordStartIndex, knownWordEndIndex, immediate) {
 				var deferred = $q.defer(),
 				    comment = element.find('#commentHTML'),
-				    num = numWords(text),
+				    num = text.length,
 				    timeDelta = 10,
 				    maxTimeDelta = (immediate)
 				    	? 0
-				    	: Math.min(num * 150 / 14, 200);
+				    	: Math.min(numWords(text) * 150 / 14, 200);
 
 				function emRandomWord() {
-					var index, newText;
+					var index, endIndex, newText;
 
 					if (timeDelta < maxTimeDelta) {
 						index = Math.floor(Math.random() * num);
-						newText = emWord(text, index, 'suspected');
+						endIndex = Math.min(
+							index + Math.floor(Math.random() * (num - index)),
+							num
+						);
+
+						newText = emWord(text, index, endIndex, 'suspected');
 
 						comment.html(newText);
 						setTimeout(emRandomWord, timeDelta);
 						timeDelta = timeDelta * 1.07;
 					} else {
-						if (knownWordIndex > -1) {
-							comment.html(emWord(text, knownWordIndex, 'highlighted'));
+						if (knownWordStartIndex > -1) {
+							comment.html(emWord(text, knownWordStartIndex, knownWordEndIndex, 'highlighted'));
 						} else {
 							comment.html(text);
 						}
@@ -166,16 +174,28 @@ angular.module('posterApp').directive('poster', function (
 
 				var text = scope.comment.message;
 				var textWords = text.split(/\s/);
-				var knownWordIndex = -1;
+				var knownWordStartIndex = -1;
+				var knownWordEndIndex = -1;
 
-				var words = text.split(' ');
-				for (var i = 0; i < appData.knownWords.length; i++) {
-					for (var j = 0; j < words.length; j++) {
-						if (words[j].indexOf(appData.knownWords[i]) > -1) {
-							knownWordIndex = j;
-						}
-					}
+				console.log('onUpdate', scope.knownWord);
+				if (scope.knownWord) {
+					var anyChar = '(?:\\w|[^\u0000-\u007F])*';
+					var group = text.match(new RegExp(anyChar +
+						scope.knownWord + anyChar));
+
+					knownWordStartIndex = group.index;
+					knownWordEndIndex = knownWordStartIndex + group[0].length;
+					console.log(group[0], group.index, group[0].length);
 				}
+
+				// var words = text.split(' ');
+				// for (var i = 0; i < appData.knownWords.length; i++) {
+				// 	for (var j = 0; j < words.length; j++) {
+				// 		if (words[j].indexOf(appData.knownWords[i]) > -1) {
+				// 			knownWordIndex = j;
+				// 		}
+				// 	}
+				// }
 				var selectedIcon = scope.icon;
 				scope.icon = null;
 
@@ -186,7 +206,8 @@ angular.module('posterApp').directive('poster', function (
 
 				animWords(
 					text,
-					knownWordIndex,
+					knownWordStartIndex,
+					knownWordEndIndex,
 					!scope.animate
 				).then(function () {
 
@@ -223,6 +244,10 @@ angular.module('posterApp').directive('poster', function (
 					var el = element.find('#posterCommentText')[0];
 					el.style.fontFamily = scope.font.fontName;
 				}
+			});
+
+			scope.$watch('knownWord', function () {
+				// scope.knownWord();
 			});
 
 			scope.$watch('icon', function () {

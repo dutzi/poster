@@ -118,11 +118,6 @@ angular.module('posterApp').controller('HomeCtrl', function (
 		$location.path('/poster/' + poster._id);
 	};
 
-	$scope.printPoster = function (poster) {
-		$location.path('/poster/' + poster._id);
-		$location.search({print: true});
-	};
-
 	$scope.sharePoster = function (poster) {
 		facebookService.share(poster._id);
 	};
