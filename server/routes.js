@@ -35,6 +35,23 @@ module.exports = function(app) {
   // });
   // app.use('/screenshots', screenshotsRouter);
 
+  var fs = require('fs');
+  var express = require('express');
+  var posterRouter = express.Router();
+  posterRouter.get('/:id', function (req, res) {
+    var html = fs.readFileSync(app.get('appPath') + '/index.html', 'utf8');
+
+    var Poster = require('./api/poster/poster.model');
+    Poster.findById(req.params.id, function (err, poster) {
+      if(err) { return ''; }
+      if(!poster) { return '' }
+      var metadata = '<meta property="og:description" content="' + poster.comment.message + '" />';
+      res.send(html.replace('<head>', '<head>' + metadata));
+    });
+
+
+  });
+  app.use('/poster', posterRouter);
 
 
   // All undefined asset or api routes should return a 404
