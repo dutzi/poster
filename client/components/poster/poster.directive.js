@@ -23,7 +23,8 @@ angular.module('posterApp').directive('poster', function (
 			proximity : '=',
 			knownWord : '=',
 			width     : '@',
-			height    : '@'
+			height    : '@',
+			saved     : '='
 		},
 		link: function(scope, element, attrs, ngModel) {
 			var POSTER_WIDTH = 1020;

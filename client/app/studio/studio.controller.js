@@ -110,6 +110,7 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 	$scope.onCommentClick = function (comment) {
 		console.log(comment);
+		$scope.disableSave = false;
 		$scope.selectedComment = comment;
 
 		var isHeb = isHebOnly(comment.message);
@@ -260,8 +261,21 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			poster    : poster
 		});
 
+		$scope.isPosterSaved = true;
+		$timeout(function () {
+			$scope.isPosterSaved = false;
+		}, 1500);
+
+		$scope.disableSave = true;
+
 		return poster.$save();
 	};
+
+	$scope.$watchGroup(['font', 'layout', 'bgColor', 'post', 'textPost',
+		'textColor', 'giantText', 'icon'], function () {
+
+		$scope.disableSave = false;
+	});
 
 	$scope.onPrint = function () {
 		window.print();

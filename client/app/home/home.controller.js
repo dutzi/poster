@@ -6,6 +6,7 @@ angular.module('posterApp').controller('HomeCtrl', function (
 	$interval,
 	$window,
 	$location,
+	$state,
 	appData,
 	Poster,
 	facebookService
@@ -130,6 +131,14 @@ angular.module('posterApp').controller('HomeCtrl', function (
 			$scope.numVisibleLines++;
 		}
 	}, 1000);
+
+	if ($state.current.name === 'home-gallery') {
+		setTimeout(function () {
+			$('body').stop().animate({
+				scrollTop: window.innerHeight
+			}, '500', 'swing');
+		}, 1000);
+	}
 
 	/*******************************/
 	/*********** Resize ************/

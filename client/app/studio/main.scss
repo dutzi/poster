@@ -99,6 +99,19 @@ body {
 	position: fixed;
 	width: 100%;
 	top: 0px;
+
+	.navbar-btn {
+		margin-left: 14px;
+		color: black;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.navbar-btn.selected {
+		pointer-events: none;
+		cursor: default;
+		color: $siteBlue;
+	}
 }
 
 .navbar-brand {
@@ -407,6 +420,25 @@ body {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 0.80em;
 	font-style: italic;
+}
+
+.saved-to-gallery {
+	padding: 6px;
+	text-align: center;
+	margin-left: -75px;
+	background-color: white;
+	border: 1px solid $siteBlue;
+	box-shadow: 0px 0px 0px 10px white, 0px 1px 15px 6px black;
+	color: $siteBlue;
+	font-weight: bold;
+	text-shadow: 0px 1px white;
+	position: absolute;
+	top: 32%;
+	left: 50%;
+	z-index: 10000;
+	font-size: 0.6em;
+	margin-top: -16px;
+	height: 36px;
 }
 
 $footerImageHeight: 50px;
@@ -1047,6 +1079,12 @@ $footerImageHeight: 50px;
 		margin-bottom: 9px;
 	}
 
+	.poster-button[disabled] {
+		opacity: 0.5;
+		cursor: default;
+		pointer-events: none;
+	}
+
 	.poster-button:hover {
 		border-color: $siteBlue;
 	}
@@ -1284,4 +1322,11 @@ $footerImageHeight: 50px;
 	cursor: pointer;
 }
 
-
+.copyright {
+	padding-top: 8px;
+	margin-top: 10px;
+	border-top: 1px solid rgb(204, 204, 204);
+	color: #888;
+	text-align: center;
+	font-size: 0.9em;
+}

@@ -1,68 +1,71 @@
-<div class="poster-container" style="color: {{ textColor.value }}; transform: scale({{ scale }}); -webkit-transform: scale({{ scale }})">
-	<div class="poster-bg" style="background-color: {{bgColor.value}}">
-		<div class="giant-text-container" ng-style="giantText.data">{{comment.message}}</div>
-		<div class="printhack">
-			<div class="poster-icons-container" ng-style="post.data">
-				<div ng-repeat="item in layout.data track by $index" ng-style="item.style">
-					<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
+<div>
+	<div ng-show="saved" class="saved-to-gallery">Saved to Gallery</div>
+	<div class="poster-container" style="color: {{ textColor.value }}; transform: scale({{ scale }}); -webkit-transform: scale({{ scale }})">
+		<div class="poster-bg" style="background-color: {{bgColor.value}}">
+			<div class="giant-text-container" ng-style="giantText.data">{{comment.message}}</div>
+			<div class="printhack">
+				<div class="poster-icons-container" ng-style="post.data">
+					<div ng-repeat="item in layout.data track by $index" ng-style="item.style">
+						<div id="iconImage{{$index}}" class="icon-image {{icon.className}}" ng-style="iconCSS"></div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="poster-comment-valign">
-			<div class="poster-comment-tooltip" ng-if="!comment">Choose a comment on the left</div>
-			<div class="poster-comment" ng-show="comment" style="color: {{textColor.value}}">
-				<div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
-					<span ng-style="textPost.data">
-						<div class="poster-comment-quotes">&rdquo;</div>
-						<div data-dir-detect="comment.message" id="commentHTML"
-						></div>
-						<div class="poster-comment-quotes">&ldquo;</div>
-					</span>
+			<div class="poster-comment-valign">
+				<div class="poster-comment-tooltip" ng-if="!comment">Choose a comment on the left</div>
+				<div class="poster-comment" ng-show="comment" style="color: {{textColor.value}}">
+					<div id="posterCommentText" class="poster-comment-text" style="line-height: {{font.lineHeight}}">
+						<span ng-style="textPost.data">
+							<div class="poster-comment-quotes">&rdquo;</div>
+							<div data-dir-detect="comment.message" id="commentHTML"
+							></div>
+							<div class="poster-comment-quotes">&ldquo;</div>
+						</span>
+					</div>
+					<div class="poster-comment-from">&mdash; {{comment.from.name}} &mdash;</div>
 				</div>
-				<div class="poster-comment-from">&mdash; {{comment.from.name}} &mdash;</div>
 			</div>
-		</div>
-		<div class="poster-footer" ng-if="comment">
-			<div class="poster-footer-time" style="border-color: {{ textColor.value }}">
-				<div class="poster-footer-date">{{ comment.created_time | date : 'dd/MM/yy' }}</div>
-				<div class="poster-footer-datetime">{{ comment.created_time | date : 'HH:mm:ss' }}</div>
-			</div>
-			<div class="poster-footer-metadata">
-				<div class="poster-footer-padding" style="left: 0px; width: 31px"></div>
-				<div class="poster-footer-bars" style="left: 21px; width: 239px">
-					<div class="poster-footer-bars-container" style="position: absolute; top: 7px;">
-						<div class="poster-footer-bar" ng-repeat="bar in bars" style="height: {{ bar.height }}; background: {{ textColor.value }}; left: {{ $index * 9 }}px"></div>
-					</div>
-					<div style="position: absolute; left: 115px; top: 5px">
-						<div>Relative Post<br/>Engagement Level</div>
-					</div>
+			<div class="poster-footer" ng-if="comment">
+				<div class="poster-footer-time" style="border-color: {{ textColor.value }}">
+					<div class="poster-footer-date">{{ comment.created_time | date : 'dd/MM/yy' }}</div>
+					<div class="poster-footer-datetime">{{ comment.created_time | date : 'HH:mm:ss' }}</div>
 				</div>
-				<div class="poster-footer-processed-words" style="left: 284px; width: 229px">
-					<div class="printhack">
-						<div class="poster-footer-icon" style="-webkit-mask-image: url({{ footerIconPreview }}); background: {{ textColor.value }}; position: absolute; left: 0px; width: 50px; bottom: -37px"></div>
-					</div>
-					<div style="position: absolute; left: 60px; top: 5px">Processed Words<br/>Heart, Like</div>
-				</div>
-				<div class="poster-footer-image" style="left: 483px; width: 205px">
-					<img ng-src="http://graph.facebook.com/v2.3/{{ comment.from.id }}/picture" style="position: absolute; top: -10px;">
-					<div class="poster-footer-data" style="position: absolute; left: 66px; top: 5px">
-						<div>Author</div>
-						<div>{{ comment.from.name }}</div>
-					</div>
-				</div>
-				<div class="poster-footer-likes" style="left: 688px; width: 127px">
-					<div style="  font-size: 58px; position: absolute; top: -14px; line-height: normal">{{ comment.like_count }}</div>
-					<div style="position: absolute; left: 35px; top: 5px;"><br/>Likes</div>
-				</div>
-				<div class="poster-footer-closeness" style="left: 800px; width: 205px">
-					<div class="poster-footer-closeness-border" style="border-color: {{ textColor.value }}; position: absolute; width: 100px; top: 25px">
-						<div style="position: absolute; top: -26px; left: {{ proximity * 88 - 7 }}px">
-							<div class="bottom-thingy-value">{{ proximity * 10 | number:1 }}</div>
-							<div class="bottom-thingy"></div>
+				<div class="poster-footer-metadata">
+					<div class="poster-footer-padding" style="left: 0px; width: 31px"></div>
+					<div class="poster-footer-bars" style="left: 21px; width: 239px">
+						<div class="poster-footer-bars-container" style="position: absolute; top: 7px;">
+							<div class="poster-footer-bar" ng-repeat="bar in bars" style="height: {{ bar.height }}; background: {{ textColor.value }}; left: {{ $index * 9 }}px"></div>
 						</div>
-						<div ng-repeat="bar in closenessBars" class="poster-footer-closeness-bar" style="background: {{ textColor.value }}; opacity: {{ bar.opacity }}"></div>
+						<div style="position: absolute; left: 115px; top: 5px">
+							<div>Relative Post<br/>Engagement Level</div>
+						</div>
 					</div>
-					<div style="position: absolute; left: 110px; top: 5px"><br/>Closeness</div>
+					<div class="poster-footer-processed-words" style="left: 284px; width: 229px">
+						<div class="printhack">
+							<div class="poster-footer-icon" style="-webkit-mask-image: url({{ footerIconPreview }}); background: {{ textColor.value }}; position: absolute; left: 0px; width: 50px; bottom: -37px"></div>
+						</div>
+						<div style="position: absolute; left: 60px; top: 5px">Processed Words<br/>Heart, Like</div>
+					</div>
+					<div class="poster-footer-image" style="left: 483px; width: 205px">
+						<img ng-src="http://graph.facebook.com/v2.3/{{ comment.from.id }}/picture" style="position: absolute; top: -10px;">
+						<div class="poster-footer-data" style="position: absolute; left: 66px; top: 5px">
+							<div>Author</div>
+							<div>{{ comment.from.name }}</div>
+						</div>
+					</div>
+					<div class="poster-footer-likes" style="left: 688px; width: 127px">
+						<div style="  font-size: 58px; position: absolute; top: -14px; line-height: normal">{{ comment.like_count }}</div>
+						<div style="position: absolute; left: 35px; top: 5px;"><br/>Likes</div>
+					</div>
+					<div class="poster-footer-closeness" style="left: 800px; width: 205px">
+						<div class="poster-footer-closeness-border" style="border-color: {{ textColor.value }}; position: absolute; width: 100px; top: 25px">
+							<div style="position: absolute; top: -26px; left: {{ proximity * 88 - 7 }}px">
+								<div class="bottom-thingy-value">{{ proximity * 10 | number:1 }}</div>
+								<div class="bottom-thingy"></div>
+							</div>
+							<div ng-repeat="bar in closenessBars" class="poster-footer-closeness-bar" style="background: {{ textColor.value }}; opacity: {{ bar.opacity }}"></div>
+						</div>
+						<div style="position: absolute; left: 110px; top: 5px"><br/>Closeness</div>
+					</div>
 				</div>
 			</div>
 		</div>

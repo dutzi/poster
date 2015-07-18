@@ -90,12 +90,13 @@ body {
                     known-word = "knownWord"
                     width      = "{{ posterWidth }}"
                     height     = "{{ posterHeight }}"
+                    saved      = "isPosterSaved"
                 ></div>
             </div>
             <div class="publish-buttons hidden-print">
-                <button ng-click="onSave()" class="poster-button save-button">Save</button>
-                <button ng-click="onShare()" class="poster-button share-button">Share</button>
-                <button ng-click="onPrint()" class="poster-button print-button">Print</button>
+                <button ng-disabled="!selectedComment || disableSave" ng-click="onSave()" class="poster-button save-button">Save</button>
+                <button ng-disabled="!selectedComment" ng-click="onShare()" class="poster-button share-button">Share</button>
+                <button ng-disabled="!selectedComment" ng-click="onPrint()" class="poster-button print-button">Print</button>
             </div>
         </div>
         <div class="sidebar-column hidden-print">
@@ -157,6 +158,12 @@ body {
                         </div>
                     </div>
                 </div>
+
+                <div class="copyright">
+                    Reposter &copy; 2015<br/>
+                    <a href="mailto:akaname1@gmail.com">Contact</a>
+                </div>
+
             </div>
         </div>
     </div>
