@@ -15,7 +15,7 @@
 
 ## deploy
 
-`$ grunt buildcontrol:heroku`
+`$ grunt heroku` (will build and then deploy, to deploy only type: `grunt buildcontrol:heroku`)
 
 ![Poster Slogan](assets/slogan.png)
 

@@ -40,18 +40,18 @@ module.exports = function(app) {
     saveUninitialized: true,
     store: new mongoStore({ mongoose_connection: mongoose.connection })
   }));
-  
+
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
-    app.use(express.static(path.join(config.root, 'public')));
+    app.use(express.static(path.join(config.root, 'public'), { maxAge: 30 * 24 * 60 * 60 * 1000 }));
     app.set('appPath', config.root + '/public');
     app.use(morgan('dev'));
   }
 
   if ('development' === env || 'test' === env) {
     app.use(require('connect-livereload')());
-    app.use(express.static(path.join(config.root, '.tmp')));
-    app.use(express.static(path.join(config.root, 'client')));
+    app.use(express.static(path.join(config.root, '.tmp'), { maxAge: 30 * 24 * 60 * 60 * 1000 }));
+    app.use(express.static(path.join(config.root, 'client'), { maxAge: 30 * 24 * 60 * 60 * 1000 }));
     app.set('appPath', 'client');
     app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last

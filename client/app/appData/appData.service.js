@@ -85,7 +85,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Noyland-AAA-Regular',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/Noyland-AAA-Regular.otf'
+				url: '//cdn.poster.re/assets/fonts/Noyland-AAA-Regular.otf'
 			},
 			{
 				id: 'mandatory-29',
@@ -93,7 +93,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-29',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-29.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-29.otf'
 			},
 			{
 				id: 'mandatory-47',
@@ -101,7 +101,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-47',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-47.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-47.otf'
 			},
 			{
 				id: 'mandatory-17',
@@ -109,7 +109,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-17',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-17.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-17.otf'
 			},
 			{
 				id: 'mandatory-18',
@@ -117,7 +117,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-18',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-18.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-18.otf'
 			},
 			{
 				id: 'mandatory-29-shaded',
@@ -125,7 +125,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-29 Shaded',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-29 Shaded.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-29 Shaded.otf'
 			},
 			{
 				id: 'mandatory-36',
@@ -133,7 +133,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Mandatory-36',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/Mandatory-36.otf'
+				url: '//cdn.poster.re/assets/fonts/Mandatory-36.otf'
 			},
 			{
 				id: 'almoni-dl-aaa-light',
@@ -141,7 +141,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'ALMONI-DL-AAA-LIGHT',
 				hebOnly: false,
 				lineHeight: '112%',
-				url: '/assets/fonts/ALMONI-DL-AAA-LIGHT.OTF'
+				url: '//cdn.poster.re/assets/fonts/ALMONI-DL-AAA-LIGHT.OTF'
 			},
 			{
 				id: 'stanga-aaa-regular',
@@ -149,7 +149,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'stanga-aaa-regular',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/stanga-aaa-regular.otf'
+				url: '//cdn.poster.re/assets/fonts/stanga-aaa-regular.otf'
 			},
 			{
 				id: 'noyland-aaa-extrabold',
@@ -157,7 +157,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'noyland-aaa-extrabold',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/noyland-aaa-extrabold.otf'
+				url: '//cdn.poster.re/assets/fonts/noyland-aaa-extrabold.otf'
 			},
 			{
 				id: 'ALMONI-TZAR-AAA-BOLD',
@@ -165,7 +165,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'ALMONI-TZAR-AAA-BOLD',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/ALMONI-TZAR-AAA-BOLD.OTF'
+				url: '//cdn.poster.re/assets/fonts/ALMONI-TZAR-AAA-BOLD.OTF'
 			},
 			{
 				id: 'CosHalavDfusRegular',
@@ -173,7 +173,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'CosHalavDfusRegular',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/CosHalavDfusRegular.otf'
+				url: '//cdn.poster.re/assets/fonts/CosHalavDfusRegular.otf'
 			},
 			{
 				id: 'KartivBold',
@@ -181,7 +181,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'KartivBold',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/KartivBold.otf'
+				url: '//cdn.poster.re/assets/fonts/KartivBold.otf'
 			},
 			{
 				id: 'KartivKerah',
@@ -189,7 +189,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'KartivKerah',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/KartivKerah.otf'
+				url: '//cdn.poster.re/assets/fonts/KartivKerah.otf'
 			},
 			{
 				id: 'LimonArakBold',
@@ -197,7 +197,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'LimonArakBold',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/LimonArakBold.otf'
+				url: '//cdn.poster.re/assets/fonts/LimonArakBold.otf'
 			},
 			{
 				id: 'LimonArakRegular',
@@ -205,7 +205,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'LimonArakRegular',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/LimonArakRegular.otf'
+				url: '//cdn.poster.re/assets/fonts/LimonArakRegular.otf'
 			},
 			{
 				id: 'Plastic-Black',
@@ -213,7 +213,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'Plastic-Black',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/Plastic-Black.otf'
+				url: '//cdn.poster.re/assets/fonts/Plastic-Black.otf'
 			},
 			{
 				id: 'stanga-aaa-regular',
@@ -221,7 +221,7 @@ angular.module('posterApp').service('appData', function () {
 				fontName: 'stanga-aaa-regular',
 				hebOnly: true,
 				lineHeight: '112%',
-				url: '/assets/fonts/stanga-aaa-regular.otf'
+				url: '//cdn.poster.re/assets/fonts/stanga-aaa-regular.otf'
 			}
 		],
 
@@ -294,7 +294,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 1181,
 				height: 928,
-				url: '/assets/images/astronaut.png'
+				url: '//cdn.poster.re/assets/images/astronaut.png'
 			},
 			// {
 			// 	id: 'brain',
@@ -303,7 +303,7 @@ angular.module('posterApp').service('appData', function () {
 			// 	ratio: 0.45,
 			// 	width: 1063,
 			// 	height: 924,
-			// 	url: '/assets/images/brain.png'
+			// 	url: '//cdn.poster.re/assets/images/brain.png'
 			// },
 			{
 				id: 'cactus',
@@ -312,7 +312,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.25,
 				width: 424,
 				height: 945,
-				url: '/assets/images/cactus.png'
+				url: '//cdn.poster.re/assets/images/cactus.png'
 			},
 			{
 				id: 'confetti',
@@ -321,7 +321,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.4,
 				width: 941,
 				height: 1534,
-				url: '/assets/images/confetti.png'
+				url: '//cdn.poster.re/assets/images/confetti.png'
 			},
 			{
 				id: 'dance',
@@ -330,7 +330,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.4,
 				width: 827,
 				height: 907,
-				url: '/assets/images/dance.png'
+				url: '//cdn.poster.re/assets/images/dance.png'
 			},
 			{
 				id: 'eat',
@@ -339,7 +339,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 1063,
 				height: 1097,
-				url: '/assets/images/eat.png'
+				url: '//cdn.poster.re/assets/images/eat.png'
 			},
 			{
 				id: 'fish',
@@ -348,7 +348,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.4,
 				width: 945,
 				height: 1102,
-				url: '/assets/images/fish.png'
+				url: '//cdn.poster.re/assets/images/fish.png'
 			},
 			{
 				id: 'fuck',
@@ -357,7 +357,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.45,
 				width: 945,
 				height: 670,
-				url: '/assets/images/fuck.png'
+				url: '//cdn.poster.re/assets/images/fuck.png'
 			},
 			{
 				id: 'heart',
@@ -366,7 +366,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.45,
 				width: 1063,
 				height: 1063,
-				url: '/assets/images/heart-lc.png'
+				url: '//cdn.poster.re/assets/images/heart-lc.png'
 			},
 			{
 				id: 'israel',
@@ -375,7 +375,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.4,
 				width: 739,
 				height: 1181,
-				url: '/assets/images/israel.png'
+				url: '//cdn.poster.re/assets/images/israel.png'
 			},
 			// {
 			// 	id: 'kaki',
@@ -384,7 +384,7 @@ angular.module('posterApp').service('appData', function () {
 			// 	ratio: 0.65,
 			// 	width: 1417,
 			// 	height: 1168,
-			// 	url: '/assets/images/poop.png'
+			// 	url: '//cdn.poster.re/assets/images/poop.png'
 			// },
 			{
 				id: 'ok-hands',
@@ -393,7 +393,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.31,
 				width: 757,
 				height: 1181,
-				url: '/assets/images/ok-lc.png'
+				url: '//cdn.poster.re/assets/images/ok-lc.png'
 			},
 			{
 				id: 'popsicle',
@@ -402,7 +402,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.45,
 				width: 945,
 				height: 928,
-				url: '/assets/images/popsicle.png'
+				url: '//cdn.poster.re/assets/images/popsicle.png'
 			},
 			{
 				id: 'punch',
@@ -411,7 +411,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.4,
 				width: 945,
 				height: 1503,
-				url: '/assets/images/punch.png'
+				url: '//cdn.poster.re/assets/images/punch.png'
 			},
 			{
 				id: 'rogatka',
@@ -420,7 +420,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.5,
 				width: 945,
 				height: 662,
-				url: '/assets/images/rogatka.png'
+				url: '//cdn.poster.re/assets/images/rogatka.png'
 			},
 			{
 				id: 'scream',
@@ -429,7 +429,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.55,
 				width: 713,
 				height: 709,
-				url: '/assets/images/scream.png'
+				url: '//cdn.poster.re/assets/images/scream.png'
 			},
 			{
 				id: 'stab',
@@ -438,7 +438,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.3,
 				width: 945,
 				height: 1411,
-				url: '/assets/images/stab.png'
+				url: '//cdn.poster.re/assets/images/stab.png'
 			},
 			{
 				id: 'teeth',
@@ -447,7 +447,7 @@ angular.module('posterApp').service('appData', function () {
 				ratio: 0.27,
 				width: 604,
 				height: 1181,
-				url: '/assets/images/teeth.png'
+				url: '//cdn.poster.re/assets/images/teeth.png'
 			}
 		],
 

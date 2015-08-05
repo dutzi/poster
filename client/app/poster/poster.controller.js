@@ -25,7 +25,6 @@ angular.module('posterApp').controller('PosterCtrl', function (
 	}
 
 	Poster.get({id: $stateParams.id}, function (res) {
-		console.log('ress', res);
 		$scope.poster = preparePoster(res);
 	}, function (err) {
 		console.log('Error loading poster', err);

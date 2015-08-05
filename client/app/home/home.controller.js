@@ -7,6 +7,7 @@ angular.module('posterApp').controller('HomeCtrl', function (
 	$window,
 	$location,
 	$state,
+	$sce,
 	appData,
 	Poster,
 	facebookService
@@ -17,22 +18,28 @@ angular.module('posterApp').controller('HomeCtrl', function (
 
 	$scope.images = [
 		{
-			url: '/assets/images/introduction1.png',
-			iframeUrl: '/assets/animations/animation1/index.html',
+			url: 'http://cdn.poster.re/assets/images/introduction1.png',
+			iframeUrl: $sce.trustAsResourceUrl(
+				'http://cdn.poster.re/assets/animations/animation1/index.html'
+			),
 			duration: 10,
 			color: '#7fcee4',
 			selected: true
 		},
 		{
-			url: '/assets/images/introduction2.png',
-			iframeUrl: '/assets/animations/animation2/index.html',
+			url: 'http://cdn.poster.re/assets/images/introduction2.png',
+			iframeUrl: $sce.trustAsResourceUrl(
+				'http://cdn.poster.re/assets/animations/animation2/index.html'
+			),
 			duration: 12,
 			color: '#f2d47d',
 			selected: false
 		},
 		{
-			url: '/assets/images/introduction3.png',
-			iframeUrl: '/assets/animations/animation3/index.html',
+			url: 'http://cdn.poster.re/assets/images/introduction3.png',
+			iframeUrl: $sce.trustAsResourceUrl(
+				'http://cdn.poster.re/assets/animations/animation3/index.html'
+			),
 			marginLeft: 50,
 			duration: 10,
 			color: '#c6db62',

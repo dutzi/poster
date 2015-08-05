@@ -58,8 +58,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 
 		facebookService.getFeed().then(function (res) {
 
-			console.log(res);
-
 			var data = res.data.map(function (item) {
 				item.message = item.message && item.message.replace(/\n/g, '<br/>');
 				return item;
@@ -93,7 +91,6 @@ angular.module('posterApp').controller('StudioCtrl', function (
 			}
 		}
 
-		debugger;
 		throw new Error('WTF');
 	}
 
@@ -109,7 +106,8 @@ angular.module('posterApp').controller('StudioCtrl', function (
 	}
 
 	$scope.onCommentClick = function (comment) {
-		console.log(comment);
+		var isSameComment = ($scope.selectedComment === comment);
+
 		$scope.disableSave = false;
 		$scope.selectedComment = comment;
 
@@ -159,19 +157,21 @@ angular.module('posterApp').controller('StudioCtrl', function (
 		var words = comment.message.split(' ');
 		$scope.knownWords = [];
 		$scope.possibleWords = [];
-		for (i = 0; i < appData.knownWords.length; i++) {
-			var section = appData.knownWords[i];
-			for (var j = 0; j < section.words.length; j++) {
-				for (var k = 0; k < words.length; k++) {
-					var word = section.words[j];
-					if (words[k].indexOf(word) > -1 &&
-						$scope.knownWords.indexOf(word) === -1) {
+		if (!isSameComment) {
+			for (i = 0; i < appData.knownWords.length; i++) {
+				var section = appData.knownWords[i];
+				for (var j = 0; j < section.words.length; j++) {
+					for (var k = 0; k < words.length; k++) {
+						var word = section.words[j];
+						if (words[k].indexOf(word) > -1 &&
+							$scope.knownWords.indexOf(word) === -1) {
 
-						$scope.knownWords.push(word);
-						$scope.possibleWords.push({
-							word: word,
-							id: section.id
-						});
+							$scope.knownWords.push(word);
+							$scope.possibleWords.push({
+								word: word,
+								id: section.id
+							});
+						}
 					}
 				}
 			}

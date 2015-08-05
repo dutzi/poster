@@ -16,6 +16,14 @@ exports.setup = function (User, config) {
           return done(err);
         }
         if (!user) {
+
+          // Turns out `profile.emails` might sometimes be undefined, this
+          // prevents the server from crashing when it is
+          //
+          if (!profile.emails) {
+            return done(err);
+          }
+
           user = new User({
             name: profile.displayName,
             email: profile.emails[0].value,

@@ -178,7 +178,6 @@ angular.module('posterApp').directive('poster', function (
 				var knownWordStartIndex = -1;
 				var knownWordEndIndex = -1;
 
-				console.log('onUpdate', scope.knownWord);
 				if (scope.knownWord) {
 					var anyChar = '(?:\\w|[^\u0000-\u007F])*';
 					var group = text.match(new RegExp(anyChar +
@@ -186,7 +185,6 @@ angular.module('posterApp').directive('poster', function (
 
 					knownWordStartIndex = group.index;
 					knownWordEndIndex = knownWordStartIndex + group[0].length;
-					console.log(group[0], group.index, group[0].length);
 				}
 
 				// var words = text.split(' ');
