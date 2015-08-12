@@ -18,6 +18,22 @@ $ grunt serve
 
 ## deploy
 
+First, initialize a git repo in the "dist" folder
+
+```bash
+$ mkdir dist
+$ cd dist
+$ git init
+$ git add .
+$ git commit -m "First commit"
+```
+
+Now create a Heroku remote
+
+```
+$ heroku create
+```
+
 `$ grunt heroku` (will build and then deploy, to deploy only type: `grunt buildcontrol:heroku`)
 
 ![Poster Slogan](assets/slogan.png)
