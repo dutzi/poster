@@ -32,6 +32,12 @@ Now create a Heroku remote
 
 ```
 $ heroku create
+Enter your Heroku credentials.
+Email: ...
+Password (typing will be hidden): ...
+Creating floating-ridge-2049... done, stack is cedar-14
+https://floating-ridge-2049.herokuapp.com/ | https://git.heroku.com/floating-ridge-2049.git
+Git remote heroku added
 ```
 
 `$ grunt heroku` (will build and then deploy, to deploy only type: `grunt buildcontrol:heroku`)
