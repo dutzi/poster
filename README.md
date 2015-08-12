@@ -4,14 +4,17 @@
 
 ## install
 
-1. `$ npm install`
-2. `$ bower install`
+```bash
+$ npm install
+$ bower install
+```
 
 ## run
 
-`$ mongod --dbpath data/db`
-
-`$ grunt serve`
+```bash
+$ mongod --dbpath data/db
+$ grunt serve
+```
 
 ## deploy
 
@@ -19,6 +22,6 @@
 
 ![Poster Slogan](assets/slogan.png)
 
-## Printing
+## printing
 
 To override bootstrap's printing CSS rules I modified app.scss to use 'bootstrap-no-print.scss'. It's similar to 'bootstrap.scss' except I removed this line: `@import "bootstrap/print";`.
