@@ -2,11 +2,13 @@
 
 Turn your Facebook comments into awesome posters, with one click.
 
-## install
+## setup
 
 ```bash
 $ npm install
 $ bower install
+$ mkdir data
+$ mkdir data/db
 ```
 
 ## run
