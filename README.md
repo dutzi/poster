@@ -1,6 +1,6 @@
-# Poster
+# ![Poster Logo](assets/logo500x500.png) Poster
 
-![Poster Logo](assets/logo500x500.png)
+Turn your Facebook comments into awesome posters, with one click.
 
 ## install
 
