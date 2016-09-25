@@ -4,6 +4,8 @@ Turn your Facebook comments into awesome posters, with one click.
 
 ## setup
 
+1. Install MongoDB (`brew install mongodb`)
+
 ```bash
 $ npm install
 $ bower install

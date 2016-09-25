@@ -93,7 +93,7 @@ body {
                     saved      = "isPosterSaved"
                 ></div>
             </div>
-            <div class="publish-buttons hidden-print">
+            <div class="publish-buttons hidden-print" style="margin-left: {{ posterWidth / 2 + 35 }}px">
                 <button ng-disabled="!selectedComment || disableSave" ng-click="onSave()" class="poster-button save-button">Save</button>
                 <button ng-disabled="!selectedComment" ng-click="onShare()" class="poster-button share-button">Share</button>
                 <button ng-disabled="!selectedComment" ng-click="onPrint()" class="poster-button print-button">Print</button>
